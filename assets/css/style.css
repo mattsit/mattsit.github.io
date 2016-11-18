@@ -1,0 +1,18 @@
+svg {
+	width: 500px;
+	padding: 20px;
+	margin-top: 20%;
+	stroke-dasharray: 1100;
+	stroke-dashoffset: 1100;
+	animation: 2s dash ease forwards;
+}
+
+@keyframes dash {
+	100% {
+		stroke-dashoffset: 0;
+	}
+}
+
+body {
+	text-align: center;
+}
