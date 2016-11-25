@@ -60,12 +60,6 @@ a div:hover {
 	text-decoration: underline;
 }
 
-@media (max-width: 480px) {
-	.navbar {
-		color: red;
-	}
-}
-
 /* Home Section */
 
 #home-section {
@@ -242,7 +236,7 @@ a div:hover {
 
 @media (max-width: 470px) {
 	#name {
-		font-size: 36px;
+		font-size: 28px;
 	}
 }
 
@@ -290,7 +284,7 @@ a div:hover {
 	border: solid 2px #262523;
 	padding: 10px;
 	border-radius: 5px;
-	margin: 0 20px 0 20px;
+	margin: 10px 20px 10px 20px;
 	background-color: #E8E0D8;
 }
 
@@ -305,6 +299,13 @@ a div:hover {
 @media (max-width: 1000px) {
 	#objective {
 		text-align: left;
+	}
+}
+
+@media (max-width: 470px) {
+	#objective {
+		margin-right: 0;
+		margin-left: 50px;
 	}
 }
 
@@ -362,6 +363,12 @@ a div:hover {
 
 	#lets-chat {
 		display: none;
+	}
+}
+
+@media (max-width: 470px) {
+	#contact-details {
+		margin-left: 50px;
 	}
 }
 
@@ -545,6 +552,35 @@ a div:hover {
 	}
 }
 
+
+@media (max-width: 470px) {
+	.proj-summary {
+		margin-right: 0;
+		margin-left: 50px;
+	}
+
+	.proj-summary-cluster-left {
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+	.proj-summary-cluster-right {
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+	.proj-summary-header {
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+	.proj-summary-detail {
+		margin-right: 0;
+		margin-left: 0;
+	}
+}
+
+
 /* Content */
 .proj-content-container {
 	text-align: left;
@@ -690,14 +726,14 @@ a div:hover {
 		position: static;
 		float: none;
 		margin: 0 auto;
-		margin-top: -30px;
+		margin-bottom: 30px;
 	}
 
 	.proj-content-float-left {
 		position: static;
 		float: none;
 		margin: 0 auto;
-		margin-top: -30px;
+		margin-bottom: 30px;
 	}
 
 	.proj-content-float-left img {
@@ -714,5 +750,12 @@ a div:hover {
 
 	.proj-content-float-right div a {
 		font-size: 18px;
+	}
+}
+
+@media (max-width: 470px) {
+	.proj-content-text {
+		margin-right: 0;
+		margin-left: 0;
 	}
 }
