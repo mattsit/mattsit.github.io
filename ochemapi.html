@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Organic Chemistry API | Matthew T. Sit</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+        </script>
+        <script src = "assets/js/script.js"></script>
+    </head>
+    <body>
+        <div id="navbar-menu-btn">
+            <img src="assets/img/menu.png">
+        </div>
+        <div class="navbar">
+            <ul>
+                <a href="index.html#home-section"><li class="navbar-btn">home</li></a>
+                <a href="index.html#objective-section"><li class="navbar-btn">objective</li></a>
+                <a href="index.html#projects-section"><li class="navbar-btn">projects</li></a>
+                <a href="index.html#contact-section"><li class="navbar-btn">contact</li></a>
+            </ul>
+        </div>
+        <div class="proj-banner-container">
+            <img src="assets/img/ochemapi/testtubes.jpg" class="proj-banner">
+            <div class="proj-banner-text-container">
+                <a href="https://github.com/mattsit/ochemapi" target="_blank" class="proj-banner-title">Organic Chemistry API</a>
+                <div class="proj-banner-position">Developed at CalHacks 2016</div>
+            </div>
+        </div>
+        <div class="proj-summary">
+            <div>
+                <img src="assets/img/down.png" class="proj-down">
+            </div>
+            <div>
+                We represent and manipulate molecules to explore the flexibility and limitations of<em> leveraging computer science for medicine.</em>
+            </div>
+            <div>
+                <div class="proj-summary-left-col">
+                    <div class="proj-summary-cluster-left">
+                        <div class="proj-summary-header">Collaborators</div>
+                        <div class="proj-summary-detail">Debbie Pao, co-developer</div>
+                    </div>
+                    <div class="proj-summary-cluster-left">
+                        <div class="proj-summary-header">Date</div>
+                        <div class="proj-summary-detail">November 11 - 13, 2016</div>
+                        <div class="proj-summary-detail">[CalHacks 3.0]</div>
+                    </div>
+                    <div class="proj-summary-cluster-left">
+                        <div class="proj-summary-header">Skills/Tools</div>
+                        <div class="proj-summary-detail">Java</div>
+                    </div>
+                </div>
+                <div class="proj-summary-right-col">
+                    <div class="proj-summary-cluster-right">
+                        <div class="proj-summary-header">Work Samples</div>
+                        <div class="proj-summary-detail">
+                            <a href="https://github.com/mattsit/ochemapi" target="_blank">
+                                view source code on GitHub
+                                <img src="assets/img/right.png">
+                            </a>
+                        </div>
+                        <div class="proj-summary-detail">
+                            <a href="assets/opchemapijavadocs/index.html" target="_blank">
+                                view Javadocs
+                                <img src="assets/img/right.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="proj-content-container">
+            <div class="proj-content-header">Inspiration</div>
+            <div class="proj-content-text">
+                Undeniably and increasingly so, computer science holds incredible implications for medicine. We believe that the best way to understand this budding relationship is to represent chemical building blocks, namely atoms and molecules, and to leverage a variety of established computer science algorithms and intuition to interact with these representations. The ability to establish such parallels between these two fields as demonstrated in this API and demonstration suggests promising possibilities in both STEM education, the health industry, and research.
+            </div>
+            <div class="proj-content-float-right">
+                <img src="assets/img/ochemapi/gui.png">
+            </div>
+            <div class="proj-content-header">What it does</div>
+            <div class="proj-content-text">
+                We have provided an API which will allow users to use our molecular representations for further projects. Of particular importance is the Molecule class, which stores a collection of Atoms, linking/bonding them together via a graph data structure. The Molecule class provides a wide variety of utilities that can be assembled together for more complicated chemical processing.
+                We also provide a demonstration, which can be launched via Main.java. Here, we provide two example uses of our API. The first is a tool for calculating the molecular weight of a molecule. The second is a demonstration and tutorial of organic chemistry reaction mechanisms. By choosing a reagent button, the user can see how a starting reactant (displayed as the left diagram) is chemically manipulated by the reagent to form a product (right diagram). It is worth noting that the reactant (left) is loaded as a sample molecule, but the product (right) was determined from the reactant representation and the utilities available in the API. These reaction mechanisms can be functional on custom, user-inputted molecules.
+            </div>
+            <div class="proj-content-float-left">
+                <div>
+                    <a href="https://github.com/mattsit/ochemapi" target="_blank">
+                        view source code on GitHub
+                        <img src="assets/img/right.png">
+                    </a>
+                    <a href="assets/opchemapijavadocs/index.html" target="_blank">
+                        view Javadocs
+                        <img src="assets/img/right.png">
+                    </a>
+                </div>
+            </div>
+            <div class="proj-content-header">How we built it</div>
+            <div class="proj-content-text">
+                We used Java for the entirety of the project, taking advantage of its Object-Oriented nature to create data structures and its Graphics API to create our demonstration.
+            </div>
+            <div class="proj-content-header">Challenges we ran into</div>
+            <div class="proj-content-text">
+                We attempted to deploy our demonstration to a web browser via JSon, Maven, JavaScript, Spark, etc. but were unable to complete this challenge at this time.
+                We also found it difficult (but definitely possible!) to include stereochemical information within our molecular representations. The most challenging aspect of this is determining the order of significance of each branching group and devising a graph traversal technique to accomplish this.
+            </div>
+
+            <div class="proj-content-header">Accomplishments that we're proud of</div>
+            <div class="proj-content-text">
+                We are proud of our success in manipulating starting reactants using reagents to generate accurate products in our reaction mechanism demonstration. This success suggests that there is great potential for the continued development of this API and additional applications of it.
+            </div>
+            <div class="proj-content-header">What we learned</div>
+            <div class="proj-content-text">
+                We chose to take on an extremely far-reaching project (attempting to merge two wealths of knowledge in two extremely challenging fields.) There are complexities that arise in both computer science and chemistry and we learned that finding solutions that weave through these obstacles can be difficult. We also learned that it is better to narrow the project scope early on so that the project is focused in purpose. Finally, we learned to find the balance between exploring unknown realms of computer science and sticking to methods and techniques that we understand and are confident in.
+            </div>
+            <div class="proj-content-header">What's next for Organic Chemistry API</div>
+            <div class="proj-content-text">
+                The improvement of the representation of stereochemistry in molecules is the next goal because this piece of data is incredibly important in chemistry; it impacts what reagents should be used and can even distinguish between two molecules that seem similar but possess wildly unique characteristics and properties.
+                Once this API is further developed, it can be used as a foundation to develop for the biotech and health industries. This API can also be used as a tool for teaching both organic chemistry and computer science.
+                Ultimately, we are excited to present this project because it exploits a beautiful symmetry between two incredibly complicated fields.
+            </div>
+            <div class="proj-content-header">Acknowledgments</div>
+            <div class="proj-content-text">
+                I thank Debbie Pao for partnering to develop this project.
+            </div>
+        </div>
+    </body>
+</html>
