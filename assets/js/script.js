@@ -1,4 +1,15 @@
 $(document).ready(function() {
+
+    function afterload(){
+        $("#name").removeClass("float-in-pre");
+        $("#name").addClass("float-in-post");
+
+        $("#btn-resume").removeClass("float-in-pre");
+        $("#btn-resume").addClass("float-in-post");
+    }
+
+    setTimeout(afterload, 1000);
+
     /* Blinking down arrow on project pages */
     var isTransparent = false;
 
