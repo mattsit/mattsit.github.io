@@ -1,14 +1,17 @@
 $(document).ready(function() {
 
-    function afterload(){
-        $("#name").removeClass("float-in-pre");
-        $("#name").addClass("float-in-post");
+    /* Cache reference to window and animation items */
+    var $window = $(window);
 
-        $("#btn-resume").removeClass("float-in-pre");
-        $("#btn-resume").addClass("float-in-post");
-    }
+    /* Set home section height just above fold */
+    $("#home-section").css("height", $window.height() * 0.9);
 
-    setTimeout(afterload, 1000);
+    /* Float in name and resume button after loading */
+    $("#home-text").removeClass("float-in-pre");
+    $("#home-text").addClass("float-in-post");
+
+    $(".wedge-right").css("border-right","solid transparent " + $window.width() + "px");
+    $(".wedge-left").css("border-left","solid transparent " + $window.width() + "px");
 
     /* Blinking down arrow on project pages */
     var isTransparent = false;
@@ -25,24 +28,10 @@ $(document).ready(function() {
         }
     }, 1000);
 
-    $(window).scroll(function() {
-        if ($(window).scrollTop() > 0) {
+    $window.scroll(function() {
+        if ($window.scrollTop() > 0) {
             clearInterval(noScrollYet);
             $(".proj-summary img").css("filter","opacity(0.8)");
-        }
-    });
-
-    /* Hide/Show Navbar on Scroll Down/Up */
-    var scroll = 0;
-
-    $(window).scroll(function() {
-        if (window.innerWidth >= 1000) {
-            if ($(window).scrollTop() > scroll) {
-                $(".navbar").hide();
-            } else {
-                $(".navbar").show();
-            }
-            scroll = $(window).scrollTop();
         }
     });
 
@@ -54,14 +43,17 @@ $(document).ready(function() {
         if (isShowNavbar) {
             $(".navbar").hide();
             isShowNavbar = false;
+            $("#navbar-menu-btn").css("filter","none");
         } else {
             $(".navbar").show();
             isShowNavbar = true;
+            $("#navbar-menu-btn").css("filter","invert()");
         }
     });
 
-    $(window).click(function() {
+    $window.click(function() {
         $(".navbar").hide();
         isShowNavbar = false;
+        $("#navbar-menu-btn").css("filter","none");
     });
 });

@@ -7,7 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
         <link rel="stylesheet" href="assets/css/style.css">
         <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
-        <link href="https://fonts.googleapis.com/css?family=Trirong:300,400,600" rel="stylesheet" type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
         </script>
         <script src = "assets/js/script.js"></script>
@@ -25,29 +26,36 @@
             </ul>
         </div>
         <section id="home-section">
-            <img src="assets/img/professional3.png" id="headshot">
-            <div id="name-card">
-                <div id="name" class="float-in-pre">
+            <div id="home-text" class="float-in-pre">
+                <div id="pitch">
+                    I code for biomedicine.
+                </div>
+                <div id="name">
                     Matthew T. Sit
                 </div>
                 <div id="btn-resume-container">
                     <a href="assets/SitMatthewResume.pdf" target="_blank">
-                        <div id="btn-resume" class="float-in-pre">Download my Resume</div>
+                        <div id="btn-resume">Download my R&eacute;sum&eacute;</div>
                     </a>
                 </div>
             </div>
         </section>
+        <div id="wedge-dark-blue" class="wedge-left"></div>
 
-        <secton id="objective-section">
+        <section id="objective-section">
             <div class="section-header">objective</div>
-            <div id="objective">
-                Hi there! I am a second year at<em> UC Berkeley </em>double majoring in<em> Bioengineering </em>and<em> Electrical Engineering &amp; Computer Sciences.</em>
+            <div>
+                <img src="assets/img/professional3square.png" id="headshot">
+                <div id="objective">
+                Hi there! I am a second year at<em> UC Berkeley </em>double majoring in <em id="bioe">Bioengineering</em> and <em id="eecs">Electrical Engineering &amp; Computer Sciences</em>.
                 I excel in providing interactive leadership when appropriate, creating efficient and reliable solutions to complex problems, and adapting quickly to new situations.
+                Besides coding for biomedicine, I regularly <em id="teach">teach</em> core computer sciences courses at my university and promote STEM outreach in local elementary schools.
                 I am actively seeking out summer biotech internships and research opportunities in the areas of computational biology and/or biomedical devices.
+                </div>
             </div>
             <div class="stat-container">
                 <div class="stat">
-                    75+
+                    85+
                 </div>
                 hours of teaching experience
             </div>
@@ -58,42 +66,98 @@
                 publication<br><br>
             </div>
         </section>
+        <div id="wedge-white" class="wedge-right"></div>
 
         <section id="projects-section">
             <div class="section-header">projects</div>
-            <a href="yeh.html">
-                <div class="proj-card">
-                    <div class="proj-card-img">
-                        <img src="assets/img/yeh/ucla.jpg">
+            <div id="methods-container">
+            <div id="methods">
+                <em>METHODOLOGY</em> I code for biomedicine by:
+                <ul>
+                    <li>taking initiative in pressing areas of biomedical <em id="bioe">research</em>.</li>
+                    <li>experimenting at <em id="eecs">hackathons</em> to expand my computational toolkit.</li>
+                    <li><em id="teach">mentoring</em> future iterations of engineers while reinforcing my areas of expertise.</li>
+                </ul>
+            </div>
+        </div>
+            <div>
+                <div class="proj-container">
+                    <div class="proj-card" id="bioe-card">
+                        <div class="proj-card-label" id="bioe-label">Research</div>
+                        <div class="proj-card-img">
+                            <img src="assets/img/yeh/ucla.jpg">
+                        </div>
+                        <div class="proj-card-title">Yeh Lab, UC Los Angeles</div>
+                        <div class="proj-card-desc">
+                            We apply evolutionary principles to combat antibiotic resistant bacteria  and analyze the popular/scientific press’s use of evolutionary terms.
+                        </div>
+                        <a href="yeh.html"><div class="btn-read-more" id="bioe-btn">Read more</div></a>
+                        <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0150396" target="_blank"><div class="btn-read-more" id="bioe-btn">View publication</div></a>
                     </div>
-                    Yeh Lab, UC Los Angeles
                 </div>
-            </a>
-            <a href="beam.html">
-                <div class="proj-card">
-                    <div class="proj-card-img">
-                        <img src="assets/img/beam/swings.jpg">
+
+                <div class="proj-container">
+                    <a href="ridecoord.html">
+                        <div class="proj-card" id="eecs-card">
+                            <div class="proj-card-label" id="eecs-label">Independent Project</div>
+                            <div class="proj-card-img">
+                                <img src="assets/img/ridecoord/road.png">
+                            </div>
+                            <div class="proj-card-title">Automatic Ride Coordinator</div>
+                            <div class="proj-card-desc">
+                                I fully automate the role of ride coordinator, saving up to 30 minutes of time every week.
+                                Developed using Google Scripts.
+                            </div>
+                            <div class="btn-read-more" id="eecs-btn">Read more</div>
+                        </div>
+                    </a>
+                    <a href="ochemapi.html">
+                        <div class="proj-card" id="eecs-card">
+                            <div class="proj-card-label" id="eecs-label">Hack</div>
+                            <div class="proj-card-img">
+                                <img src="assets/img/ochemapi/testtubes.png">
+                            </div>
+                            <div class="proj-card-title">Organic Chemistry API</div>
+                            <div class="proj-card-desc">
+                                We represent and manipulate molecules to explore the flexibility and limitations of leveraging computer science for medicine.
+                                Developed using Java at CalHacks 2016.
+                            </div>
+                            <div class="btn-read-more" id="eecs-btn">Read more</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="proj-container">
+                    <div class="proj-card" id="teaching-card">
+                        <div class="proj-card-label" id="teaching-label">Teaching</div>
+                        <div class="proj-card-img">
+                            <img src="assets/img/teachingcs/genericcode.png">
+                        </div>
+                        <div class="proj-card-title">CS61A</div>
+                        <div class="proj-card-desc">
+                            I teach the "Structre and Interpretation of Computer Programs" course at UC Berkeley as a course Lab Assistant and as an Associate Mentor with "Computer Science Mentors" (CSM).
+                        </div>
+                        <a href="http://cs61a.org/" target="_blank"><div class="btn-read-more" id="teaching-btn">Visit course website</div></a>
+                        <a href="https://csmberkeley.github.io/#/" target="_blank"><div class="btn-read-more" id="teaching-btn">Visit CSM website</div></a>
                     </div>
-                    Berkeley Engineers and Mentors
+
+                    <a href="beam.html">
+                        <div class="proj-card" id="teaching-card">
+                            <div class="proj-card-label" id="teaching-label">Teaching</div>
+                            <div class="proj-card-img">
+                                <img src="assets/img/beam/swings.jpg">
+                            </div>
+                            <div class="proj-card-title">Berkeley Engineers and Mentors</div>
+                            <div class="proj-card-desc">
+                                I pioneer BEAM's first genetics lesson and improve the maintainability of the BEAM website's "About" page.
+                            </div>
+                            <div class="btn-read-more" id="teaching-btn">Read more</div>
+                        </div>
+                    </a>
                 </div>
-            </a>
-            <a href="ridecoord.html">
-                <div class="proj-card">
-                    <div class="proj-card-img">
-                        <img src="assets/img/ridecoord/road.jpg">
-                    </div>
-                    Automatic Ride Coordinator
-                </div>
-            </a>
-            <a href="ochemapi.html">
-                <div class="proj-card">
-                    <div class="proj-card-img">
-                        <img src="assets/img/ochemapi/testtubes.jpg">
-                    </div>
-                    Organic Chemistry API
-                </div>
-            </a>
+            </div>
         </section>
+        <div id="wedge-light-blue" class="wedge-left"></div>
 
         <section id="contact-section">
             <div class="section-header">contact</div>
@@ -121,7 +185,7 @@
                         </div>
                     </div>
                     <div class="proj-summary-cluster-left">
-                        <div class="proj-summary-header">Resume</div>
+                        <div class="proj-summary-header">R&eacute;sum&eacute;</div>
                         <div class="proj-summary-detail">
                             <a href="assets/SitMatthewResume.pdf" target="_blank">[pdf]
                             </a>
@@ -137,5 +201,13 @@
                 </div>
             </div>
         </section>
+        <div id="footer">
+            Copyright &copy; #### Matthew T. Sit.
+
+            <!-- Add current year to copyright statement. -->
+        </div>
+        <script>
+            document.getElementById("footer").innerHTML = document.getElementById("footer").innerHTML.replace("####", new Date().getFullYear());
+        </script>
     </body>
 </html>
