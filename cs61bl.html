@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CS 61BL | Matthew T. Sit</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+        </script>
+        <script src = "assets/js/script.js"></script>
+        <script src = "assets/js/hiddenscript.js"></script>
+        <!-- All code snippet formatting by http://hilite.me/ (friendly styling)-->
+    </head>
+    <body>
+        <div id="navbar-menu-btn">
+            <img src="assets/img/menu.png">
+        </div>
+        <div class="navbar">
+            <ul>
+                <a href="index.html#content"><li class="navbar-btn">home</li></a>
+                <a href="index.html#objective-section"><li class="navbar-btn">objective</li></a>
+                <a href="index.html#projects-section"><li class="navbar-btn">projects</li></a>
+                <a href="index.html#contact-section"><li class="navbar-btn">contact</li></a>
+            </ul>
+        </div>
+        <div class="proj-banner-container">
+            <img src="assets/img/61bl/marina.jpg" class="proj-banner">
+            <div class="proj-banner-text-container">
+                <a href="http://www.cs61bl.org/su17/" target="_blank" class="proj-banner-title">CS 61BL, Data Structures</a>
+                <div class="proj-banner-position">Matt's Mini-Lecture Resources</div>
+            </div>
+        </div>
+        <div class="proj-summary">
+            <div>
+                <img src="assets/img/down.png" class="proj-down">
+            </div>
+            <div>
+                <em>Welcome!</em> Here are some notes from our mini-lectures together in lab!
+            </div>
+            <div>
+                <div class="proj-summary-right-col">
+                    <div class="proj-summary-cluster-right">
+                        <div class="proj-summary-header">Summer 2017</div>
+                        <div class="proj-summary-detail">
+                            <a href="#content">
+                                lab 02. object oriented waffle-gramming.
+                                <img src="assets/img/right.png">
+                            </a>
+                        </div>
+                        <div class="proj-summary-detail">
+                            <a href="#content">
+                                lab 04. waffle inheritance.
+                                <img src="assets/img/right.png">
+                            </a>
+                        </div>
+                        <div class="proj-summary-detail">
+                            <a href="#content">
+                                lab 05. iteration and recursion over linkedlists.
+                                <img src="assets/img/right.png">
+                            </a>
+                        </div>
+                        <div class="proj-summary-detail">
+                            <a href="#content">
+                                lab 06. arrays vs linkedlists.
+                                <img src="assets/img/right.png">
+                            </a>
+                        </div>
+                        <div class="proj-summary-detail">
+                            <a href="#content">
+                                lab 07. asymptotic analysis.
+                                <img src="assets/img/right.png">
+                            </a>
+                        </div>
+                        <div class="proj-summary-detail">
+                            <a href="#content">
+                                lab 08. exceptions with minions.
+                                <img src="assets/img/right.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section id="content"></section>
+        <div class="proj-content-container" id="02">
+            <div class="proj-content-header">Lab 02. Object Oriented Waffle-gramming.</div>
+            June 20, 2017.
+            <br><br>
+            <div class="proj-content-text">
+                <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #007020; font-weight: bold">public</span> <span style="color: #007020; font-weight: bold">class</span> <span style="color: #0e84b5; font-weight: bold">Waffle</span> <span style="color: #666666">{</span>
+
+    <span style="color: #60a0b0; font-style: italic">// Fields</span>
+    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">boolean</span> isDelicious<span style="color: #666666">;</span>
+    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">int</span> numStrawberries<span style="color: #666666">;</span>
+
+    <span style="color: #60a0b0; font-style: italic">// Constructors</span>
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #06287e">Waffle</span><span style="color: #666666">(</span><span style="color: #902000">boolean</span> isDelicious<span style="color: #666666">,</span> <span style="color: #902000">int</span> numStrawberries<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">isDelicious</span> <span style="color: #666666">=</span> isDelicious<span style="color: #666666">;</span>
+        <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">numStrawberries</span> <span style="color: #666666">=</span> numStrawberries<span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #60a0b0; font-style: italic">// Methods</span>
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">boolean</span> <span style="color: #06287e">isDelicious</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">return</span> isDelicious<span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">addStrawberries</span><span style="color: #666666">(</span><span style="color: #902000">int</span> num<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">numStrawberries</span> <span style="color: #666666">+=</span> num<span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+</pre></td></tr></table></div><br>
+
+            Can you draw a box and pointer diagram for the execution of the following lines?
+            <br><br>
+
+            <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #007020; font-weight: bold">public</span> <span style="color: #007020; font-weight: bold">static</span> <span style="color: #902000">void</span> <span style="color: #06287e">main</span><span style="color: #666666">(</span>String<span style="color: #666666">[]</span> args<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+    <span style="color: #902000">int</span> numStrawberries <span style="color: #666666">=</span> <span style="color: #40a070">35</span><span style="color: #666666">;</span>
+    Waffle mattsWaffle <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Waffle<span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">true</span><span style="color: #666666">,</span> numStrawberries<span style="color: #666666">);</span>
+    mattsWaffle<span style="color: #666666">.</span><span style="color: #4070a0">addStrawberries</span><span style="color: #666666">(</span><span style="color: #40a070">10</span><span style="color: #666666">);</span>
+<span style="color: #666666">}</span>
+</pre></td></tr></table></div>
+
+            </div>
+        </div>
+
+        <div class="proj-content-container" id="04">
+            <div class="proj-content-header">Lab 04. Waffle Inheritance.</div>
+            June 23, 2017.
+            <br><br>
+            <div class="proj-content-text">
+
+                <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #007020; font-weight: bold">public</span> <span style="color: #007020; font-weight: bold">class</span> <span style="color: #0e84b5; font-weight: bold">Food</span> <span style="color: #666666">{</span>
+
+    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">boolean</span> isDelicious<span style="color: #666666">;</span>
+    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #007020; font-weight: bold">static</span> String shout <span style="color: #666666">=</span> <span style="color: #4070a0">&quot;YAAAAAAAS!&quot;</span><span style="color: #666666">;</span>
+
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #06287e">Food</span><span style="color: #666666">(</span><span style="color: #902000">boolean</span> isDelicious<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">isDelicious</span> <span style="color: #666666">=</span> isDelicious<span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">boolean</span> <span style="color: #06287e">isDelicious</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">return</span> isDelicious<span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">consume</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        System<span style="color: #666666">.</span><span style="color: #4070a0">out</span><span style="color: #666666">.</span><span style="color: #4070a0">println</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;nibble nibble&quot;</span><span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+</pre></td></tr></table></div>
+<br>
+                <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #007020; font-weight: bold">public</span> <span style="color: #007020; font-weight: bold">class</span> <span style="color: #0e84b5; font-weight: bold">Waffle</span> <span style="color: #007020; font-weight: bold">extends</span> Food <span style="color: #666666">{</span>
+
+    <span style="color: #902000">int</span> numStrawberries<span style="color: #666666">;</span>
+
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #06287e">Waffle</span><span style="color: #666666">(</span><span style="color: #902000">int</span> numStrawberries<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">super</span><span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">true</span><span style="color: #666666">);</span>
+        <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">numStrawberries</span> <span style="color: #666666">=</span> numStrawberries<span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #555555; font-weight: bold">@Override</span>
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">consume</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        System<span style="color: #666666">.</span><span style="color: #4070a0">out</span><span style="color: #666666">.</span><span style="color: #4070a0">println</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;nom nom nom&quot;</span><span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+</pre></td></tr></table></div>
+<br>
+
+            What will Java display for each of the following?
+            <br><br>
+
+            <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #60a0b0; font-style: italic">// Example 1</span>
+Food mmm <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Food<span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">true</span><span style="color: #666666">);</span>
+mmm<span style="color: #666666">.</span><span style="color: #4070a0">consume</span><span style="color: #666666">();</span>
+
+<span style="color: #60a0b0; font-style: italic">// Example 2</span>
+Waffle mmm <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Waffle<span style="color: #666666">(</span><span style="color: #40a070">35</span><span style="color: #666666">);</span>
+mmm<span style="color: #666666">.</span><span style="color: #4070a0">consume</span><span style="color: #666666">();</span>
+
+<span style="color: #60a0b0; font-style: italic">// Example 3</span>
+Waffle mmm <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Food<span style="color: #666666">(</span><span style="color: #007020; font-weight: bold">true</span><span style="color: #666666">);</span>
+mmm<span style="color: #666666">.</span><span style="color: #4070a0">consume</span><span style="color: #666666">();</span>
+
+<span style="color: #60a0b0; font-style: italic">// Example 4</span>
+Food mmm <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> Waffle<span style="color: #666666">(</span><span style="color: #40a070">35</span><span style="color: #666666">);</span>
+mmm<span style="color: #666666">.</span><span style="color: #4070a0">consume</span><span style="color: #666666">();</span>
+</pre></td></tr></table></div>
+
+            <br>
+            We also learned about access modifiers in Java.
+            <ul>
+                <li><em>public</em> allows for access within the class, package, subclasses, and globally.</li>
+                <li><em>protected</em> allows for access within the class, package, and subclasses.</li>
+                <li>When <em>no modifier</em> is specified, there is access within the class and package.</li>
+                <li><em>private</em> allows for access within the class only.</li>
+            </ul>
+
+
+            </div>
+        </div>
+
+        <div class="proj-content-container" id="05">
+            <div class="proj-content-header">Lab 05. Iteration and Recursion over LinkedLists.</div>
+            June 26, 2017.
+            <br>
+            <div class="proj-content-text">
+            Here are iterative and recursive approaches to counting the number of nodes with val of 42 in a non-encapsulated IntList.
+            <br><br>
+
+            <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">int</span> <span style="color: #06287e">count42Iter</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+    IntList curr <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">;</span>
+    <span style="color: #902000">int</span> count <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+
+    <span style="color: #007020; font-weight: bold">while</span><span style="color: #666666">(</span>curr <span style="color: #666666">!=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>curr<span style="color: #666666">.</span><span style="color: #4070a0">val</span> <span style="color: #666666">==</span> <span style="color: #40a070">42</span><span style="color: #666666">)</span>
+            count<span style="color: #666666">++;</span>
+        curr <span style="color: #666666">=</span> curr<span style="color: #666666">.</span><span style="color: #4070a0">next</span><span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+    <span style="color: #007020; font-weight: bold">return</span> count<span style="color: #666666">;</span>
+<span style="color: #666666">}</span>
+</pre></td></tr></table></div><br>
+
+            <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">int</span> <span style="color: #06287e">count42Recur</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+    <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>next <span style="color: #666666">==</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>val <span style="color: #666666">==</span> <span style="color: #40a070">42</span><span style="color: #666666">)</span>
+            <span style="color: #007020; font-weight: bold">return</span> <span style="color: #40a070">1</span><span style="color: #666666">;</span>
+        <span style="color: #007020; font-weight: bold">else</span>
+            <span style="color: #007020; font-weight: bold">return</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+    <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>val <span style="color: #666666">==</span> <span style="color: #40a070">42</span><span style="color: #666666">)</span>
+            <span style="color: #007020; font-weight: bold">return</span> <span style="color: #40a070">1</span> <span style="color: #666666">+</span> next<span style="color: #666666">.</span><span style="color: #4070a0">count42Recur</span><span style="color: #666666">();</span>
+        <span style="color: #007020; font-weight: bold">else</span>
+            <span style="color: #007020; font-weight: bold">return</span> next<span style="color: #666666">.</span><span style="color: #4070a0">count42Recur</span><span style="color: #666666">();</span>
+    <span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+</pre></td></tr></table></div>
+            </div>
+        </div>
+
+        <div class="proj-content-container" id="06">
+            <div class="proj-content-header">Lab 06. Arrays vs LinkedLists.</div>
+            June 27, 2017.
+            <br>
+            <div class="proj-content-text">
+                Compare and contrast each of these data structures according to the guiding questions below: Array, Singly LinkedList, Doubly LinkedList.
+                <ul>
+                    <li>How do you <em>access</em> an element at a given index?</li>
+                    <li>How do you <em>search</em> for a particular value?</li>
+                    <li>How do you <em>insert</em> a new element at a particular index for arrays or after a particular reference for LinkedLists?</li>
+                    <li>How do you <em>delete</em> the element at a particular index for arrays or corresponding to a particular reference for LinkedLists?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="proj-content-container" id="07">
+            <div class="proj-content-header">Lab 07. Asymptotic Analysis.</div>
+            June 29, 2017.
+            <br>
+            <div class="proj-content-text">
+                Some strategies for asymptotic analysis:
+                <ul>
+                    <li>Try some test inputs to see what the function does and to get a feel for its flow.</li>
+                    <li>Label lines of code with their runtime to determine if some are insignficant compared to more expensive lines.</li>
+                    <li>If there are nested loops, draw bars.</li>
+                    <li>If there is a recursion, draw a tree representing the function calls.</li>
+                    <li>Perhaps represent and simplify a mathematical expression.</li>
+                </ul>
+                Remember that your usage of Big-O, Big-Omega, or Big-Theta depends on the exact question being asked.<br><br>
+                If you are simply asked for the runtime of the function and you find that you cannot give a tight bound, you should give an upper bound and possibly a lower bound as well if it is meaningful.
+                These bounds would describe the range of runtimes for all possible cases of inputs.<br><br>
+                If for the same code you are asked specifically for the best case or worst case runtime, then you would give the same magnitude answer as your lower or upper bound, respectively, but you would present it as a tight bound.
+                This is because the best (or worst) case is one particular case (one particular input) and thus you would state that that one case is tightly bound by a particular function; it doesn't really make sense to say that one case is lower or upper bounded (it's vague to state that when you can provide a tight bound instead).
+            </div>
+        </div>
+
+        <div class="proj-content-container" id="08">
+            <div class="proj-content-header">Lab 08. Exceptions with Minions</div>
+            June 30, 2017.
+            <br><br>
+            <div class="proj-content-text">
+
+            <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #007020; font-weight: bold">try</span> <span style="color: #666666">{</span>
+    bello<span style="color: #666666">();</span>
+<span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">catch</span> <span style="color: #666666">(</span>NullPointerException e<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+    System<span style="color: #666666">.</span><span style="color: #4070a0">out</span><span style="color: #666666">.</span><span style="color: #4070a0">println</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;Po-ka?&quot;</span><span style="color: #666666">);</span>
+    <span style="color: #007020; font-weight: bold">throw</span> <span style="color: #007020; font-weight: bold">new</span> <span style="color: #06287e">ArrayIndexOutOfBoundsException</span><span style="color: #666666">();</span>
+<span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">catch</span> <span style="color: #666666">(</span>Exception e<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+    System<span style="color: #666666">.</span><span style="color: #4070a0">out</span><span style="color: #666666">.</span><span style="color: #4070a0">println</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;Hana, dul, sae!&quot;</span><span style="color: #666666">);</span>
+<span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">finally</span> <span style="color: #666666">{</span>
+    System<span style="color: #666666">.</span><span style="color: #4070a0">out</span><span style="color: #666666">.</span><span style="color: #4070a0">println</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;Bee-do Bee-do!&quot;</span><span style="color: #666666">);</span>
+    <span style="color: #007020; font-weight: bold">throw</span> <span style="color: #007020; font-weight: bold">new</span> <span style="color: #06287e">NoSuchElementException</span><span style="color: #666666">();</span>
+<span style="color: #666666">}</span>
+</pre></td></tr></table></div>
+<br>
+
+                What happens if <i>bello()</i> executes without error? What if it raises a <i>NullPointerException</i>? What if it raises some other exception?
+                <br><br>
+                Some subtleties to take note of:
+                <ul>
+                    <li>Exceptions thrown in a catch block are not caught by later catch blocks.</li>
+                    <li><i>finally</i> always, always runs.</li>
+                    <li>Only the last-thrown exception propagates up the call stack.</li>
+                </ul>
+                Do you see how these rules apply in determining the what happens above?
+                <br><br>
+                Finally, here's our vocabulary for the day!<br>
+                <i>bello</i> = <i>hello</i><br>
+                <i>po-ka?</i> = <i>what?</i><br>
+                <i>hana, dul, sae!</i> = <i>one, two, three</i><br>
+                <i>bee-do bee-do!</i> = <i>fire!</i>
+            </div>
+
+        </div>
+    </body>
+</html>
