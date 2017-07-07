@@ -92,6 +92,12 @@
                                 <img src="assets/img/right.png">
                             </a>
                         </div>
+                        <div class="proj-summary-detail">
+                            <a href="#content">
+                                lab 10. generics and iterators at disney.
+                                <img src="assets/img/right.png">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -507,6 +513,184 @@ mmm<span style="color: #666666">.</span><span style="color: #4070a0">consume</sp
                     <li>Compare and contrast interfaces and abstract classes. (CSM 61BL Su17, WS 3a, Q1a.)</li>
                     <li>When resizing the underlying array within an ArrayList, is it better to increase the size of the array by 10,000 elements or to double the size of the array? Defend your answer using asymptotic analysis. (CSM 61B Sp17, WS 8, Q2.)</li>
                 </ul>
+            </div>
+        </div>
+        <div class="proj-content-container" id="10">
+            <div class="proj-content-header">Lab 10. Generics and Iterators at Disney.</div>
+            July 07, 2017.
+            <br>
+            <div class="proj-content-text">
+                <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #555555; font-weight: bold">@Test</span>
+<span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">testDisney</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+    DisneyRides d <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> DisneyRides<span style="color: #666666">();</span>
+    d<span style="color: #666666">.</span><span style="color: #4070a0">add</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;Space Mountain&quot;</span><span style="color: #666666">);</span>
+    d<span style="color: #666666">.</span><span style="color: #4070a0">add</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;Splash Mountain&quot;</span><span style="color: #666666">);</span>
+    d<span style="color: #666666">.</span><span style="color: #4070a0">add</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;Small World&quot;</span><span style="color: #666666">);</span>
+
+    <span style="color: #60a0b0; font-style: italic">// METHOD 1:</span>
+    <span style="color: #60a0b0; font-style: italic">// for loop as we&#39;ve seen before.</span>
+    <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> i <span style="color: #666666">&lt;</span> d<span style="color: #666666">.</span><span style="color: #4070a0">size</span><span style="color: #666666">();</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+        System<span style="color: #666666">.</span><span style="color: #4070a0">out</span><span style="color: #666666">.</span><span style="color: #4070a0">println</span><span style="color: #666666">(</span>d<span style="color: #666666">.</span><span style="color: #4070a0">get</span><span style="color: #666666">(</span>i<span style="color: #666666">));</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #60a0b0; font-style: italic">// METHOD 2:</span>
+    <span style="color: #60a0b0; font-style: italic">// Using an iterator to abstract away underlying implementation.</span>
+    Iterator<span style="color: #666666">&lt;</span>String<span style="color: #666666">&gt;</span> iter <span style="color: #666666">=</span> d<span style="color: #666666">.</span><span style="color: #4070a0">iterator</span><span style="color: #666666">();</span>
+    <span style="color: #007020; font-weight: bold">while</span><span style="color: #666666">(</span>iter<span style="color: #666666">.</span><span style="color: #4070a0">hasNext</span><span style="color: #666666">())</span> <span style="color: #666666">{</span>
+        System<span style="color: #666666">.</span><span style="color: #4070a0">out</span><span style="color: #666666">.</span><span style="color: #4070a0">println</span><span style="color: #666666">(</span>iter<span style="color: #666666">.</span><span style="color: #4070a0">next</span><span style="color: #666666">());</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #60a0b0; font-style: italic">// METHOD 3:</span>
+    <span style="color: #60a0b0; font-style: italic">// Short hand for-each loop that uses iterators behind the scenes.</span>
+    <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span>String s <span style="color: #666666">:</span> d<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        System<span style="color: #666666">.</span><span style="color: #4070a0">out</span><span style="color: #666666">.</span><span style="color: #4070a0">println</span><span style="color: #666666">(</span>s<span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+</pre></td></tr></table></div>
+<br>
+<div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.util.ArrayList</span><span style="color: #666666">;</span>
+<span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.util.Iterator</span><span style="color: #666666">;</span>
+
+<span style="color: #007020; font-weight: bold">public</span> <span style="color: #007020; font-weight: bold">class</span> <span style="color: #0e84b5; font-weight: bold">DisneyRides</span> <span style="color: #007020; font-weight: bold">implements</span> Iterable<span style="color: #666666">&lt;</span>String<span style="color: #666666">&gt;</span> <span style="color: #666666">{</span>
+
+    <span style="color: #60a0b0; font-style: italic">/** Fields **/</span>
+    <span style="color: #60a0b0; font-style: italic">// ArrayList of Objects. Requires cast in get() method.</span>
+    <span style="color: #60a0b0; font-style: italic">// private ArrayList rides = new ArrayList();</span>
+
+    <span style="color: #60a0b0; font-style: italic">// ArrayList of Strings. Generics eliminates need to cast by specifying static type of contained items.</span>
+    <span style="color: #007020; font-weight: bold">private</span> ArrayList<span style="color: #666666">&lt;</span>String<span style="color: #666666">&gt;</span> rides <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> ArrayList<span style="color: #666666">&lt;</span>String<span style="color: #666666">&gt;();</span>
+
+    <span style="color: #60a0b0; font-style: italic">// Counter for our iterator.</span>
+    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+
+    <span style="color: #60a0b0; font-style: italic">/** Methods **/</span>
+    <span style="color: #60a0b0; font-style: italic">// Add an item to our list after putting it in all-caps.</span>
+    <span style="color: #902000">void</span> <span style="color: #06287e">add</span><span style="color: #666666">(</span>String ride<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        rides<span style="color: #666666">.</span><span style="color: #4070a0">add</span><span style="color: #666666">(</span>ride<span style="color: #666666">.</span><span style="color: #4070a0">toUpperCase</span><span style="color: #666666">());</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #60a0b0; font-style: italic">// Retrieves item at index i.</span>
+    String <span style="color: #06287e">get</span><span style="color: #666666">(</span><span style="color: #902000">int</span> i<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #60a0b0; font-style: italic">// return (String)rides.get(i);</span>
+        <span style="color: #007020; font-weight: bold">return</span> rides<span style="color: #666666">.</span><span style="color: #4070a0">get</span><span style="color: #666666">(</span>i<span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #60a0b0; font-style: italic">// Retrieves number of total items.</span>
+    <span style="color: #902000">int</span> <span style="color: #06287e">size</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">return</span> rides<span style="color: #666666">.</span><span style="color: #4070a0">size</span><span style="color: #666666">();</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #555555; font-weight: bold">@Override</span>
+    <span style="color: #60a0b0; font-style: italic">// Provides a new iterator that starts from beginning of list.</span>
+    <span style="color: #007020; font-weight: bold">public</span> Iterator<span style="color: #666666">&lt;</span>String<span style="color: #666666">&gt;</span> <span style="color: #06287e">iterator</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">return</span> <span style="color: #007020; font-weight: bold">new</span> <span style="color: #06287e">DisneyRidesIterator</span><span style="color: #666666">();</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #60a0b0; font-style: italic">/** Nested subclass to define the iterator for our data structure. **/</span>
+    <span style="color: #007020; font-weight: bold">class</span> <span style="color: #0e84b5; font-weight: bold">DisneyRidesIterator</span> <span style="color: #007020; font-weight: bold">implements</span> Iterator<span style="color: #666666">&lt;</span>String<span style="color: #666666">&gt;</span> <span style="color: #666666">{</span>
+
+        <span style="color: #555555; font-weight: bold">@Override</span>
+        <span style="color: #60a0b0; font-style: italic">// Tells us if there are still more items.</span>
+        <span style="color: #60a0b0; font-style: italic">// Cannot modify current state of data structure in any way.</span>
+        <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">boolean</span> <span style="color: #06287e">hasNext</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+            <span style="color: #007020; font-weight: bold">return</span> i <span style="color: #666666">&lt;</span> rides<span style="color: #666666">.</span><span style="color: #4070a0">size</span><span style="color: #666666">();</span>
+        <span style="color: #666666">}</span>
+
+        <span style="color: #555555; font-weight: bold">@Override</span>
+        <span style="color: #60a0b0; font-style: italic">// Retrieves next item.</span>
+        <span style="color: #60a0b0; font-style: italic">// Updates state of data structure for next time.</span>
+        <span style="color: #007020; font-weight: bold">public</span> String <span style="color: #06287e">next</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+            String result <span style="color: #666666">=</span> rides<span style="color: #666666">.</span><span style="color: #4070a0">get</span><span style="color: #666666">(</span>i<span style="color: #666666">);</span>
+            i<span style="color: #666666">++;</span>
+            <span style="color: #007020; font-weight: bold">return</span> result<span style="color: #666666">;</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+</pre></td></tr></table></div>
+
+
             </div>
         </div>
     </body>
