@@ -545,8 +545,11 @@ mmm<span style="color: #666666">.</span><span style="color: #4070a0">consume</sp
 23
 24
 25
-26  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #555555; font-weight: bold">@Test</span>
-<span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">testDisney</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+26
+27
+28
+29
+30  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #007020; font-weight: bold">public</span> <span style="color: #007020; font-weight: bold">static</span> <span style="color: #902000">void</span> <span style="color: #06287e">main</span><span style="color: #666666">(</span>String<span style="color: #666666">[]</span> args<span style="color: #666666">)</span> <span style="color: #666666">{</span>
     DisneyRides d <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> DisneyRides<span style="color: #666666">();</span>
     d<span style="color: #666666">.</span><span style="color: #4070a0">add</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;Space Mountain&quot;</span><span style="color: #666666">);</span>
     d<span style="color: #666666">.</span><span style="color: #4070a0">add</span><span style="color: #666666">(</span><span style="color: #4070a0">&quot;Splash Mountain&quot;</span><span style="color: #666666">);</span>
@@ -565,6 +568,11 @@ mmm<span style="color: #666666">.</span><span style="color: #4070a0">consume</sp
         System<span style="color: #666666">.</span><span style="color: #4070a0">out</span><span style="color: #666666">.</span><span style="color: #4070a0">println</span><span style="color: #666666">(</span>iter<span style="color: #666666">.</span><span style="color: #4070a0">next</span><span style="color: #666666">());</span>
     <span style="color: #666666">}</span>
 
+    iter <span style="color: #666666">=</span> d<span style="color: #666666">.</span><span style="color: #4070a0">iterator</span><span style="color: #666666">();</span>
+    <span style="color: #007020; font-weight: bold">while</span><span style="color: #666666">(</span>iter<span style="color: #666666">.</span><span style="color: #4070a0">hasNext</span><span style="color: #666666">())</span> <span style="color: #666666">{</span>
+        System<span style="color: #666666">.</span><span style="color: #4070a0">out</span><span style="color: #666666">.</span><span style="color: #4070a0">println</span><span style="color: #666666">(</span>iter<span style="color: #666666">.</span><span style="color: #4070a0">next</span><span style="color: #666666">());</span>
+    <span style="color: #666666">}</span>
+
     <span style="color: #60a0b0; font-style: italic">// METHOD 3:</span>
     <span style="color: #60a0b0; font-style: italic">// Short hand for-each loop that uses iterators behind the scenes.</span>
     <span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span>String s <span style="color: #666666">:</span> d<span style="color: #666666">)</span> <span style="color: #666666">{</span>
@@ -572,8 +580,10 @@ mmm<span style="color: #666666">.</span><span style="color: #4070a0">consume</sp
     <span style="color: #666666">}</span>
 <span style="color: #666666">}</span>
 </pre></td></tr></table></div>
+
 <br>
-<div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+
+<div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1  
  2
  3
  4
@@ -642,9 +652,6 @@ mmm<span style="color: #666666">.</span><span style="color: #4070a0">consume</sp
     <span style="color: #60a0b0; font-style: italic">// ArrayList of Strings. Generics eliminates need to cast by specifying static type of contained items.</span>
     <span style="color: #007020; font-weight: bold">private</span> ArrayList<span style="color: #666666">&lt;</span>String<span style="color: #666666">&gt;</span> rides <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> ArrayList<span style="color: #666666">&lt;</span>String<span style="color: #666666">&gt;();</span>
 
-    <span style="color: #60a0b0; font-style: italic">// Counter for our iterator.</span>
-    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
-
     <span style="color: #60a0b0; font-style: italic">/** Methods **/</span>
     <span style="color: #60a0b0; font-style: italic">// Add an item to our list after putting it in all-caps.</span>
     <span style="color: #902000">void</span> <span style="color: #06287e">add</span><span style="color: #666666">(</span>String ride<span style="color: #666666">)</span> <span style="color: #666666">{</span>
@@ -671,6 +678,9 @@ mmm<span style="color: #666666">.</span><span style="color: #4070a0">consume</sp
     <span style="color: #60a0b0; font-style: italic">/** Nested subclass to define the iterator for our data structure. **/</span>
     <span style="color: #007020; font-weight: bold">class</span> <span style="color: #0e84b5; font-weight: bold">DisneyRidesIterator</span> <span style="color: #007020; font-weight: bold">implements</span> Iterator<span style="color: #666666">&lt;</span>String<span style="color: #666666">&gt;</span> <span style="color: #666666">{</span>
 
+        <span style="color: #60a0b0; font-style: italic">// Counter for our iterator.</span>
+        <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+
         <span style="color: #555555; font-weight: bold">@Override</span>
         <span style="color: #60a0b0; font-style: italic">// Tells us if there are still more items.</span>
         <span style="color: #60a0b0; font-style: italic">// Cannot modify current state of data structure in any way.</span>
@@ -689,7 +699,6 @@ mmm<span style="color: #666666">.</span><span style="color: #4070a0">consume</sp
     <span style="color: #666666">}</span>
 <span style="color: #666666">}</span>
 </pre></td></tr></table></div>
-
 
             </div>
         </div>
