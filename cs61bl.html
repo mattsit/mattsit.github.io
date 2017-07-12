@@ -98,6 +98,18 @@
                                 <img src="assets/img/right.png">
                             </a>
                         </div>
+                        <div class="proj-summary-detail">
+                            <a href="#content">
+                                lab 11. equality, comparison, and java 8.
+                                <img src="assets/img/right.png">
+                            </a>
+                        </div>
+                        <div class="proj-summary-detail">
+                            <a href="#content">
+                                lab 12. pre-, in-, post-order.
+                                <img src="assets/img/right.png">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -504,6 +516,7 @@ mmm<span style="color: #666666">.</span><span style="color: #4070a0">consume</sp
                 </ul>
             </div>
         </div>
+
         <div class="proj-content-container" id="09">
             <div class="proj-content-header">Lab 09. Interfaces and Abstract Classes.</div>
             July 06, 2017.
@@ -515,6 +528,7 @@ mmm<span style="color: #666666">.</span><span style="color: #4070a0">consume</sp
                 </ul>
             </div>
         </div>
+
         <div class="proj-content-container" id="10">
             <div class="proj-content-header">Lab 10. Generics and Iterators at Disney.</div>
             July 07, 2017.
@@ -691,6 +705,135 @@ mmm<span style="color: #666666">.</span><span style="color: #4070a0">consume</sp
 </pre></td></tr></table></div>
 
             </div>
+        </div>
+
+        <div class="proj-content-container" id="11">
+            <div class="proj-content-header">Lab 11. Equality, Comparison, and Java 8.</div>
+            July 10, 2017.
+            <br>
+            <div class="proj-content-text">
+
+                <em>Equality</em><br>
+                If we had <i>Waffle mattsWaffle</i> and <i>Waffle alisonsWaffle</i> both referencing the same <i>Waffle</i> instance object, then it is true that <i>mattsWaffle == alisonsWaffle</i>.
+                <br><br>
+                If we also had <i>Waffle andrewsWaffle</i> which was referencing a separate <i>Waffle</i> instance that happened to have equivalent values for its fields, then we can consider <i>andrewsWaffle</i> to be logically
+                equivalent to <i>mattsWaffle</i>, and we can define <i>equals()</i> to return true for <i>andrewsWaffle.equals(mattsWaffle)</i>.
+                <br><br>
+                <em>Comparison</em><br>
+                When defining new classes, if we wanted to be able to sort an array of our object through <i>Arrays.sort(myList)</i>,
+                then our object would have to implement the <i>Comparable&lt;T&gt;</i> interface, which requires the method: <i>int compareTo(T t)</i>.
+                By convention, this method should return a negative value if <i>this &lt; t</i>, 0 if <i>this.equals(t)</i>, and a positive value if <i> this &gt; t</i>.
+                By implementing this interface, we provide a natural ordering for our custom object.
+                <br><br>
+                There is also the <i>Comparator&lt;T&gt;</i> interface, which requires the method: <i>int compare(T t1, T t2)</i>.
+                We create a new class to represent the object comparator that implements this interface, and through it we can impose order if no natural ordering was defined for the object or if we want to override the natural ordering for a particular use of sort.
+                We sort by calling something like: <i>Arrays.sort(myList, new MyComparator())</i>.
+                <br><br>
+                <em>Lambda</em><br>
+                But having to define an entire object comparator class just to sort a particular way is cumbersome.
+                We can produce the same result by using a lambda instead: <i>Arrays.sort(myList, (t1, t2) -&gt; _______)</i>.
+                The _______ is where you would write a line of code that provides the appropriate return.
+                This is the same content that would have gone inside the <i>compare()</i> method of the object comparator class definition.
+                <br><br>
+                <em>Higher Order Functions</em><br>
+                The <i>Comparator&lt;T&gt;</i> interface only requires one method to be implemented and so essentially, by passing references to Comparator objects that contain a single function definition, we are passing functions into other functions--which is called a higher order function.
+                A more general example of a higher order function is anything that implements the <i>Function&lt;T, R&gt;</i> interface, which also contains a single method: <i>R apply(T t)</i>.
+                <br><br>
+                <em>Streams</em><br>
+                The data structures we've seen so far (arrays, ArrayLists, LinkedLists) are known as collections and they were designed with the efficient management of and access to elements in mind.
+                On the other hand, we can convert these to streams for parallel (or at least automatically optimized) processing since streams are concerned with performing aggregate computational operations on a source of elements.
+                <br><br>
+                The typical strategy to using streams is to first convert your collection to a stream, performing intermediate operations to manipulate the stream, and then converting it out of a stream using a terminal operation.
+                <br><br>
+                <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14  </pre></td><td><pre style="margin: 0; line-height: 125%">List<span style="color: #666666">&lt;</span>Integer<span style="color: #666666">&gt;</span> l <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> ArrayList<span style="color: #666666">&lt;&gt;();</span>
+
+<span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">(</span><span style="color: #902000">int</span> i <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span> i <span style="color: #666666">&lt;=</span> <span style="color: #40a070">30</span><span style="color: #666666">;</span> i<span style="color: #666666">++)</span> <span style="color: #666666">{</span>
+    l<span style="color: #666666">.</span><span style="color: #4070a0">add</span><span style="color: #666666">(</span>i<span style="color: #666666">);</span>
+<span style="color: #666666">}</span>
+
+l <span style="color: #666666">=</span> l<span style="color: #666666">.</span><span style="color: #4070a0">stream</span><span style="color: #666666">()</span>
+        <span style="color: #666666">.</span><span style="color: #4070a0">filter</span><span style="color: #666666">(</span>o <span style="color: #666666">-&gt;</span> o<span style="color: #666666">%</span><span style="color: #40a070">2</span><span style="color: #666666">==</span><span style="color: #40a070">0</span><span style="color: #666666">)</span>
+        <span style="color: #666666">.</span><span style="color: #4070a0">collect</span><span style="color: #666666">(</span>Collectors<span style="color: #666666">.</span><span style="color: #4070a0">toList</span><span style="color: #666666">());</span>
+
+<span style="color: #902000">int</span> a <span style="color: #666666">=</span> l<span style="color: #666666">.</span><span style="color: #4070a0">stream</span><span style="color: #666666">()</span>
+        <span style="color: #666666">.</span><span style="color: #4070a0">map</span><span style="color: #666666">(</span>o <span style="color: #666666">-&gt;</span> o<span style="color: #666666">*</span>o<span style="color: #666666">)</span>
+        <span style="color: #666666">.</span><span style="color: #4070a0">reduce</span><span style="color: #666666">((</span>o1<span style="color: #666666">,</span> o2<span style="color: #666666">)</span> <span style="color: #666666">-&gt;</span> o1<span style="color: #666666">+</span>o2<span style="color: #666666">)</span>
+        <span style="color: #666666">.</span><span style="color: #4070a0">orElse</span><span style="color: #666666">(</span><span style="color: #40a070">0</span><span style="color: #666666">);</span>
+</pre></td></tr></table></div>
+
+            </div>
+        </div>
+
+        <div class="proj-content-container" id="12">
+            <div class="proj-content-header">Lab 12. Pre-, In-, Post-Order.</div>
+            July 11, 2017.
+            <br>
+            <div class="proj-content-text">
+                Pre-order, In-order, and Post-order are ways to describe when nodes in a binary tree are processed (an example of processing a node would be printing its value).
+                A binary tree is a tree in which nodes can have up to 2 children each.
+                <br><br>
+                Pre-order means to process the current node before pre-order traversing down the left and right of the current node.
+                In-order means to first in-order traverse the left of the current node, process the current node, and then in-order traverse down the right of the current node.
+                Post-order means to post-order traverse down the left and right of the current node before finally processing the current node.
+                <br><br>
+                Visually, you can determine the order nodes are processed during pre-, in-, or post-order traversal by drawing a peg on the west, south, or east side of each node, respectively,
+                and tracing a line around the tree diagram as shown below. The nodes are processed in the order the yellow line touches each red peg.
+                <br><br>
+                <i>
+                    Pre-order has pegs on the west side of each node.<br>
+                    A, B, C, D, E.
+                </i><br>
+                <img src="assets/img/61bl/preorder.jpg" width="400px">
+                <br><br>
+                <i>
+                    In-order has pegs on the south side of each node.<br>
+                    B, A, D, C, E.
+                </i><br>
+                <img src="assets/img/61bl/inorder.jpg" width="400px">
+                <br><br>
+                <i>
+                    Post-order has pegs on the east side of each node.<br>
+                    B, D, E, C, A.
+                </i><br>
+                <img src="assets/img/61bl/postorder.jpg" width="400px">
+                <br><br>
+                More formally, we can write this pseudocode to reflect the definitions of when pre-, in-, and post-order processing occurs:
+                <br><br>
+                <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8  </pre></td><td><pre style="margin: 0; line-height: 125%">binaryTreeTraversal(node):
+    preorder(node)
+    <span style="color: #007020; font-weight: bold">if</span> left <span style="color: #666666">!=</span> null:
+        binaryTreeTraversal(left)
+    inorder(node)
+    <span style="color: #007020; font-weight: bold">if</span> right <span style="color: #666666">!=</span> null:
+        binaryTreeTraversal(right)
+    postorder(node)
+</pre></td></tr></table></div>
+
+            </div>
+            <ul>
+                <li>Taking the tree from above and this pseudocode, can you come up with the same list of letters for each of the traversals that we had when we did it visually?</li>
+                <li>Looking at this pseudocode, why does the red peg/yellow line visual trick work?</li>
+            </ul>
         </div>
     </body>
 </html>
