@@ -116,6 +116,12 @@
                                 <img src="assets/img/right.png">
                             </a>
                         </div>
+                        <div class="proj-summary-detail">
+                            <a href="#content">
+                                lab 14. bst challenge exercises.
+                                <img src="assets/img/right.png">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -910,6 +916,338 @@ Add root to fringe<span style="color: #666666">.</span>
                     <li>Similarly, in what order should we add children to the fringe in order to BFS traverse each layer from left to right?</li>
                     <li>Challenge question: DFS is naturally pre-order. How would you modify this algorithm to get a post-order traversal?</li>
                 </ul>
+            </div>
+        </div>
+
+        <div class="proj-content-container" id="14">
+            <div class="proj-content-header">Lab 14. BST Challenge Excersises.</div>
+            July 17, 2017.
+            <br>
+            <div class="proj-content-text">
+                These are the solutions to the optional excersises from Lab 14 that we live-coded together in class.
+                <br><br>
+                <em>Constructor from Pre-Order and In-Order Lists</em><br>
+                Create a constructor that instantiates the specified tree structure as given by lists of the
+                pre-order and in-order traversals. (Lab 14, Part C, Ex. 5).
+                <br><br>
+                Let's take a look at a sample input to gain intuition for how this task is possible.
+                <br><br>
+                <img src="assets/img/61bl/bstletters.jpg" width="250px">
+                <br><br>
+                Pre-order: C A B E D.<br>
+                In-order: A B C D E.
+                <br><br>
+                From the perspective of the root C, how do the locations of the nodes in the tree correspond to the
+                positions of the letters in these two lists? How can you tell which correspond to the left and right side of the root?
+                <br><br>
+                Can you extend that to see how the <i>subList()</i> indices below match up in the example above?
+                (Note that the first argument of <i>sublist()</i> is inclusive while the second is exclusive.)
+                <br><br>
+                <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #007020; font-weight: bold">public</span> <span style="color: #06287e">BinaryTree</span><span style="color: #666666">(</span>ArrayList<span style="color: #666666">&lt;</span>T<span style="color: #666666">&gt;</span> pre<span style="color: #666666">,</span>  ArrayList<span style="color: #666666">&lt;</span>T<span style="color: #666666">&gt;</span> in<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+    root <span style="color: #666666">=</span> listHelper<span style="color: #666666">(</span>pre<span style="color: #666666">,</span> in<span style="color: #666666">);</span>
+<span style="color: #666666">}</span>
+
+<span style="color: #007020; font-weight: bold">private</span> TreeNode <span style="color: #06287e">listHelper</span><span style="color: #666666">(</span>ArrayList<span style="color: #666666">&lt;</span>T<span style="color: #666666">&gt;</span> pre<span style="color: #666666">,</span>  ArrayList<span style="color: #666666">&lt;</span>T<span style="color: #666666">&gt;</span> in<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+    <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>pre<span style="color: #666666">.</span><span style="color: #4070a0">isEmpty</span><span style="color: #666666">())</span>
+        <span style="color: #007020; font-weight: bold">return</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
+
+    TreeNode subtreeRoot <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">new</span> TreeNode<span style="color: #666666">(</span>pre<span style="color: #666666">.</span><span style="color: #4070a0">get</span><span style="color: #666666">(</span><span style="color: #40a070">0</span><span style="color: #666666">));</span>
+
+    <span style="color: #902000">int</span> rootIndex <span style="color: #666666">=</span> in<span style="color: #666666">.</span><span style="color: #4070a0">indexOf</span><span style="color: #666666">(</span>pre<span style="color: #666666">.</span><span style="color: #4070a0">get</span><span style="color: #666666">(</span><span style="color: #40a070">0</span><span style="color: #666666">));</span>
+
+    subtreeRoot<span style="color: #666666">.</span><span style="color: #4070a0">left</span> <span style="color: #666666">=</span>
+            listHelper<span style="color: #666666">(</span>
+                    <span style="color: #007020; font-weight: bold">new</span> ArrayList<span style="color: #666666">&lt;&gt;(</span>pre<span style="color: #666666">.</span><span style="color: #4070a0">subList</span><span style="color: #666666">(</span><span style="color: #40a070">1</span><span style="color: #666666">,</span> rootIndex <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">)),</span>
+                    <span style="color: #007020; font-weight: bold">new</span> ArrayList<span style="color: #666666">&lt;&gt;(</span>in<span style="color: #666666">.</span><span style="color: #4070a0">subList</span><span style="color: #666666">(</span><span style="color: #40a070">0</span><span style="color: #666666">,</span> rootIndex<span style="color: #666666">))</span>
+            <span style="color: #666666">);</span>
+
+    subtreeRoot<span style="color: #666666">.</span><span style="color: #4070a0">right</span> <span style="color: #666666">=</span>
+            listHelper<span style="color: #666666">(</span>
+                    <span style="color: #007020; font-weight: bold">new</span> ArrayList<span style="color: #666666">&lt;&gt;(</span>pre<span style="color: #666666">.</span><span style="color: #4070a0">subList</span><span style="color: #666666">(</span>rootIndex <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">,</span> pre<span style="color: #666666">.</span><span style="color: #4070a0">size</span><span style="color: #666666">())),</span>
+                    <span style="color: #007020; font-weight: bold">new</span> ArrayList<span style="color: #666666">&lt;&gt;(</span>in<span style="color: #666666">.</span><span style="color: #4070a0">subList</span><span style="color: #666666">(</span>rootIndex <span style="color: #666666">+</span> <span style="color: #40a070">1</span><span style="color: #666666">,</span> in<span style="color: #666666">.</span><span style="color: #4070a0">size</span><span style="color: #666666">()))</span>
+            <span style="color: #666666">);</span>
+
+    <span style="color: #007020; font-weight: bold">return</span> subtreeRoot<span style="color: #666666">;</span>
+<span style="color: #666666">}</span>
+</pre></td></tr></table></div>
+
+            <br>
+            <em>Deletion from a BST</em><br>
+            In Part D, the procedure for deleting a BST is described and the implementation is provided to you.
+            Perform the following deletions to check your understanding of what should happen conceptually.
+            What will each of these trees look like after the indicated node is deleted?
+            <br><br>
+            Example 1:
+            <br>
+            <img src="assets/img/61bl/deletebst1.jpg" width="250px">
+            <br><br>
+            Example 2:
+            <br>
+            <img src="assets/img/61bl/deletebst2.jpg" width="250px">
+            <br><br>
+            Example 3:
+            <br>
+            <img src="assets/img/61bl/deletebst3.jpg" width="400px">
+            <br><br>
+            Answer 1: Not possible since 2 is not in the tree to begin with.
+            <br><br>
+            Answer 2: The node with 2 is located and removed.
+            Since it only had one child, it can simply move up to take the removed node's place.
+            <br><br>
+            Answer 3: We must find the in-order successor, which is 5.
+            5 takes the place of 3 in the tree, and 6 moves up to take 5's place.
+            <br><br>
+            Now here is the implementation that was provided to you in the skeleton, but with annotations added.
+            Can you see how all of the cases above are handled within the code below?
+            <br><br>
+            <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #007020; font-weight: bold">public</span> T <span style="color: #06287e">delete</span><span style="color: #666666">(</span>T key<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+    TreeNode parent <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
+    TreeNode curr <span style="color: #666666">=</span> root<span style="color: #666666">;</span>
+    TreeNode delNode <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
+    TreeNode replacement <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
+    <span style="color: #902000">boolean</span> rightSide <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">false</span><span style="color: #666666">;</span>
+
+    <span style="color: #60a0b0; font-style: italic">// Find node to be removed.</span>
+    <span style="color: #007020; font-weight: bold">while</span> <span style="color: #666666">(</span>curr <span style="color: #666666">!=</span> <span style="color: #007020; font-weight: bold">null</span> <span style="color: #666666">&amp;&amp;</span> <span style="color: #666666">!</span>curr<span style="color: #666666">.</span><span style="color: #4070a0">item</span><span style="color: #666666">.</span><span style="color: #4070a0">equals</span><span style="color: #666666">(</span>key<span style="color: #666666">))</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(((</span>Comparable<span style="color: #666666">&lt;</span>T<span style="color: #666666">&gt;)</span> curr<span style="color: #666666">.</span><span style="color: #4070a0">item</span><span style="color: #666666">).</span><span style="color: #4070a0">compareTo</span><span style="color: #666666">(</span>key<span style="color: #666666">)</span> <span style="color: #666666">&gt;</span> <span style="color: #40a070">0</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            parent <span style="color: #666666">=</span> curr<span style="color: #666666">;</span>
+            curr <span style="color: #666666">=</span> curr<span style="color: #666666">.</span><span style="color: #4070a0">left</span><span style="color: #666666">;</span>
+            rightSide <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">false</span><span style="color: #666666">;</span>
+        <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #666666">{</span>
+            parent <span style="color: #666666">=</span> curr<span style="color: #666666">;</span>
+            curr <span style="color: #666666">=</span> curr<span style="color: #666666">.</span><span style="color: #4070a0">right</span><span style="color: #666666">;</span>
+            rightSide <span style="color: #666666">=</span> <span style="color: #007020; font-weight: bold">true</span><span style="color: #666666">;</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+    delNode <span style="color: #666666">=</span> curr<span style="color: #666666">;</span>
+
+    <span style="color: #60a0b0; font-style: italic">// Target was not found.</span>
+    <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>curr <span style="color: #666666">==</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">return</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #60a0b0; font-style: italic">// Only has a left child. Remove target and let this take its place.</span>
+    <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>delNode<span style="color: #666666">.</span><span style="color: #4070a0">right</span> <span style="color: #666666">==</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>root <span style="color: #666666">==</span> delNode<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            root <span style="color: #666666">=</span> root<span style="color: #666666">.</span><span style="color: #4070a0">left</span><span style="color: #666666">;</span>
+        <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #666666">{</span>
+            <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>rightSide<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                parent<span style="color: #666666">.</span><span style="color: #4070a0">right</span> <span style="color: #666666">=</span> delNode<span style="color: #666666">.</span><span style="color: #4070a0">left</span><span style="color: #666666">;</span>
+            <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #666666">{</span>
+                parent<span style="color: #666666">.</span><span style="color: #4070a0">left</span> <span style="color: #666666">=</span> delNode<span style="color: #666666">.</span><span style="color: #4070a0">left</span><span style="color: #666666">;</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #60a0b0; font-style: italic">// Either has two children or just a right child.</span>
+    <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #666666">{</span>
+        curr <span style="color: #666666">=</span> delNode<span style="color: #666666">.</span><span style="color: #4070a0">right</span><span style="color: #666666">;</span>
+        replacement <span style="color: #666666">=</span> curr<span style="color: #666666">.</span><span style="color: #4070a0">left</span><span style="color: #666666">;</span>
+
+        <span style="color: #60a0b0; font-style: italic">// There was only a right child. Remove target and let this take its place.</span>
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>replacement <span style="color: #666666">==</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            replacement <span style="color: #666666">=</span> curr<span style="color: #666666">;</span>
+        <span style="color: #60a0b0; font-style: italic">// There were two children.</span>
+        <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #666666">{</span>
+            <span style="color: #60a0b0; font-style: italic">// Find inorder successor replacement.</span>
+            <span style="color: #60a0b0; font-style: italic">// Leftmost node of target&#39;s right child.</span>
+            <span style="color: #007020; font-weight: bold">while</span> <span style="color: #666666">(</span>replacement<span style="color: #666666">.</span><span style="color: #4070a0">left</span> <span style="color: #666666">!=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                <span style="color: #60a0b0; font-style: italic">// curr is the parent of replacement.</span>
+                curr <span style="color: #666666">=</span> replacement<span style="color: #666666">;</span>
+                replacement <span style="color: #666666">=</span> replacement<span style="color: #666666">.</span><span style="color: #4070a0">left</span><span style="color: #666666">;</span>
+            <span style="color: #666666">}</span>
+            <span style="color: #60a0b0; font-style: italic">// replacement does not have a left child.</span>
+            <span style="color: #60a0b0; font-style: italic">// remove replacement by letting its right child take its place.</span>
+            curr<span style="color: #666666">.</span><span style="color: #4070a0">left</span> <span style="color: #666666">=</span> replacement<span style="color: #666666">.</span><span style="color: #4070a0">right</span><span style="color: #666666">;</span>
+
+            <span style="color: #60a0b0; font-style: italic">// replacement takes delNode&#39;s place.</span>
+            replacement<span style="color: #666666">.</span><span style="color: #4070a0">right</span> <span style="color: #666666">=</span> delNode<span style="color: #666666">.</span><span style="color: #4070a0">right</span><span style="color: #666666">;</span>
+        <span style="color: #666666">}</span>
+        <span style="color: #60a0b0; font-style: italic">// replacement takes delNode&#39;s place.</span>
+        replacement<span style="color: #666666">.</span><span style="color: #4070a0">left</span> <span style="color: #666666">=</span> delNode<span style="color: #666666">.</span><span style="color: #4070a0">left</span><span style="color: #666666">;</span>
+        <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>root <span style="color: #666666">==</span> delNode<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            root <span style="color: #666666">=</span> replacement<span style="color: #666666">;</span>
+        <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #666666">{</span>
+            <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>rightSide<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+                parent<span style="color: #666666">.</span><span style="color: #4070a0">right</span> <span style="color: #666666">=</span> replacement<span style="color: #666666">;</span>
+            <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #666666">{</span>
+                parent<span style="color: #666666">.</span><span style="color: #4070a0">left</span> <span style="color: #666666">=</span> replacement<span style="color: #666666">;</span>
+            <span style="color: #666666">}</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+    <span style="color: #60a0b0; font-style: italic">// return value of delNode.</span>
+    <span style="color: #007020; font-weight: bold">return</span> delNode<span style="color: #666666">.</span><span style="color: #4070a0">item</span><span style="color: #666666">;</span>
+<span style="color: #666666">}</span>
+</pre></td></tr></table></div>
+
+            <br>
+            <em>Getting the kth Largest Element</em><br>
+            For a typical Binary Search Tree implementation, to obtain the kth largest element, we must traverse in-order k times until we receive the desired element.
+            This would have linear runtime.
+            <br><br>
+            But, we can take advantage of the tree structure and avoid this if we record for each node,
+            the number of nodes in that subtree if that node were the "root", as described in Part E.
+            Assuming we have implemented this invariant of maintaing the size at each node,
+            we can then write a method to complete our task in time proportional to the depth of our tree.
+            (Note the use of a helper method.
+            Why is it neccessary for us to have a way to pass an extra argument from recursive call to recursive call?)
+            <br><br>
+
+            Both of the following reside in <i>BinaryTree.java</i> (inside the BinaryTree class but outside the nested node class).
+            <br><br>
+
+            <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #007020; font-weight: bold">public</span> T <span style="color: #06287e">getKthValue</span><span style="color: #666666">(</span><span style="color: #902000">int</span> k<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+    <span style="color: #007020; font-weight: bold">return</span> <span style="color: #06287e">getKthValueHelper</span><span style="color: #666666">(</span>k<span style="color: #666666">,</span> root<span style="color: #666666">);</span>
+<span style="color: #666666">}</span>
+
+<span style="color: #007020; font-weight: bold">private</span> T <span style="color: #06287e">getKthValueHelper</span><span style="color: #666666">(</span><span style="color: #902000">int</span> k<span style="color: #666666">,</span> TreeNode node<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+    <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>node <span style="color: #666666">==</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span>
+        <span style="color: #007020; font-weight: bold">return</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">;</span>
+
+    <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>k <span style="color: #666666">&gt;=</span> node<span style="color: #666666">.</span><span style="color: #4070a0">size</span> <span style="color: #666666">||</span> k <span style="color: #666666">&lt;</span> <span style="color: #40a070">0</span><span style="color: #666666">)</span>
+        <span style="color: #007020; font-weight: bold">throw</span> <span style="color: #007020; font-weight: bold">new</span> <span style="color: #06287e">IndexOutOfBoundsException</span><span style="color: #666666">();</span>
+
+    <span style="color: #902000">int</span> numOnLeft<span style="color: #666666">;</span>
+    <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>node<span style="color: #666666">.</span><span style="color: #4070a0">left</span> <span style="color: #666666">!=</span> <span style="color: #007020; font-weight: bold">null</span><span style="color: #666666">)</span>
+        numOnLeft <span style="color: #666666">=</span> node<span style="color: #666666">.</span><span style="color: #4070a0">left</span><span style="color: #666666">.</span><span style="color: #4070a0">size</span><span style="color: #666666">;</span>
+    <span style="color: #007020; font-weight: bold">else</span>
+        numOnLeft <span style="color: #666666">=</span> <span style="color: #40a070">0</span><span style="color: #666666">;</span>
+
+    <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>k <span style="color: #666666">&lt;</span> numOnLeft<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">return</span> <span style="color: #06287e">getKthValueHelper</span><span style="color: #666666">(</span>k<span style="color: #666666">,</span> node<span style="color: #666666">.</span><span style="color: #4070a0">left</span><span style="color: #666666">);</span>
+    <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #007020; font-weight: bold">if</span> <span style="color: #666666">(</span>k <span style="color: #666666">==</span> numOnLeft<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">return</span> node<span style="color: #666666">.</span><span style="color: #4070a0">item</span><span style="color: #666666">;</span>
+    <span style="color: #666666">}</span> <span style="color: #007020; font-weight: bold">else</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">return</span> <span style="color: #06287e">getKthValueHelper</span><span style="color: #666666">(</span>k <span style="color: #666666">-</span> <span style="color: #40a070">1</span> <span style="color: #666666">-</span> numOnLeft<span style="color: #666666">,</span> node<span style="color: #666666">.</span><span style="color: #4070a0">right</span><span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+</pre></td></tr></table></div>
+
+
+
+
             </div>
         </div>
 
