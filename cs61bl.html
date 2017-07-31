@@ -140,6 +140,12 @@
                                 <img src="assets/img/right.png">
                             </a>
                         </div>
+                        <div class="proj-summary-detail">
+                            <a href="#content">
+                                lab 20. dijkstra.
+                                <img src="assets/img/right.png">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1449,7 +1455,7 @@ Add start vertex to fringe<span style="color: #666666">.</span>
             <br><br>
             Here is pseudocode for Topological Sort:
             <br><br>
-            <!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+            <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
  2
  3
  4
@@ -1469,8 +1475,61 @@ Add in<span style="color: #666666">-</span>degree <span style="color: #40a070">0
         Decrement its current in<span style="color: #666666">-</span>degree<span style="color: #666666">.</span>
     Add to fringe all <span style="color: #007020; font-weight: bold">new</span> in<span style="color: #666666">-</span>degree <span style="color: #40a070">0</span> vertices<span style="color: #666666">.</span>
 </pre></td></tr></table></div>
-        <br>
-        List all possible topological orderings of the directed, acyclic graph above.
+            <br>
+            List all possible topological orderings of the directed, acyclic graph above.
+            </div>
+        </div>
+
+        <div class="proj-content-container" id="20">
+            <div class="proj-content-header">Lab 20. Dijkstra.</div>
+            July 31, 2017.
+            <br>
+            <div class="proj-content-text">
+                Dijkstra's algorithm is used to find the shortest path from one vertex to another in a graph that has edge weights.
+                Here is the pseudocode:
+                <br><br>
+
+                <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14  </pre></td><td><pre style="margin: 0; line-height: 125%">Use PRIORITY QUEUE as fringe<span style="color: #666666">.</span>
+Maintain SET of visited vertices<span style="color: #666666">.</span>
+Remember shortest paths to each vertex found so far<span style="color: #666666">.</span>
+
+Add start vertex to fringe<span style="color: #666666">.</span>
+
+<span style="color: #007020; font-weight: bold">while</span> fringe not <span style="color: #002070; font-weight: bold">empty:</span>
+    Remove next from fringe<span style="color: #666666">.</span>
+    Mark as visited<span style="color: #666666">.</span>
+    The shortest path to the removed vertex has now been finalized<span style="color: #666666">.</span>
+
+    <span style="color: #007020; font-weight: bold">for</span> each <span style="color: #002070; font-weight: bold">neighbor:</span>
+        <span style="color: #007020; font-weight: bold">if</span> not visited <span style="color: #666666">&amp;&amp;</span> <span style="color: #666666">(</span>shortest path to removed vertex <span style="color: #666666">+</span> distance from removed vertex to neighbor<span style="color: #666666">)</span> <span style="color: #666666">&lt;</span> current shortest path to <span style="color: #002070; font-weight: bold">neighbor:</span>
+            Update current shortest path to neighbor<span style="color: #666666">.</span>
+</pre></td></tr></table></div>
+
+            <br>
+
+            Now run Dijkstra's algorithm on the graph shown below until the last vertex's shortest path has been finalized.
+            Start from vertex A. Break ties alphabetically.
+            <br><br>
+
+            <img src="assets/img/61bl/dijkstragraph.jpg" height="300px">
+            <br>
+            <i>(Source: CSM 61B Sp17, WS 12, Q3.)</i>
+            <br><br>
+            For review and extra practice, find the DFS and BFS traversals of the graph above as well.
+            </div>
         </div>
 
         <div class="proj-content-container" id="template">
