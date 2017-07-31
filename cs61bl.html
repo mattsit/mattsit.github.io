@@ -1515,7 +1515,7 @@ Add start vertex to fringe<span style="color: #666666">.</span>
 
     <span style="color: #007020; font-weight: bold">for</span> each <span style="color: #002070; font-weight: bold">neighbor:</span>
         <span style="color: #007020; font-weight: bold">if</span> not visited <span style="color: #666666">&amp;&amp;</span> <span style="color: #666666">(</span>shortest path to removed vertex <span style="color: #666666">+</span> distance from removed vertex to neighbor<span style="color: #666666">)</span> <span style="color: #666666">&lt;</span> current shortest path to <span style="color: #002070; font-weight: bold">neighbor:</span>
-            Update current shortest path to neighbor<span style="color: #666666">.</span>
+            Either add to fringe or if already in fringe, update current shortest path to neighbor<span style="color: #666666">.</span>
 </pre></td></tr></table></div>
 
             <br>
