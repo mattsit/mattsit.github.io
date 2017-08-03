@@ -148,7 +148,13 @@
                         </div>
                         <div class="proj-summary-detail">
                             <a href="#content">
-                                lab 21. sorting.
+                                lab 21. comparison-based sorting.
+                                <img src="assets/img/right.png">
+                            </a>
+                        </div>
+                        <div class="proj-summary-detail">
+                            <a href="#content">
+                                lab 22. count-based sorting.
                                 <img src="assets/img/right.png">
                             </a>
                         </div>
@@ -1539,8 +1545,8 @@ Add start vertex to fringe<span style="color: #666666">.</span>
         </div>
 
         <div class="proj-content-container" id="21">
-            <div class="proj-content-header">Lab 21. Sorting.</div>
-            August 1, 2017.
+            <div class="proj-content-header">Lab 21. Comparison-Based Sorting.</div>
+            August 01, 2017.
             <br>
             <div class="proj-content-text">
                 Take a look at Insertion, Selection, Merge, and Quick sorts
@@ -1566,6 +1572,46 @@ Add start vertex to fringe<span style="color: #666666">.</span>
                     <li>What scenario gives the worst case runtime and what is that runtime?</li>
                     <li>Is this sort stable?</li>
                 </ul>
+            </div>
+        </div>
+
+        <div class="proj-content-container" id="22">
+            <div class="proj-content-header">Lab 22. Count-Based Sorting.</div>
+            August 03, 2017.
+            <br>
+            <div class="proj-content-text">
+                Radix sorts look at one digit at a time.
+                I like to think about it as a <u><a href="assets/cs61blexercises/radixsort.xlsx">giant spreadsheet of data</a></u>,
+                in which each row represents an item,
+                and the digits of each item are each in their own individual columns.
+                <br><br>
+                Then, running <em>LSD</em> (least significant digit) radix sort would be analogous to sorting
+                the items in your spreadsheet first by the right-most (least significant) column,
+                then the next one over, and so on and so forth until the first column is used to sort upon.
+                Download the file above and do this if you're not convinced about why this works.
+                Do note that <em>stability</em> is a must-have in order for radix sort to work--
+                that is, elements that have the same value for the digit currently being looked at are guaranteed to remain
+                in the same order relative to each other once sorting for the digit has been finished.
+                <br><br>
+                But if you try doing <em>MSD</em> (most significant digit) radix sort in a similar fashion
+                (sorting with the first, left-most column, then the second, etc.),
+                you'll find that this wouldn't work.
+                This is why after each digit, we must recursively sort each of these group of items with the same first digit.
+                <br><br>
+                For both radix sorts, we had to sort by the value in a particular digit place.
+                We can use <em>Counting Sort</em> to accomplish this.
+                Using an array of 10 counters (one of each possible digit value), we tally up the number of items that belong
+                to each of the digit value counters.
+                We then convert those counters to an array representing the starting indices of each group of items with this same digit
+                (this can be done with some simple addition arithmetic).
+                Then we go through the original list again and place them into a result array
+                according to the designated starting indices of each group.
+                <br><br>
+                Therefore, the runtime for counting sort is tightly bounded by the (number of items to sort) + (number of possible digit values),
+                since we traverse both of these lists, one after the other.
+                For LSD radix sort, we multiply the (runtime of counting sort) * (length of each item), since we must sort by digit for each digit place.
+                For MSD radix sort, the worse case is the same as the runtime for LSD, but in the best case,
+                we might not have a need to recurse if each digit place only ends up with a single item, and so then we have the (runtime of counting sort) one time only as the runtime.
             </div>
         </div>
 
