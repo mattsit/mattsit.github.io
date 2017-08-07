@@ -158,6 +158,12 @@
                                 <img src="assets/img/right.png">
                             </a>
                         </div>
+                        <div class="proj-summary-detail">
+                            <a href="#content">
+                                lab 23. disjoint sets, kruskal.
+                                <img src="assets/img/right.png">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1612,6 +1618,28 @@ Add start vertex to fringe<span style="color: #666666">.</span>
                 For LSD radix sort, we multiply the (runtime of counting sort) * (length of each item), since we must sort by digit for each digit place.
                 For MSD radix sort, the worse case is the same as the runtime for LSD, but in the best case,
                 we might not have a need to recurse if each digit place only ends up with a single item, and so then we have the (runtime of counting sort) one time only as the runtime.
+            </div>
+        </div>
+
+        <div class="proj-content-container" id="23">
+            <div class="proj-content-header">Lab 23. Disjoint Sets, Kruskal.</div>
+            August 07, 2017.
+            <br>
+            <div class="proj-content-text">
+                <em>Disjoint Sets</em> have items as members, and each of these items can only belong to a single set.
+                They support a <i>union</i> operation, which merges together two sets,
+                and a <i>find</i> operation, which tells us what set an item belongs to.
+                Each set can be represented as a tree, and thus we can also represent them using an array.
+                The <em>Weighted Quick Union</em> optimization helps reduce the depth of items in a set by unioning smaller subtrees into larger ones.
+                The <em>Path Compression</em> optimization also helps with depth by reassigning each node's parent to being the root of the set/tree as nodes are traversed in the search for a particular member.
+                <br><br>
+                <em>Kruskal's Algorithm</em> takes a weighted undirected graph and provides us with the <em>Minimum Spanning Tree</em>,
+                which for a connected graph, is a graph that is fully connected and contains the lowest possible total in edge weights.
+                To find the MST using Kruskal, start with the edge of lowest weight and add it.
+                Then take the edge with the next lowest weight and add it only if the start and end vertices of that edge are not already connected.
+                Repeat until all edges have been attempted.
+                <br><br>
+                Now complete: <a href="assets/cs61blexercises/kruskal.pdf" target="_blank">Su 61BL Su16, Final, Q1c-e</a>.
             </div>
         </div>
 
