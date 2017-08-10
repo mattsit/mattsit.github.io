@@ -1655,7 +1655,30 @@ Add start vertex to fringe<span style="color: #666666">.</span>
             <br>
             <div class="proj-content-text">
                 <a href="assets/cs61blexercises/regexchart.pdf" target="_blank">Alison's Regex Chart.</a>
-            </div>
+                <br>
+                <ul>
+                    <li>For Regex quantifiers (such as ? + * )</li>
+                    <ul>
+                        <li>Regex is naturally <em>greedy</em> -- it will try to match as
+                            much as possible and give up characters until a full match is found.</li>
+                        <li>Add another ? after the quantifier to make it <em>lazy</em> --
+                            starts by matching as little as possible and reluctantly
+                            to consume characters until a full match is found.</li>
+                    </ul>
+                </ul>
+                Write a Regex to capture the HTML tags below (body, h1, a, center, b):
+                <br><br>
+                <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5 </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #062873; font-weight: bold">&lt;body&gt;</span>
+    <span style="color: #062873; font-weight: bold">&lt;h1&gt;</span>Oolong<span style="color: #062873; font-weight: bold">&lt;/h1&gt;</span>
+    <span style="color: #062873; font-weight: bold">&lt;a</span> <span style="color: #4070a0">href=”www.earl-gray.io”</span><span style="color: #062873; font-weight: bold">&gt;</span>50% sugar, less ice<span style="color: #062873; font-weight: bold">&lt;/a&gt;</span>
+    <span style="color: #062873; font-weight: bold">&lt;center&gt;&lt;b&gt;</span>Pumpkin Spice Latté<span style="color: #062873; font-weight: bold">&lt;/b&gt;&lt;/center&gt;</span>
+<span style="color: #062873; font-weight: bold">&lt;/body&gt;</span>
+</pre></td></tr></table></div>
+
         </div>
 
         <div class="proj-content-container" id="template">
