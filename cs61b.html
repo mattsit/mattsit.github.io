@@ -45,13 +45,10 @@
                     <div class="proj-summary-cluster-right">
                         <div class="proj-summary-header">Spring 2018</div>
                         <div class="proj-summary-detail">
-                            Content will be posted here once the semester begins!
-                            <!--
                             <a href="#content">
-                                lab 01. git and repositories
+                                dis 01. intro to java!
                                 <img src="assets/img/right.png">
                             </a>
-                        -->
                     	</div>
                     </div>
                 </div>
@@ -60,11 +57,99 @@
         <section id="content"></section>
 
         <div class="proj-content-container" id="template">
-            <div class="proj-content-header">Lab 00. Title.</div>
-            July 06, 2017.
+            <div class="proj-content-header">Dis 00. Template.</div>
+            January 00, 2018.
             <br>
             <div class="proj-content-text">
 
+            </div>
+        </div>
+
+        <div class="proj-content-container" id="01">
+            <div class="proj-content-header">Dis 01. Introduction to Reading and Writing Java!</div>
+            January 16, 2018.
+            <br>
+            <div class="proj-content-text">
+              Java programs begin execution starting from a main method <i>public static void main (String[] args) {...}</i>.
+              <br><br>
+              <em>Primitives vs. Non-Primitives</em><br>
+              We keep track of data using variables. Variables come in two flavors: primitives and non-primitives.
+              <b>Primitives</b> in Java include only the following: byte, short, int, long, float, double, boolean, char.
+              All other kinds of variables are <b>non-primitives</b>.
+              Variables representing primitives store the appropriate raw value, while
+              variables representing non-primitives store <b>references</b> to the actual data.
+              <br><br>
+              The creators of Java made this design decision for the language due to efficiency justifications.
+              Imagine that you're in at an interview for your dream job. The manager really loves you and is almost ready
+              to hire you, but first, they'd like to ensure that everything you've said about yourself is true.
+              And so, the manager would like to verify with your best friend that you have indeed been truthful.
+              But now the question is, would it be appropriate for you to clone your best friend so that the manager
+              can chat with them?
+              Probably not...your friend might not appreciate that very much.
+              It makes much more sense to provide the manager with a <i>reference</i> to your friend, a phone number perhaps.
+              This is why Java handles "complicated" (non-primitive) variables using references.
+              <br><br>
+              This goes hand-in-hand with what Professor Hug calls the <b>Golden Rule of Equals</b>.
+              When we are drawing <b>box and pointer diagrams</b>, when a variable's contents are asked of,
+              we provide whatever is inside that variable's corresponding box.
+              This means that for primitives we copy the raw value,
+              while for non-primitives we copy the arrow that we have drawn, such that
+              our copied arrow points to the same destination.
+              Given this distinction, if a function takes in both a primitive and a non-primitive
+              as arguments, and it mangles both during the function call, when the function is over,
+              which of the two (or both?) were actually changed?
+              See the example below to find out:
+              <br><br>
+<iframe width="100%" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=public%20class%20Mangler%20%7B%0A%20%20%20%20public%20static%20void%20main%28String%5B%5D%20args%29%20%7B%0A%20%20%20%20%20%20int%5B%5D%20myArr%20%3D%20%7B3,%200,%204,%206,%203%7D%3B%0A%20%20%20%20%20%20int%20myK%20%3D%202%3B%0A%20%20%20%20%20%20mangle%28myArr,%20myK%29%3B%0A%20%20%20%20%7D%0A%20%20%20%20%0A%20%20%20%20public%20static%20void%20mangle%28int%5B%5D%20arr,%20int%20k%29%20%7B%0A%20%20%20%20%20%20arr%5B0%5D%20%3D%205%3B%0A%20%20%20%20%20%20k%20%3D%201%3B%0A%20%20%20%20%7D%0A%7D&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=false&origin=opt-frontend.js&py=java&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+              <br><br>
+              <em>Iteration and Recursion</em><br>
+              Often times, we want to write code that does something over and over again.
+              We have two techniques for doing this: iteration and recursion.
+              <br><br>
+              <b>Iteration</b> involves using a loop.
+              In Java, one kind of loop is the <i>while</i> loop.
+              To evaluate it, we follow these steps in order:
+              <ol>
+                <li>Evaluate the loop condition.
+                  If it is <i>false</i> the loop is over and execution continues starting after
+                  the closing curly bracket of the loop.</li>
+                <li>If it is <i>true</i>, then we start at the top of the loop's body of code and execute those lines in order until we reach its end.</li>
+                <li>At this point, we go back to step 1 and check the condition again.</li>
+              </ol>
+              It is important to note that even if the condition becomes false in the middle of executing the loop body,
+              the loop does not magically quite immediately. The loop can only quit in between executions of its body
+              (unless there is a <i>break</i> statement, an <i>Exception</i> is thrown, etc.).
+              Another kind of loop is the <i>for</i> loop.
+              This kind of loop was introduced because programmers noticed that loops in general typically
+              contained the initialization of some counter variable, the check of some condition against that counter variable,
+              and the modification of this counter variable as iterations occur.
+              For loops simply bundle these three elements together into a visually convenient place.
+              We evaluate for loops following these steps in order:
+              <ol>
+                <li>Initialize the counter variable.</li>
+                <li>Evaluate the loop condition.
+                  If it is <i>false</i> the loop is over and execution continues starting after
+                  the closing curly bracket of the loop.</li>
+                <li>If it is <i>true</i>, then we start at the top of the loop's body of code and execute those lines in order until we reach its end.</li>
+                <li>Adjust the counter value according to the specified fashion. Usually an incrementation or decrementation.</li>
+                <li>At this point, we go back to step 2 and check the condition again.</li>
+              </ol>
+              The other option we have is <b>recursion</b>.
+              This occurs anytime we have a function and that function's body of code contains a statement in which it calls upon itself again.
+              To prevent infinite recursion, we want our recursive functions to contain <i>base cases</i>,
+              which are if statements that provide direct results of the simplest situations,
+              and in all other cases our recursive calls should aim to move our complicated situation
+              closer and closer to one of our base cases.
+              <br><br>
+              With the classic Fibonacci exercise (#3 on the worksheet), we
+              saw how there may be many ways to solve the same problem and to
+              arrive at the correct answer.
+              Therefore, simply solving a problem one way is cute and all,
+              but in the real world, that doesn't mean you're done--we want to find the "best" solution.
+              What does "best" mean?
+              It means code that is not only correct, but also fast, memory efficient, and clear to other human readers.
+              In other words, in this class we will learn to consider
+              time efficiency, space efficiency, and style/documentation.
             </div>
         </div>
     </body>
