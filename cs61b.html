@@ -94,7 +94,7 @@
               <br><br>
               Here is an example of these three components in action.
               <div class="proj-content-text">
-            <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+                <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
  2
  3
  4
@@ -135,54 +135,56 @@
         <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">numStrawberries</span> <span style="color: #666666">+=</span> num<span style="color: #666666">;</span>
     <span style="color: #666666">}</span>
 <span style="color: #666666">}</span>
-</pre></td></tr></table></div>
-            </div>
-        <em>Static Methods and Variables</em><br>
-        Fields can be labeled as <em>static</em> (class variables),
-        and methods can also be labeled as <em>static</em>.
-        <br><br>
-        For static fields, there is only one variable that is shared among all
-        instances of the class, and thus consequently, all object instances see the same value for that field
-        (again, because there is a single variable shared among all; there is not one variable per instance).
-        To call upon a static field, we use dot notation on the class name rather than on a particular instance.
-        <br><br>
-        For static methods, an object instance is not required for the function to be called.
-        As a consequence, it cannot access non-static fields.
-        If you'd like, you can call static methods on an object instance, but in that case
-        Java will lookup the class of the instance and call it as we've just described.
-        <br><br>
-        <em>IntLists</em><br>
-        You'll often see statements such as <i>L.rest.rest = L.rest.rest.rest;</i>,
-        but sometimes it seems like the way you follow the "rests" seem different
-        for the left and right sides of the equals sign. Why is that?
-        <br><br>
-        Think about what the equals sign means. For example, let's look at an assignment
-        statement such as this: <i>String var = "object";</i>. What this the box and
-        pointer diagram look like?
-        <br><br>
-        <iframe width="100%" height="300" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=public%20class%20YourClassNameHere%20%7B%0A%20%20%20%20public%20static%20void%20main%28String%5B%5D%20args%29%20%7B%0A%20%20%20%20%20%20String%20var%20%3D%20%22object%22%3B%0A%20%20%20%20%7D%0A%7D&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=true&origin=opt-frontend.js&py=java&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
-        <br><br>
-        We can see that <i>var</i> corresponds to a variable box in the diagram,
-        and that the right hand side of the assignment statement was a String object.
-        <br><br>
-        In the same way, the left side of the statement <i>L.rest.rest = L.rest.rest.rest;</i>
-        is a variable box in the diagram, and the right hand side is an IntList object.
-        Therefore, when we count the number of "rests" for the left hand side, we stop
-        counting in time so that we are left with the last "rest" variable box so that we can reassign it.
-        When we count for the right hand side, we follow the final "rest" to an Object, and assign the
-        left hand side to reference it.
+</pre></td></tr></table></div></div>
+          <em>Static Methods and Variables</em><br>
+          Fields can be labeled as <em>static</em> (class variables),
+          and methods can also be labeled as <em>static</em>.
+          <br><br>
+          For static fields, there is only one variable that is shared among all
+          instances of the class, and thus consequently, all object instances see the same value for that field
+          (again, because there is a single variable shared among all; there is not one variable per instance).
+          To call upon a static field, we use dot notation on the class name rather than on a particular instance.
+          <br><br>
+          For static methods, an object instance is not required for the function to be called.
+          As a consequence, it cannot access non-static fields.
+          If you'd like, you can call static methods on an object instance, but in that case
+          Java will lookup the class of the instance and call it as we've just described.
+          <br><br>
+          <em>IntLists</em><br>
+          You'll often see statements such as <i>L.rest.rest = L.rest.rest.rest;</i>,
+          but sometimes it seems like the way you follow the "rests" seem different
+          for the left and right sides of the equals sign. Why is that?
+          <br><br>
+          Think about what the equals sign means. For example, let's look at an assignment
+          statement such as this: <i>String var = "object";</i>. What this the box and
+          pointer diagram look like?
+          <br><br>
+          <iframe width="100%" height="300" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=public%20class%20YourClassNameHere%20%7B%0A%20%20%20%20public%20static%20void%20main%28String%5B%5D%20args%29%20%7B%0A%20%20%20%20%20%20String%20var%20%3D%20%22object%22%3B%0A%20%20%20%20%7D%0A%7D&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=true&origin=opt-frontend.js&py=java&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+          <br><br>
+          We can see that <i>var</i> corresponds to a variable box in the diagram,
+          and that the right hand side of the assignment statement was a String object.
+          <br><br>
+          In the same way, the left side of the statement <i>L.rest.rest = L.rest.rest.rest;</i>
+          is a variable box in the diagram, and the right hand side is an IntList object.
+          Therefore, when we count the number of "rests" for the left hand side, we stop
+          counting in time so that we are left with the last "rest" variable box so that we can reassign it.
+          When we count for the right hand side, we follow the final "rest" to an Object, and assign the
+          left hand side to reference it.
+          <br><br>
+          Walk through this simple example and make sure you understand how this statement works and why.
+          <br><br>
+          <iframe width="100%" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=public%20class%20IntList%20%7B%0A%20%20%20%20int%20first%3B%0A%20%20%20%20IntList%20rest%3B%0A%20%20%20%20%0A%20%20%20%20IntList%28int%20first,%20IntList%20rest%29%20%7B%0A%20%20%20%20%20%20this.first%20%3D%20first%3B%0A%20%20%20%20%20%20this.rest%20%3D%20rest%3B%0A%20%20%20%20%7D%0A%20%20%20%20%0A%20%20%20%20public%20static%20void%20main%28String%5B%5D%20args%29%20%7B%0A%20%20%20%20%20%20IntList%20L%20%3D%20new%20IntList%281,%20new%20IntList%282,%20new%20IntList%283,%20new%20IntList%284,%20null%29%29%29%29%3B%0A%20%20%20%20%20%20L.rest.rest%20%3D%20L.rest.rest.rest%3B%0A%20%20%20%20%7D%0A%7D&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=30&heapPrimitives=true&origin=opt-frontend.js&py=java&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+          <br><br>
+          <em>Destructive vs. Non-Destructive</em><br>
+          When writing a destructive function, you want to destroy the original and so you should not be
+          creating new objects. Thus, destructive functions do not use the <i>new</i> keyword.
+          <br><br>
+          On the other hand, non-destructive functions want to preserve the original and return a new version.
+          Thus, non-destructive functions should use the <i>new</i> keyword to create fresh objects as the
+          necessary modifications are applied.
+          </div>
+        </div>
 
-        Walk through this simple example and make sure you understand how this statement works and why.
-        <br><br>
-        <iframe width="100%" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=public%20class%20IntList%20%7B%0A%20%20%20%20int%20first%3B%0A%20%20%20%20IntList%20rest%3B%0A%20%20%20%20%0A%20%20%20%20IntList%28int%20first,%20IntList%20rest%29%20%7B%0A%20%20%20%20%20%20this.first%20%3D%20first%3B%0A%20%20%20%20%20%20this.rest%20%3D%20rest%3B%0A%20%20%20%20%7D%0A%20%20%20%20%0A%20%20%20%20public%20static%20void%20main%28String%5B%5D%20args%29%20%7B%0A%20%20%20%20%20%20IntList%20L%20%3D%20new%20IntList%281,%20new%20IntList%282,%20new%20IntList%283,%20new%20IntList%284,%20null%29%29%29%29%3B%0A%20%20%20%20%20%20L.rest.rest%20%3D%20L.rest.rest.rest%3B%0A%20%20%20%20%7D%0A%7D&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=30&heapPrimitives=true&origin=opt-frontend.js&py=java&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
-        <br><br>
-        <em>Destructive vs. Non-Destructive</em><br>
-        When writing a destructive function, you want to destroy the original and so you should not be
-        creating new objects. Thus, destructive functions do not use the <i>new</i> keyword.
-        <br><br>
-        On the other hand, non-destructive functions want to preserve the original and return a new version.
-        Thus, non-destructive functions should use the <i>new</i> keyword to create fresh objects as the
-        necessary modifications are applied.
 
         <div class="proj-content-container" id="01">
             <div class="proj-content-header">Dis 01. Introduction to Reading and Writing Java!</div>
