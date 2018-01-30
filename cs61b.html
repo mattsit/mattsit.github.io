@@ -56,6 +56,12 @@
                                  <img src="assets/img/right.png">
                              </a>
                    	     </div>
+                         <div class="proj-summary-detail">
+                             <a href="#content">
+                                 dis 03. linkedlists and arrays.
+                                 <img src="assets/img/right.png">
+                             </a>
+                   	     </div>
                     </div>
                 </div>
             </div>
@@ -68,6 +74,60 @@
             <br>
             <div class="proj-content-text">
 
+            </div>
+        </div>
+
+        <div class="proj-content-container" id="03">
+            <div class="proj-content-header">Dis 03. LinkedLists and Arrays.</div>
+            January 30, 2018.
+            <br>
+            <div class="proj-content-text">
+              <em>Our Story of LinkedLists</em>
+              We started out with the raw <i>IntList</i>.
+              This was a nice a simple data structure that we could use
+              to store individual integers in a series of connected links.
+              <br><br>
+              Next came the <i>Singly Linked List</i>, which allowed us to
+              encapsulate our raw IntList. The advantage of encapsulation is that
+              it allows us to provide for our users methods for performing operations
+              on our data structure so that they do not need to be knowledgeable
+              about the underlying intricacies of our implementation in our to use it;
+              they can simply refer to an API or list of our methods and their descriptions
+              and they can use our data structure like a black box.
+              <br><br>
+              Following that, we introduced <i>Sentinels</i> into our Singly Linked List.
+              This was a "dummy" node that had an unimportant item that was always included.
+              The purpose of a sentinel is to remove the need for null checks, since those can be
+              messy in our code or it may be easy to miss a couple situations. Thus, instead of
+              checking if an instance is null, we can check if it has returned back to the sentinel.
+              <br><br>
+              Finally, we allowed ourselves to have referenes in both directions, so
+              that we could access both the previous and the next. This was the <i>Doubly Linked List</i>.
+              <br><br>
+              <em>Problem Solving Strategies</em><br>
+              Whenever you are asked to write a signficant amount of code by hand,
+              first make a concrete example for yourself so that you understand what
+              the problem is asking you to do, so that you get a feel for the operations
+              that may be involved, and so that you have something to check against once you
+              actually start writing code in a bit.
+              <br><br>
+              Next, break down the problem into functional parts or steps that you know how to do.
+              If you are stuck, write out the parts of the code that are most obvious to you, even
+              if you have to leave conditions or other things blank. For example, if we have to do
+              an operation repeatedly, you know that there would have to be a loop or a recursive call,
+              so you can set up the components for that first while you're still thinking (loop conditions,
+              incrementations, base cases, etc.). Try to get the general situation working first, and then
+              worry about the edge cases once you're done. Often times, those can be addressed by adding a simple
+              if case at the top of your code later.
+              <br><br>
+              <em>Arrays vs LinkedLists</em><br>
+              Finally, we informally made observations about the arrays and linkedlists
+              that we worked with today. We'll cover these in more detail later when
+              we study runtime analysis. But for now, we saw that it was easier to get items
+              out of an array, but that it was harder to "resize" them since they are of fixed length and so
+              that would actually require us to make a new array and to copy everything over.
+              LinkedLists on the other hand, require that we traverse the list in order to access
+              a particular item, but it only requires us to switch around a few pointers to insert or delete items.
             </div>
         </div>
 
