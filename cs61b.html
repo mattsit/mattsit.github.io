@@ -70,7 +70,19 @@
                    	     </div>
                          <div class="proj-summary-detail">
                              <a href="#content">
-                                 dis 07. asymptotics I.
+                                 dis 07 and 08. asymptotics.
+                                 <img src="assets/img/right.png">
+                             </a>
+                   	     </div>
+                         <div class="proj-summary-detail">
+                             <a href="#content">
+                                 dis 10. tree traversals.
+                                 <img src="assets/img/right.png">
+                             </a>
+                   	     </div>
+                         <div class="proj-summary-detail">
+                             <a href="#content">
+                                 dis 11. graphs.
                                  <img src="assets/img/right.png">
                              </a>
                    	     </div>
@@ -89,18 +101,234 @@
             </div>
         </div>
 
+        <div class="proj-content-container" id="11">
+            <div class="proj-content-header">Dis 11. Graphs.</div>
+            April 3, 2018.
+            <br>
+            <div class="proj-content-text">
+                <em>DFS Traversal</em><br>
+                We can traverse a graph in DFS-fashion by following this pseudocode:
+                <br><br>
+
+                <!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11  </pre></td><td><pre style="margin: 0; line-height: 125%">Use STACK as fringe<span style="color: #666666">.</span>
+Maintain SET of visited vertices<span style="color: #666666">.</span>
+Add start vertex to fringe<span style="color: #666666">.</span>
+
+<span style="color: #007020; font-weight: bold">while</span> fringe not <span style="color: #002070; font-weight: bold">empty:</span>
+    Remove next from fringe<span style="color: #666666">.</span>
+    <span style="color: #007020; font-weight: bold">if</span> not <span style="color: #002070; font-weight: bold">visited:</span>
+        Process removed node<span style="color: #666666">.</span>
+        <span style="color: #007020; font-weight: bold">for</span> each <span style="color: #002070; font-weight: bold">neighbor:</span>
+            Add to fringe<span style="color: #666666">.</span>
+        Mark removed node as visited<span style="color: #666666">.</span>
+</pre></td></tr></table></div>
+            <br>
+            Just as before with trees, it is important to note that the order in which
+            we add our neighbors to the fringe may alter our final result.
+            Further, some variations of this pseudocode may check whether a node has been visited
+            at a different point of the algorithm, and this may also lead to differing results.
+            <br><br>
+            For the graph below, start at node 0 and execute the DFS-traversal algorithm.
+            What is the list of nodes processed?
+            <br><br>
+            <img src="assets/img/61bl/directedgraph.jpg" height="300px">
+            <br>
+            <i>(Source: CSM 61BL Su17, WS 6, Q6.)</i>
+            <br>
+            <ul>
+                <li>Are all vertices reachable if we start a node 0?</li>
+                <li>What if we were looking for the BFS-traversal instead?</li>
+                <li>How about pre-order and post-order DFS? Can we easily get these from this iterative pseudocode?</li>
+                <ul>
+                    <li><i>No, we should translate this to a recursive solution so that we can proccess vertices either before or after the recursive call.</i></li>
+                </ul>
+            </ul>
+            <br>
+            <em>Topological Sort</em>
+            <br>
+            Here's a special little graph!
+            <br><br>
+            <img src="assets/img/61bl/directedacyclicgraph.jpg" height="300px">
+            <br>
+            <i>(Source: 61BL Su17, Final, Q1b.)</i>
+            <br><br>
+            This graph is directed and acyclic (it contains no cyclic loops).
+            You can see that if we started from vertex A, we would eventually end up at vertex G one way or another.
+            To topologically traverse this graph, we say that before a node can be visited, all nodes before it must have been visited already.
+            For example, if above, vertex A represented me waking up, vertex E was me brushing my teeth, C was me making a waffle, and D was me eating my waffle,
+            then I can only brush my teeth and make my waffle after I wake up, and I can't eat my waffle until I've brushed my teeth and made my waffle (in either order).
+            <br><br>
+            Here is pseudocode for Topological Sort:
+            <br><br>
+            <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10 </pre></td><td><pre style="margin: 0; line-height: 125%">Maintain a FRINGE<span style="color: #666666">.</span>
+Maintain ARRAY of current in<span style="color: #666666">-</span>degrees of all vertices<span style="color: #666666">.</span>
+Add in<span style="color: #666666">-</span>degree <span style="color: #40a070">0</span> vertices to fringe<span style="color: #666666">.</span>
+
+<span style="color: #007020; font-weight: bold">while</span> fringe not <span style="color: #002070; font-weight: bold">empty:</span>
+    Remove next from fringe<span style="color: #666666">.</span>
+    Process removed node<span style="color: #666666">.</span>
+    <span style="color: #007020; font-weight: bold">for</span> each <span style="color: #002070; font-weight: bold">neighbor:</span>
+        Decrement its current in<span style="color: #666666">-</span>degree<span style="color: #666666">.</span>
+    Add to fringe all <span style="color: #007020; font-weight: bold">new</span> in<span style="color: #666666">-</span>degree <span style="color: #40a070">0</span> vertices<span style="color: #666666">.</span>
+</pre></td></tr></table></div>
+            <br>
+            List all possible topological orderings of the directed, acyclic graph above.
+            </div>
+        </div>
+
+        <div class="proj-content-container" id="10">
+            <div class="proj-content-header">Dis 10. Tree Traversals.</div>
+            March 20, 2018.
+            <br>
+            <div class="proj-content-text">
+              <em>Preorder, Inorder, Postorder</em><br>
+                Pre-order, In-order, and Post-order are ways to describe when nodes in a binary tree are processed (an example of processing a node would be printing its value).
+                A binary tree is a tree in which nodes can have up to 2 children each.
+                <br><br>
+                Pre-order means to process the current node before pre-order traversing down the left and right of the current node.
+                In-order means to first in-order traverse the left of the current node, process the current node, and then in-order traverse down the right of the current node.
+                Post-order means to post-order traverse down the left and right of the current node before finally processing the current node.
+                <br><br>
+                Visually, you can determine the order nodes are processed during pre-, in-, or post-order traversal by drawing a peg on the west, south, or east side of each node, respectively,
+                and tracing a line around the tree diagram as shown below. The nodes are processed in the order the yellow line touches each red peg.
+                <br><br>
+                <i>
+                    Pre-order has pegs on the west side of each node.<br>
+                    A, B, C, D, E.
+                </i><br>
+                <img src="assets/img/61bl/preorder.jpg" width="400px">
+                <br><br>
+                <i>
+                    In-order has pegs on the south side of each node.<br>
+                    B, A, D, C, E.
+                </i><br>
+                <img src="assets/img/61bl/inorder.jpg" width="400px">
+                <br><br>
+                <i>
+                    Post-order has pegs on the east side of each node.<br>
+                    B, D, E, C, A.
+                </i><br>
+                <img src="assets/img/61bl/postorder.jpg" width="400px">
+                <br><br>
+                More formally, we can write this pseudocode to reflect the definitions of when pre-, in-, and post-order processing occurs:
+                <br><br>
+                <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8  </pre></td><td><pre style="margin: 0; line-height: 125%">binaryTreeTraversal(node):
+    preorder(node)
+    <span style="color: #007020; font-weight: bold">if</span> left <span style="color: #666666">!=</span> null:
+        binaryTreeTraversal(left)
+    inorder(node)
+    <span style="color: #007020; font-weight: bold">if</span> right <span style="color: #666666">!=</span> null:
+        binaryTreeTraversal(right)
+    postorder(node)
+</pre></td></tr></table></div>
+
+            <ul>
+                <li>Taking the tree from above and this pseudocode, can you come up with the same list of letters for each of the traversals that we had when we did it visually?</li>
+                <li>Looking at this pseudocode, why does the red peg/yellow line visual trick work?</li>
+                <li>Why does in-order only make sense in the context of binary trees and not with trees that allow nodes to have more than 2 children?</li>
+            </ul>
+            <br>
+            <img src="assets/img/61bl/dfsbfstree.jpg" width="400px">
+            <br><br>
+            <em>DFS, BFS</em><br>
+            The yellow path we traced here for pre/in/post-order is known as depth-first search traversal (<em>DFS</em>).
+            This is because in all three variations, we visited nodes by venturing all the way down a path before back-tracking and venturing down another path (we go deep down into the tree first).
+            Given the tree above, DFS traversal gives: 1 2 3 4 5 6 7.
+            <br><br>
+            On the other hand, breadth-first search traversal (<em>BFS</em>) involves visiting nodes level by level.
+            Again, remember that pre/in/post-order does not make sense in the context of BFS because in all three of those, we visit nodes by following that yellow path-in DFS fashion.
+            Given the tree above, BFS traversal gives: 1 2 4 5 3 6 7.
+            <br><br>
+            Before we continue, recall that a <em>stack</em> data structure is like a stack of pancakes.
+            If new pancakes are added to my stack, I must eat the fresh pancakes on the top of the stack before I can eat the earlier ones which are sitting lower in the stack.
+            In contrast, a <em>queue</em> is like a queue of people standing in line to buy Fish and Chips at the marina.
+            Whoever got in line first will be the first one served and as new people jump in line, they must wait until everyone before them has been served before they have a chance to enjoy light, flaky fish steaks paired with luscious tarter sauce and a modest side of fries.
+            <br><br>
+            The pseudocode below describes the algorithm for DFS traversal.
+            Note that just like how when we traverse an array we need an index/counter variable or when we traverse a LinkedList we need a node pointer,
+            for tree traversal, we can use certain data structures to help us keep track of where we are.
+            This is called a <em>fringe</em>. For DFS, we use a stack and use the following procedure:
+            <br><br>
+            <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+    2
+    3
+    4
+    5
+    6
+    7  </pre></td><td><pre style="margin: 0; line-height: 125%">Use STACK as fringe<span style="color: #666666">.</span>
+    Add root to fringe<span style="color: #666666">.</span>
+
+    <span style="color: #007020; font-weight: bold">while</span> fringe not <span style="color: #002070; font-weight: bold">empty:</span>
+    Remove next from fringe<span style="color: #666666">.</span>
+    Add its children to fringe<span style="color: #666666">.</span>
+    Process removed node<span style="color: #666666">.</span>
+    </pre></td></tr></table></div>
+            <br>
+            The procedure for performing BFS traversal is almost identical!
+            The only difference is that we instead use a queue has our fringe:
+            <br><br>
+
+            <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+    2
+    3
+    4
+    5
+    6
+    7  </pre></td><td><pre style="margin: 0; line-height: 125%">Use QUEUE as fringe<span style="color: #666666">.</span>
+    Add root to fringe<span style="color: #666666">.</span>
+
+    <span style="color: #007020; font-weight: bold">while</span> fringe not <span style="color: #002070; font-weight: bold">empty:</span>
+    Remove next from fringe<span style="color: #666666">.</span>
+    Add its children to fringe<span style="color: #666666">.</span>
+    Process removed node<span style="color: #666666">.</span>
+    </pre></td></tr></table></div>
+            <br>
+            <ul>
+                <li>Try using the pseudocode to perform DFS and BFS traversals on the given tree above.</li>
+                <li>Did you get the same answers as provided conceptually? If not, would adding the children to the fringe in a different order yield the desired result?</li>
+                <li>Specifically, in what order should we add children to the fringe in order to DFS traverse starting with the left-most path first?</li>
+                <li>Similarly, in what order should we add children to the fringe in order to BFS traverse each layer from left to right?</li>
+                <li>Challenge question: DFS is naturally pre-order. How would you modify this algorithm to get a post-order traversal?</li>
+            </ul>
+        </div>
         <div class="proj-content-container" id="07">
-            <div class="proj-content-header">Dis 07. Asymptotics I.</div>
+            <div class="proj-content-header">Dis 07 and 08. Asymptotics.</div>
             February 27, 2018.
             <br>
             <div class="proj-content-text">
                 We talked about the formal definition of the asymptotic bounds and
                 we made it our goal to gain intuition for how they work so that we don't have to setup a limit explictily every single time.
-                The summer CS61BL website has a great and thorough explanation of this again for you: <a href='http://www.cs61bl.org/su17/materials/lab/lab07/lab07.html#d-abbreviated-estimates' target="_blank">CS 61BL Lab 07</a>
+                The summer CS61BL website has a great and thorough explanation of this again for you: <b><a href='http://www.cs61bl.org/su17/materials/lab/lab07/lab07.html#d-abbreviated-estimates' target="_blank">CS 61BL Lab 07</a></b>
                 <br><br>
                 Further, we plotted some lines using an iPython notebook just so that we can see what some
                 functions look like and why it would make sense to want the asymptotic definitions we have.
-                You can see the notebook we were looking at here: <a href='Asymptotic+Analysis.html' target="_blank">iPython notebook</a>
+                You can see the notebook we were looking at here: <b><a href='Asymptotic+Analysis.html' target="_blank">iPython notebook</a></b>
                 <br><br>
                 Some strategies for asymptotic analysis:
                 <ul>
@@ -115,7 +343,95 @@
                 These bounds would describe the range of runtimes for all possible cases of inputs.<br><br>
                 If for the same code you are asked specifically for the best case or worst case runtime, then you would give the same magnitude answer as your lower or upper bound, respectively, but you would present it as a tight bound.
                 This is because the best (or worst) case is one particular case (one particular input) and thus you would state that that one case is tightly bound by a particular function; it doesn't really make sense to say that one case is lower or upper bounded (it's vague to state that when you can provide a tight bound instead).
+                <em>DFS Traversal</em><br>
+                We can traverse a graph in DFS-fashion by following this pseudocode:
+                <br><br>
+
+                <!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11  </pre></td><td><pre style="margin: 0; line-height: 125%">Use STACK as fringe<span style="color: #666666">.</span>
+Maintain SET of visited vertices<span style="color: #666666">.</span>
+Add start vertex to fringe<span style="color: #666666">.</span>
+
+<span style="color: #007020; font-weight: bold">while</span> fringe not <span style="color: #002070; font-weight: bold">empty:</span>
+    Remove next from fringe<span style="color: #666666">.</span>
+    <span style="color: #007020; font-weight: bold">if</span> not <span style="color: #002070; font-weight: bold">visited:</span>
+        Process removed node<span style="color: #666666">.</span>
+        <span style="color: #007020; font-weight: bold">for</span> each <span style="color: #002070; font-weight: bold">neighbor:</span>
+            Add to fringe<span style="color: #666666">.</span>
+        Mark removed node as visited<span style="color: #666666">.</span>
+</pre></td></tr></table></div>
+            <br>
+            Just as before with trees, it is important to note that the order in which
+            we add our neighbors to the fringe may alter our final result.
+            Further, some variations of this pseudocode may check whether a node has been visited
+            at a different point of the algorithm, and this may also lead to differing results.
+            <br><br>
+            For the graph below, start at node 0 and execute the DFS-traversal algorithm.
+            What is the list of nodes processed?
+            <br><br>
+            <img src="assets/img/61bl/directedgraph.jpg" height="300px">
+            <br>
+            <i>(Source: CSM 61BL Su17, WS 6, Q6.)</i>
+            <br>
+            <ul>
+                <li>Are all vertices reachable if we start a node 0?</li>
+                <li>What if we were looking for the BFS-traversal instead?</li>
+                <li>How about pre-order and post-order DFS? Can we easily get these from this iterative pseudocode?</li>
+                <ul>
+                    <li><i>No, we should translate this to a recursive solution so that we can proccess vertices either before or after the recursive call.</i></li>
+                </ul>
+            </ul>
+            <br>
+            <em>Topological Sort</em>
+            <br>
+            Here's a special little graph!
+            <br><br>
+            <img src="assets/img/61bl/directedacyclicgraph.jpg" height="300px">
+            <br>
+            <i>(Source: 61BL Su17, Final, Q1b.)</i>
+            <br><br>
+            This graph is directed and acyclic (it contains no cyclic loops).
+            You can see that if we started from vertex A, we would eventually end up at vertex G one way or another.
+            To topologically traverse this graph, we say that before a node can be visited, all nodes before it must have been visited already.
+            For example, if above, vertex A represented me waking up, vertex E was me brushing my teeth, C was me making a waffle, and D was me eating my waffle,
+            then I can only brush my teeth and make my waffle after I wake up, and I can't eat my waffle until I've brushed my teeth and made my waffle (in either order).
+            <br><br>
+            Here is pseudocode for Topological Sort:
+            <br><br>
+            <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10 </pre></td><td><pre style="margin: 0; line-height: 125%">Maintain a FRINGE<span style="color: #666666">.</span>
+Maintain ARRAY of current in<span style="color: #666666">-</span>degrees of all vertices<span style="color: #666666">.</span>
+Add in<span style="color: #666666">-</span>degree <span style="color: #40a070">0</span> vertices to fringe<span style="color: #666666">.</span>
+
+<span style="color: #007020; font-weight: bold">while</span> fringe not <span style="color: #002070; font-weight: bold">empty:</span>
+    Remove next from fringe<span style="color: #666666">.</span>
+    Process removed node<span style="color: #666666">.</span>
+    <span style="color: #007020; font-weight: bold">for</span> each <span style="color: #002070; font-weight: bold">neighbor:</span>
+        Decrement its current in<span style="color: #666666">-</span>degree<span style="color: #666666">.</span>
+    Add to fringe all <span style="color: #007020; font-weight: bold">new</span> in<span style="color: #666666">-</span>degree <span style="color: #40a070">0</span> vertices<span style="color: #666666">.</span>
+</pre></td></tr></table></div>
+            <br>
+            List all possible topological orderings of the directed, acyclic graph above.
             </div>
+            </div>
+
         </div>
 
         <div class="proj-content-container" id="04">
