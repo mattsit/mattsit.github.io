@@ -238,14 +238,14 @@ Add in<span style="color: #666666">-</span>degree <span style="color: #40a070">0
 5
 6
 7
-8  </pre></td><td><pre style="margin: 0; line-height: 125%">binaryTreeTraversal(node):
-    preorder(node)
-    <span style="color: #007020; font-weight: bold">if</span> left <span style="color: #666666">!=</span> null:
-        binaryTreeTraversal(left)
-    inorder(node)
-    <span style="color: #007020; font-weight: bold">if</span> right <span style="color: #666666">!=</span> null:
-        binaryTreeTraversal(right)
-    postorder(node)
+8   </pre></td><td><pre style="margin: 0; line-height: 125%">binaryTreeTraversal(node):
+preorder(node)
+<span style="color: #007020; font-weight: bold">if</span> left <span style="color: #666666">!=</span> null:
+    binaryTreeTraversal(left)
+inorder(node)
+<span style="color: #007020; font-weight: bold">if</span> right <span style="color: #666666">!=</span> null:
+    binaryTreeTraversal(right)
+postorder(node)
 </pre></td></tr></table></div>
 
             <ul>
@@ -275,39 +275,39 @@ Add in<span style="color: #666666">-</span>degree <span style="color: #40a070">0
             for tree traversal, we can use certain data structures to help us keep track of where we are.
             This is called a <em>fringe</em>. For DFS, we use a stack and use the following procedure:
             <br><br>
-            <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
-    2
-    3
-    4
-    5
-    6
-    7  </pre></td><td><pre style="margin: 0; line-height: 125%">Use STACK as fringe<span style="color: #666666">.</span>
-    Add root to fringe<span style="color: #666666">.</span>
+<div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7  </pre></td><td><pre style="margin: 0; line-height: 125%">Use STACK as fringe<span style="color: #666666">.</span>
+Add root to fringe<span style="color: #666666">.</span>
 
-    <span style="color: #007020; font-weight: bold">while</span> fringe not <span style="color: #002070; font-weight: bold">empty:</span>
-    Remove next from fringe<span style="color: #666666">.</span>
-    Add its children to fringe<span style="color: #666666">.</span>
-    Process removed node<span style="color: #666666">.</span>
-    </pre></td></tr></table></div>
+<span style="color: #007020; font-weight: bold">while</span> fringe not <span style="color: #002070; font-weight: bold">empty:</span>
+  Remove next from fringe<span style="color: #666666">.</span>
+  Add its children to fringe<span style="color: #666666">.</span>
+  Process removed node<span style="color: #666666">.</span>
+</pre></td></tr></table></div>
             <br>
             The procedure for performing BFS traversal is almost identical!
             The only difference is that we instead use a queue has our fringe:
             <br><br>
 
-            <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
-    2
-    3
-    4
-    5
-    6
-    7  </pre></td><td><pre style="margin: 0; line-height: 125%">Use QUEUE as fringe<span style="color: #666666">.</span>
-    Add root to fringe<span style="color: #666666">.</span>
+<div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7  </pre></td><td><pre style="margin: 0; line-height: 125%">Use QUEUE as fringe<span style="color: #666666">.</span>
+Add root to fringe<span style="color: #666666">.</span>
 
-    <span style="color: #007020; font-weight: bold">while</span> fringe not <span style="color: #002070; font-weight: bold">empty:</span>
-    Remove next from fringe<span style="color: #666666">.</span>
-    Add its children to fringe<span style="color: #666666">.</span>
-    Process removed node<span style="color: #666666">.</span>
-    </pre></td></tr></table></div>
+<span style="color: #007020; font-weight: bold">while</span> fringe not <span style="color: #002070; font-weight: bold">empty:</span>
+  Remove next from fringe<span style="color: #666666">.</span>
+  Add its children to fringe<span style="color: #666666">.</span>
+  Process removed node<span style="color: #666666">.</span>
+</pre></td></tr></table></div>
             <br>
             <ul>
                 <li>Try using the pseudocode to perform DFS and BFS traversals on the given tree above.</li>
