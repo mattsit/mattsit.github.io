@@ -20,8 +20,14 @@ $(document).ready(function() {
         }
         $(".proj-content-container").hide();
 
-        var labNumber = $(event.target).text().trim().substring(4,6);
-        $("#" + labNumber).show();
+        var labOrDisNumber = $(event.target).text().trim().substring(0,6).replace(" ","");
+        if($("#" + labOrDisNumber).length != 0) {
+            $("#" + labOrDisNumber).show();
+        } else {
+            // Legacy.
+            var labNumber = $(event.target).text().trim().substring(4,6);
+            $("#" + labNumber).show();
+        }
     });
 
 });

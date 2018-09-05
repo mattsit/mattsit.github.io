@@ -58,6 +58,13 @@
                              </a>
                    	     </div>
 
+                         <div class="proj-summary-detail">
+                             <a href="#content">
+                                 dis 02. destructive/non-destructive intlists
+                                 <img src="assets/img/right.png">
+                             </a>
+                   	     </div>
+
                     </div>
                 </div>
             </div>
@@ -70,6 +77,57 @@
             <br>
             <div class="proj-content-text">
 
+            </div>
+        </div>
+
+        <div class="proj-content-container" id="dis02">
+            <div class="proj-content-header">Dis 02. Destructive/Non-Destructive IntLists.</div>
+            September 4+5, 2018.
+            <br>
+            <div class="proj-content-text">
+                <em>Java Files for the Discussion Exercises</em><br>
+                Use these files to test your solutions <i>after</i> you're satisfied with them
+                on pencil and paper!
+                <ul>
+                    <li><a href="assets/IntList.java">
+                      IntList and Implementation Java File.
+                    </a>
+                    <li><a href="assets/IntListTest.java">
+                      Tester File.
+                    </a>
+                </ul>
+
+                <em>IntLists</em><br>
+                You'll often see statements such as <i>L.tail.tail = L.tail.tail.tail;</i>,
+                but sometimes it seems like the way you follow the "tails" seem different
+                for the left and right sides of the equals sign. Why is that?
+                <br><br>
+                Think about what the equals sign means. For example, let's look at an assignment
+                statement such as this: <i>String var = "object";</i>. What this the box and
+                pointer diagram look like?
+                <br><br>
+<iframe style="width: 100%; height: 540px; background: white" src="https://cscircles.cemc.uwaterloo.ca/java_visualize/iframe-embed.html?faking_cpp=false#data=%7B%22user_script%22%3A%22public%20class%20IntList%20%7B%5Cn%20%20%20%20int%20value%3B%5Cn%20%20%20%20IntList%20tail%3B%5Cn%5Ct%20%20%20%20%5Cn%20%20%20%20IntList(int%20value%2C%20IntList%20tail)%20%7B%5Cn%20%20%20%20%20%20%20this.value%20%3D%20value%3B%5Cn%20%20%20%20%20%20%20this.tail%20%3D%20tail%3B%5Cn%20%20%20%20%7D%5Cn%5Ct%20%20%20%20%5Cn%20%20%20%20public%20static%20void%20main(String%5B%5D%20args)%20%7B%5Cn%20%20%20%20%20%20%20IntList%20L%20%3D%20new%20IntList(1%2C%20new%20IntList(2%2C%20new%20IntList(3%2C%20new%20IntList(4%2C%20null))))%3B%5Cn%20%20%20%20%20%20%20L.tail.tail%20%3D%20L.tail.tail.tail%3B%5Cn%20%20%20%20%7D%5Cn%7D%22%2C%22options%22%3A%7B%22showStringsAsValues%22%3Atrue%2C%22showAllFields%22%3Afalse%7D%2C%22args%22%3A%5B%5D%2C%22stdin%22%3A%22%22%7D&cumulative=false&heapPrimitives=false&drawParentPointers=false&textReferences=false&showOnlyOutputs=false&py=3&curInstr=0&resizeContainer=true&highlightLines=true&rightStdout=true" frameborder="0" scrolling="no"></iframe>                <br><br>
+                We can see that <i>var</i> corresponds to a variable box in the diagram,
+                and that the right hand side of the assignment statement was a String object.
+                <br><br>
+                In the same way, the left side of the statement <i>L.tail.tail = L.tail.tail.tail;</i>
+                is a variable box in the diagram, and the right hand side is an IntList object.
+                Therefore, when we count the number of "tails" for the left hand side, we stop
+                counting in time so that we are left with the last "tail" variable box so that we can reassign it.
+                When we count for the right hand side, we follow the final "tail" to an Object, and assign the
+                left hand side to reference it.
+                <br><br>
+                Walk through this simple example and make sure you understand how this statement works and why.
+                <br><br>
+<iframe style="width: 100%; height: 540px; background: white" src="https://cscircles.cemc.uwaterloo.ca/java_visualize/iframe-embed.html?faking_cpp=false#data=%7B%22user_script%22%3A%22public%20class%20IntList%20%7B%5Cn%20%20%20int%20value%3B%5Cn%20%20%20IntList%20tail%3B%5Cn%20%20%20%20%5Cn%20%20%20IntList(int%20value%2C%20IntList%20tail)%20%7B%5Cn%20%20%20%20%20%20this.value%20%3D%20value%3B%5Cn%20%20%20%20%20%20this.tail%20%3D%20tail%3B%5Cn%20%20%20%7D%5Cn%20%20%20%20%5Cn%20%20%20public%20static%20void%20main(String%5B%5D%20args)%20%7B%5Cn%20%20%20%20%20%20IntList%20L%20%3D%20new%20IntList(1%2C%20new%20IntList(2%2C%20new%20IntList(3%2C%20new%20IntList(4%2C%20null))))%3B%5Cn%20%20%20%20%20%20L.tail.tail%20%3D%20L.tail.tail.tail%3B%5Cn%20%20%20%7D%5Cn%7D%22%2C%22options%22%3A%7B%22showStringsAsValues%22%3Atrue%2C%22showAllFields%22%3Afalse%7D%2C%22args%22%3A%5B%5D%2C%22stdin%22%3A%22%22%7D&cumulative=false&heapPrimitives=false&drawParentPointers=false&textReferences=false&showOnlyOutputs=false&py=3&curInstr=0&resizeContainer=true&highlightLines=true&rightStdout=true" frameborder="0" scrolling="no"></iframe>                <br><br>
+                <em>Destructive vs. Non-Destructive</em><br>
+                When writing a destructive function, you want to destroy the original and so you should not be
+                creating new objects. Thus, destructive functions do not use the <i>new</i> keyword.
+                <br><br>
+                On the other hand, non-destructive functions want to preserve the original and return a new version.
+                Thus, non-destructive functions should use the <i>new</i> keyword to create fresh objects as the
+                necessary modifications are applied.
+                </div>
             </div>
         </div>
 
@@ -294,7 +352,7 @@
 
         <div class="proj-content-container" id="01">
             <div class="proj-content-header">Dis 01. Introduction to Reading and Writing Java!</div>
-            August 28/29, 2018.
+            August 28+29, 2018.
             <br>
             <div class="proj-content-text">
               <em>Primitives vs. Non-Primitives</em><br>
