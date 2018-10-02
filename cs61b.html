@@ -81,7 +81,14 @@
 
                          <div class="proj-summary-detail">
                              <a href="#content">
-                                 dis 04. inheritance
+                                 dis 04+05. inheritance
+                                 <img src="assets/img/right.png">
+                             </a>
+                   	     </div>
+
+                         <div class="proj-summary-detail">
+                             <a href="#content">
+                                 dis 06. asymptotics
                                  <img src="assets/img/right.png">
                              </a>
                    	     </div>
@@ -101,9 +108,40 @@
             </div>
         </div>
 
+        <div class="proj-content-container" id="dis06">
+            <div class="proj-content-header">Dis 06. Asymptotics.</div>
+            October 2+3, 2018.
+            <br>
+            <div class="proj-content-text">
+                We talked about the formal definition of the asymptotic bounds and
+                we made it our goal to gain intuition for how they work so that we don't have to setup a limit explictily every single time.
+                The summer CS61BL website has a great and thorough explanation of this again for you: <b><a href='https://cs61bl.org/su17/materials/lab/lab07/lab07.html#d-abbreviated-estimates' target="_blank">CS 61BL Lab 07</a></b>
+                <br><br>
+                Further, we plotted some lines using an iPython notebook just so that we can see what some
+                functions look like and why it would make sense to want the asymptotic definitions we have.
+                You can see the notebook we were looking at here: <b><a href='Asymptotic+Analysis.html' target="_blank">iPython notebook</a></b>
+                <br><br>
+                Some strategies for asymptotic analysis:
+                <ul>
+                    <li>Try some test inputs to see what the function does and to get a feel for its flow.</li>
+                    <li>Label lines of code with their runtime to determine if some are insignficant compared to more expensive lines.</li>
+                    <li>If there are nested loops, draw bars.</li>
+                    <li>If there is a recursion, draw a tree representing the function calls.</li>
+                    <li>Perhaps represent and simplify a mathematical expression.</li>
+                </ul>
+                Remember that your usage of Big-O, Big-Omega, or Big-Theta depends on the exact question being asked.<br><br>
+                If you are simply asked for the runtime of the function and you find that you cannot give a tight bound, you should give an upper bound and possibly a lower bound as well if it is meaningful.
+                These bounds would describe the range of runtimes for all possible cases of inputs.<br><br>
+                If for the same code you are asked specifically for the best case or worst case runtime, then you would give the same magnitude answer as your lower or upper bound, respectively, but you would present it as a tight bound.
+                This is because the best (or worst) case is one particular case (one particular input) and thus you would state that that one case is tightly bound by a particular function; it doesn't really make sense to say that one case is lower or upper bounded (it's vague to state that when you can provide a tight bound instead).
+            </div>
+        </div>
+
+
+
         <div class="proj-content-container" id="dis04">
-            <div class="proj-content-header">Dis 04. Inheritance.</div>
-            September 18+19, 2018.
+            <div class="proj-content-header">Dis 04+05. Inheritance.</div>
+            September 18+19+25+26, 2018.
             <br>
             <div class="proj-content-text">
             <a href="https://drive.google.com/open?id=1WLzpfIOubMBT5kvHXAZiApkKD2HJnftKnMTrEfaMw14" target="_blank">
