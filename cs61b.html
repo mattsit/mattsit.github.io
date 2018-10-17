@@ -88,11 +88,17 @@
 
                          <div class="proj-summary-detail">
                              <a href="#content">
-                                 dis 06. asymptotics
+                                 dis 06+07. asymptotics
                                  <img src="assets/img/right.png">
                              </a>
                    	     </div>
 
+                         <div class="proj-summary-detail">
+                             <a href="#content">
+                                 dis 08. traversals
+                                 <img src="assets/img/right.png">
+                             </a>
+                   	     </div>
                     </div>
                 </div>
             </div>
@@ -108,9 +114,131 @@
             </div>
         </div>
 
+        <div class="proj-content-container" id="dis08">
+            <div class="proj-content-header">Dis 08. Traversals.</div>
+            October 16+17, 2018.
+            <br>
+            <div class="proj-content-text">
+              <em>Preorder, Inorder, Postorder</em><br>
+                Pre-order, In-order, and Post-order are ways to describe when nodes in a binary tree are processed (an example of processing a node would be printing its value).
+                A binary tree is a tree in which nodes can have up to 2 children each.
+                <br><br>
+                Pre-order means to process the current node before pre-order traversing down the left and right of the current node.
+                In-order means to first in-order traverse the left of the current node, process the current node, and then in-order traverse down the right of the current node.
+                Post-order means to post-order traverse down the left and right of the current node before finally processing the current node.
+                <br><br>
+                Visually, you can determine the order nodes are processed during pre-, in-, or post-order traversal by drawing a peg on the west, south, or east side of each node, respectively,
+                and tracing a line around the tree diagram as shown below. The nodes are processed in the order the yellow line touches each red peg.
+                <br><br>
+                <i>
+                    Pre-order has pegs on the west side of each node.<br>
+                    A, B, C, D, E.
+                </i><br>
+                <img src="assets/img/61bl/preorder.jpg" width="400px">
+                <br><br>
+                <i>
+                    In-order has pegs on the south side of each node.<br>
+                    B, A, D, C, E.
+                </i><br>
+                <img src="assets/img/61bl/inorder.jpg" width="400px">
+                <br><br>
+                <i>
+                    Post-order has pegs on the east side of each node.<br>
+                    B, D, E, C, A.
+                </i><br>
+                <img src="assets/img/61bl/postorder.jpg" width="400px">
+                <br><br>
+                More formally, we can write this pseudocode to reflect the definitions of when pre-, in-, and post-order processing occurs:
+                <br><br>
+                <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8   </pre></td><td><pre style="margin: 0; line-height: 125%">binaryTreeTraversal(node):
+preorder(node)
+<span style="color: #007020; font-weight: bold">if</span> left <span style="color: #666666">!=</span> null:
+    binaryTreeTraversal(left)
+inorder(node)
+<span style="color: #007020; font-weight: bold">if</span> right <span style="color: #666666">!=</span> null:
+    binaryTreeTraversal(right)
+postorder(node)
+</pre></td></tr></table></div>
+
+            <ul>
+                <li>Taking the tree from above and this pseudocode, can you come up with the same list of letters for each of the traversals that we had when we did it visually?</li>
+                <li>Looking at this pseudocode, why does the red peg/yellow line visual trick work?</li>
+                <li>Why does in-order only make sense in the context of binary trees and not with trees that allow nodes to have more than 2 children?</li>
+            </ul>
+            <br>
+            <img src="assets/img/61bl/dfsbfstree.jpg" width="400px">
+            <br><br>
+            <em>DFS, BFS</em><br>
+            The yellow path we traced here for pre/in/post-order is known as depth-first search traversal (<em>DFS</em>).
+            This is because in all three variations, we visited nodes by venturing all the way down a path before back-tracking and venturing down another path (we go deep down into the tree first).
+            Given the tree above, DFS traversal gives: 1 2 3 4 5 6 7.
+            <br><br>
+            On the other hand, breadth-first search traversal (<em>BFS</em>) involves visiting nodes level by level.
+            Again, remember that pre/in/post-order does not make sense in the context of BFS because in all three of those, we visit nodes by following that yellow path-in DFS fashion.
+            Given the tree above, BFS traversal gives: 1 2 4 5 3 6 7.
+            <br><br>
+            Before we continue, recall that a <em>stack</em> data structure is like a stack of pancakes.
+            If new pancakes are added to my stack, I must eat the fresh pancakes on the top of the stack before I can eat the earlier ones which are sitting lower in the stack.
+            In contrast, a <em>queue</em> is like a queue of people standing in line to buy Fish and Chips at the marina.
+            Whoever got in line first will be the first one served and as new people jump in line, they must wait until everyone before them has been served before they have a chance to enjoy light, flaky fish steaks paired with luscious tarter sauce and a modest side of fries.
+            <br><br>
+            The pseudocode below describes the algorithm for DFS traversal.
+            Note that just like how when we traverse an array we need an index/counter variable or when we traverse a LinkedList we need a node pointer,
+            for tree traversal, we can use certain data structures to help us keep track of where we are.
+            This is called a <em>fringe</em>. For DFS, we use a stack and use the following procedure:
+            <br><br>
+            <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7  </pre></td><td><pre style="margin: 0; line-height: 125%">Use STACK as fringe<span style="color: #666666">.</span>
+    Add root to fringe<span style="color: #666666">.</span>
+    <span style="color: #007020; font-weight: bold">while</span> fringe not <span style="color: #002070; font-weight: bold">empty:</span>
+    Remove next from fringe<span style="color: #666666">.</span>
+    Add its children to fringe<span style="color: #666666">.</span>
+    Process removed node<span style="color: #666666">.</span>
+    </pre></td></tr></table></div>
+            <br>
+            The procedure for performing BFS traversal is almost identical!
+            The only difference is that we instead use a queue has our fringe:
+            <br><br>
+
+            <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7 </pre></td><td><pre style="margin: 0; line-height: 125%">Use QUEUE as fringe<span style="color: #666666">.</span>
+    Add root to fringe<span style="color: #666666">.</span>
+    <span style="color: #007020; font-weight: bold">while</span> fringe not <span style="color: #002070; font-weight: bold">empty:</span>
+    Remove next from fringe<span style="color: #666666">.</span>
+    Add its children to fringe<span style="color: #666666">.</span>
+    Process removed node<span style="color: #666666">.</span>
+            </pre></td></tr></table></div>
+            <br>
+            <ul>
+                <li>Try using the pseudocode to perform DFS and BFS traversals on the given tree above.</li>
+                <li>Did you get the same answers as provided conceptually? If not, would adding the children to the fringe in a different order yield the desired result?</li>
+                <li>Specifically, in what order should we add children to the fringe in order to DFS traverse starting with the left-most path first?</li>
+                <li>Similarly, in what order should we add children to the fringe in order to BFS traverse each layer from left to right?</li>
+                <li>Challenge question: DFS is naturally pre-order. How would you modify this algorithm to get a post-order traversal?</li>
+            </ul>
+            </div>
+        </div>
+
         <div class="proj-content-container" id="dis06">
-            <div class="proj-content-header">Dis 06. Asymptotics.</div>
-            October 2+3, 2018.
+            <div class="proj-content-header">Dis 06+07. Asymptotics.</div>
+            October 2+3+9+10, 2018.
             <br>
             <div class="proj-content-text">
                 We talked about the formal definition of the asymptotic bounds and
