@@ -99,6 +99,13 @@
                                  <img src="assets/img/right.png">
                              </a>
                    	     </div>
+
+                         <div class="proj-summary-detail">
+                             <a href="#content">
+                                 dis 13. shortest paths and msts
+                                 <img src="assets/img/right.png">
+                             </a>
+                   	     </div>
                     </div>
                 </div>
             </div>
@@ -111,6 +118,99 @@
             <br>
             <div class="proj-content-text">
 
+            </div>
+        </div>
+
+        <div class="proj-content-container" id="dis13">
+            <div class="proj-content-header">Dis 13. Shortest Paths and MSTs.</div>
+            November 27+28, 2018.
+            <br>
+            <div class="proj-content-text">
+                <em>Shortest Path Algorithms</em><br>
+                <b>Dijkstra's</b> algorithm finds all the shortest paths from a starting node,
+                to every other node in the graph. We maintain a fringe, that acts sort of like a priority queue.
+                We add to the fringe places we know how to get to at the moment.
+                Thus, we initialize it with just our starting node, because we know how to get to our starting node, from our starting node (that path is trivially of length 0).
+                While the fringe is not empty, we take the shortest path in our fringe that we have, and lock it in; this is the shortest path to that destination node and the algorithm
+                will not find a better one later on.
+                Then, we add the immediate neighbors of that destination node into our fringe, with the appropriate total lengths.
+                We repeat until the fringe is empty, which is when we have found the shortest paths to each of the nodes in the graph.
+                <br><br>
+                Dijkstra's is correct in that it is necessarily true that once we pull a path off the fringe, it is the shortest and we
+                won't find a better one in the future steps of the algorithm.
+                You can imagine Dijkstra's acting kind of like BFS.
+                There is a wavefront of increasing radius from the start node.
+                The wavefront will engulf a node the first opportunity it has, which will be via it's shortest path.
+                If a "better" path is found later, then there will be a contradiction because in a BFS-like way, the wavefront
+                would have engulfed the node via that better path before it engulfed it via the path we claimed was the shortest first.
+                <br><br>
+                Legend has it that Dijkstra's algorithm was invented by Dijkstra connecting a bunch of cards with strings like a graph,
+                and picking up one (starting) node off the table. The order in which the cards come off the table is the same order the algorithm
+                would lock in the shortest paths, and this is because how far that starting card is off the table is like the wavefront;
+                at any given point in time, all cards connected by strings with a total length that is less than the distance the starting card is off the table,
+                necessarily will also be off the table.
+                <br><br>
+                <b>A*</b> is Dijkstra's algorithm but with the addition of a heuristic at every step.
+                The problem with Dijkstra's is that it finds the shortest path from a starting node, to
+                every other node in the graph. But what if we only care about one destination node and we don't
+                want it to spend time exploring paths to nodes in the opposite direction? A* hones in on our goal and gets us there without wandering aimlessly.
+                <br><br>
+                A <b>heuristic</b> is an estimation of how far we our from our goal.
+                Our heuristics our <b>admissible</b> if they do not overestimate how far we our from our goal (they can either
+                be right on target, or an understimate in order to qualify as admissible).
+                If our heuristics are not admissible, A* may not return the actual shortest path.
+                <br><br>
+                A* is executed in the same way as Dijkstra's, but our values in the fringe will be the sum of the distance travelled so
+                far to get there (what we had before), and our heuristic estimate of how much farther we have to go.
+                Note that this means that Dijkstra's is simply A* with heuristics of all zeros.
+                <br><br>
+                A* is correct given admissibility. If a heuristic is an overestimate, it may prevent us from
+                selecting the actual shortest path off our fringe, because we are too scared to touch it; we think
+                it is more expensive than it really is. But if a heuristic is admissible, then at worst we are overly eager
+                to explore paths that we think are cheap but actually turn out expensive. But in the end, we won't actually
+                select a more expensive path over the actual shortest path. This <u><a href="https://en.wikipedia.org/wiki/Admissible_heuristic#Optimality_Guarantee" target="_blank">example from Wikipedia</a></u> illustrates why
+                admissibility implies optimality.
+                <br><br>
+                <em>MST's</em><br>
+                A Minimum Spanning Tree is a set of edges in a graph that connects every node to every other node in some way;
+                for any node, you can take some path to get to any other node (every node is reachable from any other).
+                Note that a MST cannot have any cycles; if it did we would be paying for one more edge than necessary since we
+                could remove the heaviest edge in that cycle and we'd still be able to get from any node to every other node in all cases.
+                Note also that therefore, a graph with V number of vertices will have V-1 edges in its MST, again because it won't have any cycles,
+                any node has exactly one edge which it connects it to the rest of the body of nodes, and cutting that edge would detach it completely (if it didn't detach it completely, then
+                that means there was another way to get to it, namely, a cycle).
+                <br><br>
+                <b>Prim's Algorithm</b> gets us an MST. It starts by arbitrarily choosing one node, and puts it into the MST.
+                In then looks at all the edges that could be added to expand our MST to include more nodes.
+                We wouldn't want to choose an edge that connects nodes already in our MST, since that would introduce a cycle.
+                We want to choose out of the edges that connect a node in our MST to a node not yet in our MST.
+                Out of all our options, we can greedily choose to just take the lightest edge that accomplishes this.
+                Our MST is now one node larger, and we can continue, considering the additional options we now have as well, until all our nodes in the
+                graph are including in our MST.
+                <br><br>
+                <b>Kruskal's Algorithm</b> also gets us an MST (not necessarily identical to that returned by Prim's, but both will be equal in total weight since they are both optimal).
+                In Kruskal's, we sort all of our edges from lightest to heaviest. Then, we go down that list of edges and add each edge
+                iff it does not introduce a cycle.
+                <br><br>
+                The correctness of these algorithms is backed by the <b>Cut Property</b>.
+                It states that if we cut our set of nodes into two separate sets, then of all the edges that cross
+                this cut, the lightest one will be in the MST. This property is true because if we assume for the sake
+                of contradiction that the edge we chose (the lightest one) is in fact not in the MST, then both the "real" edge we
+                should have chosen and the one we actually chose both serve the purpose of connecting the two separate sets.
+                It cannot be the case that the "real" edge and another edge together is a better choice than the one we chose; this
+                would imply that two edges across this cut are required for the "optimal" MST, but that cannot be true because this necessarily means there is a cycle
+                (since all of the nodes in each of the two separate sets are connected to each other).
+                So it must be that the "real" edge alone is a better choice than the one we chose, but that cannot be true, because
+                we chose our edge because it is the lightest one across the cut; the "real" edge must be heavier, and thus it cannot be the case that that
+                "real" edge really belongs to the MST; they serve the same purpose yet the "real" edge is more costly--there is no MST in which it is a better choice than the one we chose.
+                <br><br>
+                As an additional note, Kruskal's Algorithm must check at every step whether adding a particular edge introduces a cycle or not.
+                Naively, this can be done by performing a traversal on the edges so far with the proposed edge. If we traverse back to a node we've already seen, there must be a cycle.
+                But, this costs linear time at every step. Instead, we can keep track of which nodes are connected together using a data structure called
+                Quick Union. Here is a <u><a href="https://sp18.datastructur.es/materials/lectures/lec20/lec20" target="_blank">good guide from Spring</a></u> explaining all of the variants of it. Most importantly, there are two optimizations we can take advantage of:
+                (1) Weighted Quick Union - in which we merge smaller sets into larger ones, and (2) Path Compression - in which after we take the time to find a node deep in the tree-like structure,
+                we move it up directly under the root for easier access next time. With optimization (1), we achieve Theta(log n) time in the worst case, since the height of the tree will
+                never become too large. With optimization (2) on top of that, we do even better than Theta(log n) in the worst case. The function which bounds this runtime is called the Ackerman function.
             </div>
         </div>
 
