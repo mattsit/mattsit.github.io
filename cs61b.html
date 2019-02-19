@@ -100,8 +100,7 @@
             in some sequence, and it does so by providing a hasNext() method, which lets us
             know whether there is still another item for it to provide, and a next() method,
             which provides said item. (If next() is called by hasNext() is false, meaning that
-            no such next item exists, then behavior is undefined; users aren't supposed to call next()
-            without verifying that hasNext() is true first.)
+            no such next item exists, then a NoSuchElementException should be thrown.)
             <br><br>
             On the other hand, an <b>Iterable</b> represents a sequence that can be iterated over.
             If you've ever been to an old-school deli, the red ticket dispensing machine might be
