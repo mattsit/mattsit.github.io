@@ -68,6 +68,12 @@
                                  <img src="assets/img/right.png">
                              </a>
                    	     </div>
+                         <div class="proj-summary-detail">
+                             <a href="#content">
+                                 dis 05. iterators and iterables.
+                                 <img src="assets/img/right.png">
+                             </a>
+                   	     </div>
                     </div>
                 </div>
             </div>
@@ -80,6 +86,37 @@
             <br>
             <div class="proj-content-text">
 
+            </div>
+        </div>
+
+        <div class="proj-content-container" id="05">
+            <div class="proj-content-header">Dis 05. Iterators and Iterables.</div>
+            February 19 + 20, 2019.
+            <br>
+            <div class="proj-content-text">
+            The word "iterator" is a noun, while the word "iterable" is an adjective.
+            <br><br>
+            In Java, <b>Iterator</b>s thus represent a mechanism for dispensing one item at a time
+            in some sequence, and it does so by providing a hasNext() method, which lets us
+            know whether there is still another item for it to provide, and a next() method,
+            which provides said item. (If next() is called by hasNext() is false, meaning that
+            no such next item exists, then behavior is undefined; users aren't supposed to call next()
+            without verifying that hasNext() is true first.)
+            <br><br>
+            On the other hand, an <b>Iterable</b> represents a sequence that can be iterated over.
+            If you've ever been to an old-school deli, the red ticket dispensing machine might be
+            analogous to an Iterator, since it provides one ticket at a time, while the spool of tickets
+            represents the thing that is Iterable, since it is a series of the tickets we want to provide in order one at a time.
+            Iterables must have an iterator() method, which is responsible for providing a fresh iterator for itself that starts from the beginning
+            and that is independent of any other instances of iterators. For example, we might call iterator() twice to have two separate iterators
+            if we wanted to have one spool of tickets for our meat counter, and another spool of tickets for our fish counter.
+            Both spools would have tickets numbered from 1-1000, but each red ticket dispensing machine will do its job independent of what
+            the other is doing.
+            <br><br>
+            The benefit of doing this is that if we have something that is Iterable, we can use it via an enhanced for-loop.
+            Many Java data structures are iterable, and thus make it easy for you to iterate over the items in it, such as an ArrayList or a Deque.
+            Of course, we thus need to know about Iterators because in order to make our own custom-defined classes Iterable, it must implement iterator(),
+            and so we will have to define an Iterator as well; its not enough to just have a spool of tickets, you have to define a mechanism for how you're going to hand out those tickets too.
             </div>
         </div>
 
