@@ -86,6 +86,12 @@
                                  <img src="assets/img/right.png">
                              </a>
                    	     </div>
+                         <div class="proj-summary-detail">
+                             <a href="#content">
+                                 dis 10. graphs.
+                                 <img src="assets/img/right.png">
+                             </a>
+                   	     </div>
                     </div>
                 </div>
             </div>
@@ -99,6 +105,61 @@
             <div class="proj-content-text">
 
             </div>
+        </div>
+
+        <div class="proj-content-container" id="10">
+            <div class="proj-content-header">Dis 11. Graphs.</div>
+            April 3, 2018.
+            <br>
+            <div class="proj-content-text">
+                <em>DFS Traversal</em><br>
+                We can traverse a graph in DFS-fashion by following this pseudocode:
+                <br><br>
+
+                <!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11  </pre></td><td><pre style="margin: 0; line-height: 125%">Use STACK as fringe<span style="color: #666666">.</span>
+Maintain SET of visited vertices<span style="color: #666666">.</span>
+Add start vertex to fringe<span style="color: #666666">.</span>
+
+<span style="color: #007020; font-weight: bold">while</span> fringe not <span style="color: #002070; font-weight: bold">empty:</span>
+    Remove next from fringe<span style="color: #666666">.</span>
+    <span style="color: #007020; font-weight: bold">if</span> not <span style="color: #002070; font-weight: bold">visited:</span>
+        Process removed node<span style="color: #666666">.</span>
+        <span style="color: #007020; font-weight: bold">for</span> each <span style="color: #002070; font-weight: bold">neighbor:</span>
+            Add to fringe<span style="color: #666666">.</span>
+        Mark removed node as visited<span style="color: #666666">.</span>
+</pre></td></tr></table></div>
+            <br>
+            Just as before with trees, it is important to note that the order in which
+            we add our neighbors to the fringe may alter our final result.
+            Further, some variations of this pseudocode may check whether a node has been visited
+            at a different point of the algorithm, and this may also lead to differing results.
+            <br><br>
+            For the graph below, start at node 0 and execute the DFS-traversal algorithm.
+            What is the list of nodes processed?
+            <br><br>
+            <img src="assets/img/61bl/directedgraph.jpg" height="300px">
+            <br>
+            <i>(Source: CSM 61BL Su17, WS 6, Q6.)</i>
+            <br>
+            <ul>
+                <li>Are all vertices reachable if we start a node 0?</li>
+                <li>What if we were looking for the BFS-traversal instead?</li>
+                <li>How about pre-order and post-order DFS? Can we easily get these from this iterative pseudocode?</li>
+                <ul>
+                    <li><i>No, we should translate this to a recursive solution so that we can proccess vertices either before or after the recursive call.</i></li>
+                </ul>
+            </ul>
+            <br>
         </div>
 
         <div class="proj-content-container" id="09">
