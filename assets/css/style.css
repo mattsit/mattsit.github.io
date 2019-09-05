@@ -42,18 +42,33 @@ a {
 	border-right: solid 0px transparent;
 }
 
-#wedge-dark-blue {
+#wedge-dark-blue-over-white {
 	border-top-color: #33639D;
 	background: #f9f3ec;
 }
 
-#wedge-white {
-	border-top-color: #f9f3ec;
-	background: #A1B7D2;
-}
-
 #wedge-light-blue {
 	border-top-color: #A1B7D2;
+	background: #f9f3ec;
+}
+
+#wedge-white-over-green {
+	border-top-color: #f9f3ec;
+	background: #c1dbd4;
+}
+
+#wedge-green-over-yellow {
+	border-top-color: #c1dbd4;
+	background: #f7f1dc;
+}
+
+#wedge-yellow-over-orange {
+	border-top-color: #f7f1dc;
+	background: #fadac3;
+}
+
+#wedge-orange-over-white {
+	border-top-color: #fadac3;
 	background: #f9f3ec;
 }
 
@@ -341,14 +356,43 @@ a {
 
 /* Project Section */
 
-#portfolio-section {
+#light-blue-section {
 	background: #A1B7D2;
 }
 
+#green-section {
+	background: #c1dbd4;
+}
 
-#methods-container {
+#yellow-section {
+	background: #f7f1dc;
+}
+
+#orange-section {
+	background: #fadac3;
+}
+
+#white-section {
+	background: #f9f3ec;
+}
+
+#container-description {
+	font-size: 18px;
+	line-height: 30px;
 	display: inline-block;
-	margin: 25px;
+	vertical-align: middle;
+	text-align: left;
+	border-left: solid 10px;
+	padding-left: 40px;
+	margin-top: 50px;
+    width: 60%;
+}
+
+#container-description em {
+	font-style: normal;
+	font-size: 24px;
+	font-weight: 600;
+	letter-spacing: 1px;
 }
 
 #methods {
@@ -370,21 +414,20 @@ a {
 }
 
 .proj-container {
-	display: inline-block;
-	vertical-align: top;
-	margin: 0 5px;
-	width: 30%;
+    margin-top: 50px;
 }
 
 .proj-card {
+    vertical-align: top;
+    display: inline-block;
 	width: 100%;
 	border: solid 2px #262523;
-	display: inline-block;
 	background-color: #EEEEEE;
 	transition: 0.5s;
 	position: relative;
 	text-align: left;
 	margin-bottom: 20px;
+    width: 30%;
 }
 
 #bioe-card:hover {
@@ -417,7 +460,7 @@ a {
 }
 
 #teaching-label {
-	background: #E6AD16;
+	background: #f5a623;
 	color: #FFFFFF;
 }
 
@@ -440,6 +483,8 @@ a {
 	font-size: 16px;
 	margin: 5px;
 	padding-bottom: 5px;
+    line-height: 1.6em;
+    letter-spacing: 0.25px;
 }
 
 .btn-read-more {
@@ -479,15 +524,13 @@ a {
 
 @media (max-width: 1000px) {
 	.proj-container {
-		display: block;
-		width: 400px;
-		margin: 0 auto;
+
 	}
 }
 
 @media (max-width: 470px) {
 	.proj-container {
-		width: 300px;
+
 	}
 }
 
