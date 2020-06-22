@@ -1,4 +1,5 @@
 @use "colors";
+@import "_navbar.scss";
 
 body {
 	text-align: center;
@@ -75,70 +76,6 @@ a {
 /****************************
 * Index                     *
 ****************************/
-
-/* Navbar */
-
-#navbar-menu-btn {
-	display: block;
-	text-align: left;
-	position: fixed;
-	cursor: pointer;
-	top: 15px;
-	left: 15px;
-	z-index: 1000;
-}
-
-#navbar-menu-btn img {
-	height: 20px;
-	padding: 5px;
-	filter: opacity(0.8);
-	-webkit-filter: opacity(0.8);
-	-moz-filter: opacity(0.8);
-	-ms-filter: opacity(0.8);
-	-o-filter: opacity(0.8);
-	border: solid 2px;
-	border-radius: 5px;
-}
-
-.navbar {
-	position: fixed;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	z-index: 100;
-	transition: 0.5s;
-	background-color: colors.$black;
-	filter: opacity(0.975);
-	display: none;
-	padding-top: 100px;
-}
-
-.navbar:hover {
-	background-color: colors.$black;
-	filter: opacity(0.975);
-}
-
-.navbar-btn {
-	display: block;
-	border: none;
-	padding: 10px;
-	border-radius: 5px;
-	font-size: 18px;
-	font-weight: 400;
-	text-align: center;
-	margin: 20px auto;
-	width: 80%;
-	background-color: colors.$white;
-	transition: 0.5s;
-	color: colors.$black;
-}
-
-.navbar-btn:hover {
-	background-color: white;
-	text-decoration: underline;
-}
-
 #footer {
 	background: colors.$black;
 	color: colors.$dark-gray;
