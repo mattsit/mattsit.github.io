@@ -31,26 +31,4 @@ $(document).ready(function() {
             $(".proj-summary img").css("filter","opacity(0.8)");
         }
     });
-
-    /* Hide/Show Navbar options when Menu Button is clicked (only applies to window width < 1000) */
-    var isShowNavbar = false;
-
-    $("#navbar-menu-btn").click(function(event) {
-        event.stopPropagation();
-        if (isShowNavbar) {
-            $(".navbar").hide();
-            isShowNavbar = false;
-            $("#navbar-menu-btn").css("filter","none");
-        } else {
-            $(".navbar").show();
-            isShowNavbar = true;
-            $("#navbar-menu-btn").css("filter","invert()");
-        }
-    });
-
-    $window.click(function() {
-        $(".navbar").hide();
-        isShowNavbar = false;
-        $("#navbar-menu-btn").css("filter","none");
-    });
 });
