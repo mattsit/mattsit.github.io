@@ -29,49 +29,36 @@ a {
 	transition: 2.5s;
 }
 
-.wedge-right {
-	width: 0;
-	height: 0;
-	border-top: solid 50px;
-	border-left: solid 0px transparent;
+// Generates wedges between index page sections.
+// Pairs of consecutive colors form a wedge.
+// Wedges alternate between tilting to the left and right.
+@mixin wedge($colors...) {
+    @for $i from 0 to length($colors) - 1 {
+        #wedge-#{$i} {
+            width: 0;
+            height: 0;
+            border-top: solid 50px;
+            @if $i % 2 == 0 {
+                border-left: solid 100vw transparent;
+                border-right: solid 0px transparent;
+            } @else {
+                border-left: solid 0px transparent;
+                border-right: solid 100vw transparent;
+            }
+            border-top-color: #{nth($colors, $i + 1)};
+            background: #{nth($colors, $i + 2)};
+        }
+    }
 }
 
-.wedge-left {
-	width: 0;
-	height: 0;
-	border-top: solid 50px;
-	border-right: solid 0px transparent;
-}
-
-#wedge-dark-blue-over-white {
-	border-top-color: colors.$dark-blue;
-	background: colors.$white;
-}
-
-#wedge-light-blue {
-	border-top-color: colors.$light-blue;
-	background: colors.$white;
-}
-
-#wedge-white-over-green {
-	border-top-color: colors.$white;
-	background: colors.$green;
-}
-
-#wedge-green-over-yellow {
-	border-top-color: colors.$green;
-	background: colors.$yellow;
-}
-
-#wedge-yellow-over-orange {
-	border-top-color: colors.$yellow;
-	background: colors.$orange;
-}
-
-#wedge-orange-over-white {
-	border-top-color: colors.$orange;
-	background: colors.$white;
-}
+@include wedge(
+    colors.$dark-blue,
+    colors.$white,
+    colors.$green,
+    colors.$yellow,
+    colors.$orange,
+    colors.$white
+);
 
 /****************************
 * Index                     *

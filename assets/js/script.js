@@ -10,9 +10,6 @@ $(document).ready(function() {
     $("#home-text").removeClass("float-in-pre");
     $("#home-text").addClass("float-in-post");
 
-    $(".wedge-right").css("border-right","solid transparent " + $window.width() + "px");
-    $(".wedge-left").css("border-left","solid transparent " + $window.width() + "px");
-
     /* Blinking down arrow on project pages */
     var isTransparent = false;
 
