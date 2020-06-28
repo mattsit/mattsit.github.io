@@ -4,7 +4,7 @@ $(document).ready(function() {
     var $window = $(window);
 
     /* Set home section height just above fold */
-    $("#home-section").css("height", $window.height() * 0.9);
+    $(".home-section").css("height", $window.height() * 0.9);
 
     /* Float in name and resume button after loading */
     $("#home-text").removeClass("float-in-pre");

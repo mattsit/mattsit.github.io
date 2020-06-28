@@ -30,10 +30,10 @@ a {
 	transition: 2.5s;
 }
 
-// Generates wedges between index page sections.
-// Pairs of consecutive colors form a wedge.
-// Wedges alternate between tilting to the left and right.
-@mixin wedge($colors...) {
+@mixin index-sections($colors...) {
+    // Generates wedges between index page sections.
+    // Pairs of consecutive colors form a wedge.
+    // Wedges alternate between tilting to the left and right.
     @for $i from 0 to length($colors) - 1 {
         #wedge-#{$i} {
             width: 0;
@@ -50,9 +50,16 @@ a {
             background: #{nth($colors, $i + 2)};
         }
     }
+    // Generates sections (separated by the wedges).
+    @for $i from 0 to length($colors) {
+        .section-#{$i} {
+            background: #{nth($colors, $i + 1)};
+            width: 100vw;
+        }
+    }
 }
 
-@include wedge(
+@include index-sections(
     colors.$dark-blue,
     colors.$white,
     colors.$green,
@@ -79,7 +86,7 @@ a {
 
 /* Home Section */
 
-#home-section {
+.home-section {
 	width: 100vw;
 	/* Height is set to 90% of window height via js */
 	top: 0;
@@ -205,7 +212,7 @@ a {
 	margin: 25px 50px;
 }
 
-#objective {
+#objective-text {
 	font-size: 18px;
 	line-height: 30px;
 	display: inline-block;
@@ -214,7 +221,7 @@ a {
 	width: 50%;
 }
 
-#objective em {
+#objective-text em {
 	font-style: normal;
 	font-size: 24px;
 	font-weight: 600;
@@ -280,31 +287,6 @@ a {
 }
 
 /* Project Section */
-
-#light-blue-section {
-	background: colors.$light-blue;
-    width: 100vw;
-}
-
-#green-section {
-	background: colors.$green;
-    width: 100vw;
-}
-
-#yellow-section {
-	background: colors.$yellow;
-}
-
-#orange-section {
-	background: colors.$orange;
-    width: 100vw;
-}
-
-#white-section {
-	background: colors.$white;
-    width: 100vw;
-}
-
 #container-description {
 	font-size: 18px;
 	line-height: 30px;
@@ -473,7 +455,7 @@ a {
 }
 
 @media (max-width: 1000px) {
-	#contact-section {
+	.contact-section {
 		text-align: left;
         width: 100vw;
 	}
