@@ -9,6 +9,7 @@ body {
 	background: colors.$white;
 	margin: 0;
 	padding: 0;
+    overflow-x: hidden;
 }
 
 a {
@@ -79,7 +80,7 @@ a {
 /* Home Section */
 
 #home-section {
-	width: 100%;
+	width: 100vw;
 	/* Height is set to 90% of window height via js */
 	top: 0;
 	left: 0;
@@ -282,10 +283,12 @@ a {
 
 #light-blue-section {
 	background: colors.$light-blue;
+    width: 100vw;
 }
 
 #green-section {
 	background: colors.$green;
+    width: 100vw;
 }
 
 #yellow-section {
@@ -294,10 +297,12 @@ a {
 
 #orange-section {
 	background: colors.$orange;
+    width: 100vw;
 }
 
 #white-section {
 	background: colors.$white;
+    width: 100vw;
 }
 
 #container-description {
@@ -470,6 +475,7 @@ a {
 @media (max-width: 1000px) {
 	#contact-section {
 		text-align: left;
+        width: 100vw;
 	}
 
 	.proj-summary-header {
