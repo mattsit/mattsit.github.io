@@ -9,11 +9,13 @@
         <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
-        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js"></script>
+        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
         <script src = "assets/js/script.js"></script>
         <script src = "assets/js/navbar.js"></script>
         <script src = "assets/js/navbar.js"></script>
+        <script src = "assets/js/cards.js"></script>
     </head>
     <body>
         <div class="navbar"></div>
@@ -41,7 +43,7 @@
                 Hello! I graduated in 2019 from <em> UC Berkeley </em> with a major in <em id="eecs">Electrical Engineering &amp; Computer Sciences</em>, and a minor in <em id="bioe">Bioengineering</em>.
                 During my time in undergrad, I conducted <em id="bioe">research</em> in Computational Biology labs and I <em id="teach">taught</em> the data structures course at my university, as both a teaching assistant and a <u><a href="https://cs61bl.org/su19/" target="_blank"><em> lecturer</em></a></u>.
                 In Summer 2018, I was a software engineering intern at <u><a href="https://www.citadel.com/" target="_blank"><em> Citadel</em></a></u>.
-                As of September 2019, I have become a software engineer at <u><a href="https://www.youtube.com/" target="_blank"><em> Google / YouTube</em></a></u>.
+                As of September 2019, I have become a software engineer at <u><a href="https://www.youtube.com/" target="_blank"><em> YouTube</em></a></u>.
                 </div>
             </div>
             <div class="stat-container">
@@ -75,6 +77,7 @@
             </div>
 
             <div class="proj-container">
+                <div class="proj-card-gutter"></div>
                 <div class="proj-card" id="bioe-card">
                     <div class="proj-card-label" id="bioe-label">2017 - 2019</div>
                     <div class="proj-card-img">
@@ -188,52 +191,50 @@
             </div>
 
             <div class="proj-container">
-
-                <div class="proj-container">
-                    <div class="proj-card" id="teaching-card">
-                        <div class="proj-card-label" id="teaching-label">2016 - 2019</div>
-                        <div class="proj-card-img">
-                            <img src="assets/img/teachingcs/genericcode.jpg">
-                        </div>
-                        <div class="proj-card-title">CS61B</div>
-                        <div class="proj-card-desc">
-                            I taught the "Data Structures" course at UC Berkeley as a Teaching Assistant
-                            for 5 semesters, and in <u><a href="https://cs61bl.org/su19/" target="_blank">Summer 2019</a></u>,
-                            I was the lecturer for an <u><a href="https://classes.berkeley.edu/content/2019-summer-compsci-61bl-001-lec-001" target="_blank">official offering<a/></u>
-                            of the course for 331 students. During the summer, I took
-                            the lead on authoring the exams, delivered custom lectures,
-                            and revamped the lab assignments linked below.
-                        </div>
-                        <a href="cs61b.html"><div class="btn-read-more" id="teaching-btn">TA notes</div></a>
-                        <a href="https://cs61bl.org/su19/assets/pdf/cs61bl_su19_mt1_soln.pdf" target="_blank"><div class="btn-read-more" id="teaching-btn">Midterm 1</div></a>
-                        <a href="https://cs61bl.org/su19/assets/pdf/cs61bl_su19_mt2_soln.pdf" target="_blank"><div class="btn-read-more" id="teaching-btn">Midterm 2</div></a>
-                        <a href="https://cs61bl.org/su19/assets/pdf/cs61bl_su19_final_soln.pdf" target="_blank"><div class="btn-read-more" id="teaching-btn">Final Exam</div></a>
-                        <a href="https://youtu.be/kjCeKD9Iv3Q?t=2220" target="_blank"><div class="btn-read-more" id="teaching-btn">Lec 1: Primitives & References</div></a>
-                        <a href="https://youtu.be/wUELqzVhVmg?t=4880" target="_blank"><div class="btn-read-more" id="teaching-btn">Lec 2: Arrays & LinkedLists</div></a>
-                        <a href="https://youtu.be/NHxaBeE1SFE?t=150" target="_blank"><div class="btn-read-more" id="teaching-btn">Lec 3: Runtime Analysis</div></a>
-                        <a href="https://youtu.be/sJLwD6fYZow?t=150" target="_blank"><div class="btn-read-more" id="teaching-btn">Lec 4: Tree Traversals & Iterators</div></a>
-                        <a href="https://youtu.be/etj0cxlo574?t=2135" target="_blank"><div class="btn-read-more" id="teaching-btn">Lec 5: Review & Runtime</div></a>
-                        <a href="https://youtu.be/ztFj-ia8J5A?t=420" target="_blank"><div class="btn-read-more" id="teaching-btn">Lec 6: Dijkstra's</div></a>
-                        <a href="https://youtu.be/5vVAolBDJRA?t=4910" target="_blank"><div class="btn-read-more" id="teaching-btn">Lec 7: Regex</div></a>
-                        <a href="https://cs61bl.org/su19/labs/lab04/" target="_blank"><div class="btn-read-more" id="teaching-btn">Lab: OOP & Scope</div></a>
-                        <a href="https://cs61bl.org/su19/labs/lab07/" target="_blank"><div class="btn-read-more" id="teaching-btn">Lab: Runtime Analysis</div></a>
-                        <a href="https://cs61bl.org/su19/labs/lab09/" target="_blank"><div class="btn-read-more" id="teaching-btn">Lab: Tree Traversals</div></a>
+                <div class="proj-card-gutter"></div>
+                <div class="proj-card" id="teaching-card">
+                    <div class="proj-card-label" id="teaching-label">2016 - 2019</div>
+                    <div class="proj-card-img">
+                        <img src="assets/img/teachingcs/genericcode.jpg">
                     </div>
-
-                    <a href="beam.html">
-                        <div class="proj-card" id="teaching-card">
-                            <div class="proj-card-label" id="teaching-label">2016 - 2018</div>
-                            <div class="proj-card-img">
-                                <img src="assets/img/beam/swings.jpg">
-                            </div>
-                            <div class="proj-card-title">Berkeley Engineers and Mentors</div>
-                            <div class="proj-card-desc">
-                                As Director of Curriculum, I equipped 100 college students for STEM outreach to 300 local elementary/middle school students.
-                            </div>
-                            <div class="btn-read-more" id="teaching-btn">Read more</div>
-                        </div>
-                    </a>
+                    <div class="proj-card-title">CS61B</div>
+                    <div class="proj-card-desc">
+                        I taught the "Data Structures" course at UC Berkeley as a Teaching Assistant
+                        for 5 semesters, and in <u><a href="https://cs61bl.org/su19/" target="_blank">Summer 2019</a></u>,
+                        I was the lecturer for an <u><a href="https://classes.berkeley.edu/content/2019-summer-compsci-61bl-001-lec-001" target="_blank">official offering<a/></u>
+                        of the course for 331 students. During the summer, I took
+                        the lead on authoring the exams, delivered custom lectures,
+                        and revamped the lab assignments linked below.
+                    </div>
+                    <a href="cs61b.html"><div class="btn-read-more" id="teaching-btn">TA notes</div></a>
+                    <a href="https://cs61bl.org/su19/assets/pdf/cs61bl_su19_mt1_soln.pdf" target="_blank"><div class="btn-read-more" id="teaching-btn">Midterm 1</div></a>
+                    <a href="https://cs61bl.org/su19/assets/pdf/cs61bl_su19_mt2_soln.pdf" target="_blank"><div class="btn-read-more" id="teaching-btn">Midterm 2</div></a>
+                    <a href="https://cs61bl.org/su19/assets/pdf/cs61bl_su19_final_soln.pdf" target="_blank"><div class="btn-read-more" id="teaching-btn">Final Exam</div></a>
+                    <a href="https://youtu.be/kjCeKD9Iv3Q?t=2220" target="_blank"><div class="btn-read-more" id="teaching-btn">Lec 1: Primitives & References</div></a>
+                    <a href="https://youtu.be/wUELqzVhVmg?t=4880" target="_blank"><div class="btn-read-more" id="teaching-btn">Lec 2: Arrays & LinkedLists</div></a>
+                    <a href="https://youtu.be/NHxaBeE1SFE?t=150" target="_blank"><div class="btn-read-more" id="teaching-btn">Lec 3: Runtime Analysis</div></a>
+                    <a href="https://youtu.be/sJLwD6fYZow?t=150" target="_blank"><div class="btn-read-more" id="teaching-btn">Lec 4: Tree Traversals & Iterators</div></a>
+                    <a href="https://youtu.be/etj0cxlo574?t=2135" target="_blank"><div class="btn-read-more" id="teaching-btn">Lec 5: Review & Runtime</div></a>
+                    <a href="https://youtu.be/ztFj-ia8J5A?t=420" target="_blank"><div class="btn-read-more" id="teaching-btn">Lec 6: Dijkstra's</div></a>
+                    <a href="https://youtu.be/5vVAolBDJRA?t=4910" target="_blank"><div class="btn-read-more" id="teaching-btn">Lec 7: Regex</div></a>
+                    <a href="https://cs61bl.org/su19/labs/lab04/" target="_blank"><div class="btn-read-more" id="teaching-btn">Lab: OOP & Scope</div></a>
+                    <a href="https://cs61bl.org/su19/labs/lab07/" target="_blank"><div class="btn-read-more" id="teaching-btn">Lab: Runtime Analysis</div></a>
+                    <a href="https://cs61bl.org/su19/labs/lab09/" target="_blank"><div class="btn-read-more" id="teaching-btn">Lab: Tree Traversals</div></a>
                 </div>
+
+                <a href="beam.html">
+                    <div class="proj-card" id="teaching-card">
+                        <div class="proj-card-label" id="teaching-label">2016 - 2018</div>
+                        <div class="proj-card-img">
+                            <img src="assets/img/beam/swings.jpg">
+                        </div>
+                        <div class="proj-card-title">Berkeley Engineers and Mentors</div>
+                        <div class="proj-card-desc">
+                            As Director of Curriculum, I equipped 100 college students for STEM outreach to 300 local elementary/middle school students.
+                        </div>
+                        <div class="btn-read-more" id="teaching-btn">Read more</div>
+                    </div>
+                </a>
             </div>
         </section>
 
@@ -243,6 +244,7 @@
             <div class="section-header">industry and projects</div>
 
             <div class="proj-container">
+                <div class="proj-card-gutter"></div>
                 <div class="proj-card" id="eecs-card">
                     <a href="https://www.youtube.com/" target="_blank">
                         <div class="proj-card-label" id="eecs-label">SWE</div>

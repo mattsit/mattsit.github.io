@@ -403,21 +403,42 @@ a {
 
 .proj-container {
   margin-top: 50px;
+  overflow: auto;
+  margin-left: 4vw;
 }
 
 .proj-card {
-  vertical-align: top;
-  display: inline-block;
-  width: 100%;
   border: solid 2px #262523;
   background-color: #f9f3ec;
   transition: 0.5s;
-  position: relative;
   text-align: left;
   margin-bottom: 20px;
-  width: 30%;
+  width: 30vw;
+  float: left;
 }
 
+.proj-card-gutter {
+  width: 1vw;
+}
+
+@media (max-width: 1000px) {
+  .proj-container {
+    margin-left: 4.5vw;
+  }
+
+  .proj-card {
+    width: 45vw;
+  }
+}
+@media (max-width: 470px) {
+  .proj-container {
+    margin-left: 5vw;
+  }
+
+  .proj-card {
+    width: 90vw;
+  }
+}
 #bioe-card:hover {
   background: #9CD2C3;
 }
