@@ -96,6 +96,7 @@ a {
 	position: relative;
 	color: colors.$white;
 	background: colors.$dark-blue;
+    z-index: 1;
 }
 
 #home-text {

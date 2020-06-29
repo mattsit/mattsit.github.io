@@ -187,6 +187,7 @@ a {
   position: relative;
   color: #f9f3ec;
   background: #33639D;
+  z-index: 1;
 }
 
 #home-text {
