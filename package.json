@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel *.html assets/61b/*.html",
     "predeploy": "parcel build *.html assets/61b/*.html",
-    "deploy": "gh-pages -d dist -b master"
+    "deploy": "gh-pages -d dist -b master --message 'Auto-generated commit.'"
   },
   "repository": {
     "type": "git",
@@ -20,11 +20,11 @@
   },
   "homepage": "https://mattsit.github.io",
   "devDependencies": {
-    "gh-pages": "^3.1.0",
     "parcel-bundler": "^1.12.4",
     "sass": "^1.26.8"
   },
   "dependencies": {
-    "jquery": "^1.12.4"
+    "gh-pages": "^3.1.0",
+    "jquery": "^3.5.1"
   }
 }
