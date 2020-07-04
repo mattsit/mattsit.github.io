@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CS 61B | Matthew T. Sit</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="/style.a11e3109.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel="stylesheet" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+        </script>
+        <script src="/script.c10090b4.js"></script>
+        <script src="/hiddenscript.93801ffe.js"></script>
+        <script src="/navbar.66e62c2e.js"></script>
+        <!-- All code snippet formatting by http://hilite.me/ (friendly styling)-->
+    <script src="/Asymptotic+Analysis.js"></script></head>
+    <body>
+        <div class="navbar"></div>
+        <div class="proj-banner-container">
+            <img src="/lift.caefdc47.jpg" class="proj-banner">
+            <div class="proj-banner-text-container">
+                <a href="https://sp19.datastructur.es/" target="_blank" class="proj-banner-title">CS 61B, Data Structures</a>
+                <div class="proj-banner-position">Matt's Notes</div>
+            </div>
+        </div>
+        <div class="proj-summary">
+            <div>
+                <img src="/down.3fb81a1e.png" class="proj-down">
+            </div>
+            <div>
+            	<em>Welcome!</em> Here are some notes from our sections together!<br>
+	    	Click on any link below to view.
+            </div>
+            <div>
+                <div class="proj-summary-right-col">
+                    <div class="proj-summary-cluster-right">
+                        <div class="proj-summary-header">Spring 2019</div>
+                        <div class="proj-summary-detail">
+                            <a href="#content">
+                                dis 01. intro to java!
+                                <img src="/right.b736c6f2.png">
+                            </a>
+                  	     </div>
+                         <div class="proj-summary-detail">
+                             <a href="#content">
+                                 dis 02. static and intlists.
+                                 <img src="/right.b736c6f2.png">
+                             </a>
+                   	     </div>
+                         <div class="proj-summary-detail">
+                             <a href="#content">
+                                 dis 03. linked lists and arrays.
+                                 <img src="/right.b736c6f2.png">
+                             </a>
+                   	     </div>
+                         <div class="proj-summary-detail">
+                             <a href="#content">
+                                 dis 04. inheritance.
+                                 <img src="/right.b736c6f2.png">
+                             </a>
+                   	     </div>
+                         <div class="proj-summary-detail">
+                             <a href="#content">
+                                 dis 05. iterators and iterables.
+                                 <img src="/right.b736c6f2.png">
+                             </a>
+                   	     </div>
+                         <div class="proj-summary-detail">
+                             <a href="#content">
+                                 dis 06. disjoint sets and asymptotics.
+                                 <img src="/right.b736c6f2.png">
+                             </a>
+                   	     </div>
+                         <div class="proj-summary-detail">
+                             <a href="#content">
+                                 dis 09. traversals.
+                                 <img src="/right.b736c6f2.png">
+                             </a>
+                   	     </div>
+                         <div class="proj-summary-detail">
+                             <a href="#content">
+                                 dis 10. graphs.
+                                 <img src="/right.b736c6f2.png">
+                             </a>
+                   	     </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section id="content"></section>
+
+        <div class="proj-content-container" id="template">
+            <div class="proj-content-header">Dis 00. Template.</div>
+            January 00, 2019.
+            <br>
+            <div class="proj-content-text">
+
+            </div>
+        </div>
+
+        <div class="proj-content-container" id="10">
+            <div class="proj-content-header">Dis 10. Graphs.</div>
+            April 3, 2018.
+            <br>
+            <div class="proj-content-text">
+                <em>DFS Traversal</em><br>
+                We can traverse a graph in DFS-fashion by following this pseudocode:
+                <br><br>
+
+                <!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11  </pre></td><td><pre style="margin: 0; line-height: 125%">Use STACK as fringe<span style="color: #666666">.</span>
+Maintain SET of visited vertices<span style="color: #666666">.</span>
+Add start vertex to fringe<span style="color: #666666">.</span>
+
+<span style="color: #007020; font-weight: bold">while</span> fringe not <span style="color: #002070; font-weight: bold">empty:</span>
+    Remove next from fringe<span style="color: #666666">.</span>
+    <span style="color: #007020; font-weight: bold">if</span> not <span style="color: #002070; font-weight: bold">visited:</span>
+        Process removed node<span style="color: #666666">.</span>
+        <span style="color: #007020; font-weight: bold">for</span> each <span style="color: #002070; font-weight: bold">neighbor:</span>
+            Add to fringe<span style="color: #666666">.</span>
+        Mark removed node as visited<span style="color: #666666">.</span>
+</pre></td></tr></table></div>
+            <br>
+            Just as before with trees, it is important to note that the order in which
+            we add our neighbors to the fringe may alter our final result.
+            Further, some variations of this pseudocode may check whether a node has been visited
+            at a different point of the algorithm, and this may also lead to differing results.
+            <br><br>
+            For the graph below, start at node 0 and execute the DFS-traversal algorithm.
+            What is the list of nodes processed?
+            <br><br>
+            <img src="/directedgraph.f98e9912.jpg" height="300px">
+            <br>
+            <i>(Source: CSM 61BL Su17, WS 6, Q6.)</i>
+            <br>
+            <ul>
+                <li>Are all vertices reachable if we start a node 0?</li>
+                <li>What if we were looking for the BFS-traversal instead?</li>
+                <li>How about pre-order and post-order DFS? Can we easily get these from this iterative pseudocode?</li>
+                <ul>
+                    <li><i>No, we should translate this to a recursive solution so that we can proccess vertices either before or after the recursive call.</i></li>
+                </ul>
+            </ul>
+            <br>
+        </div>
+    </div>
+
+        <div class="proj-content-container" id="09">
+            <div class="proj-content-header">Dis 09. Traversals.</div>
+            March 19 + 20, 2019
+            <br>
+            <div class="proj-content-text">
+              <em>Preorder, Inorder, Postorder</em><br>
+                Pre-order, In-order, and Post-order are ways to describe when nodes in a binary tree are processed (an example of processing a node would be printing its value).
+                A binary tree is a tree in which nodes can have up to 2 children each.
+                <br><br>
+                Pre-order means to process the current node before pre-order traversing down the left and right of the current node.
+                In-order means to first in-order traverse the left of the current node, process the current node, and then in-order traverse down the right of the current node.
+                Post-order means to post-order traverse down the left and right of the current node before finally processing the current node.
+                <br><br>
+                Visually, you can determine the order nodes are processed during pre-, in-, or post-order traversal by drawing a peg on the west, south, or east side of each node, respectively,
+                and tracing a line around the tree diagram as shown below. The nodes are processed in the order the yellow line touches each red peg.
+                <br><br>
+                <i>
+                    Pre-order has pegs on the west side of each node.<br>
+                    A, B, C, D, E.
+                </i><br>
+                <img src="/preorder.f4d19ad1.jpg" width="400px">
+                <br><br>
+                <i>
+                    In-order has pegs on the south side of each node.<br>
+                    B, A, D, C, E.
+                </i><br>
+                <img src="/inorder.1591910d.jpg" width="400px">
+                <br><br>
+                <i>
+                    Post-order has pegs on the east side of each node.<br>
+                    B, D, E, C, A.
+                </i><br>
+                <img src="/postorder.43e0ac92.jpg" width="400px">
+                <br><br>
+                More formally, we can write this pseudocode to reflect the definitions of when pre-, in-, and post-order processing occurs:
+                <br><br>
+                <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8   </pre></td><td><pre style="margin: 0; line-height: 125%">binaryTreeTraversal(node):
+    preorder(node)
+    <span style="color: #007020; font-weight: bold">if</span> left <span style="color: #666666">!=</span> null:
+        binaryTreeTraversal(left)
+    inorder(node)
+        <span style="color: #007020; font-weight: bold">if</span> right <span style="color: #666666">!=</span> null:
+        binaryTreeTraversal(right)
+    postorder(node)
+</pre></td></tr></table></div>
+
+            <ul>
+                <li>Taking the tree from above and this pseudocode, can you come up with the same list of letters for each of the traversals that we had when we did it visually?</li>
+                <li>Looking at this pseudocode, why does the red peg/yellow line visual trick work?</li>
+                <li>Why does in-order only make sense in the context of binary trees and not with trees that allow nodes to have more than 2 children?</li>
+            </ul>
+            <br>
+            <img src="/dfsbfstree.9c67bc30.jpg" width="400px">
+            <br><br>
+            <em>DFS, BFS</em><br>
+            The yellow path we traced here for pre/in/post-order is known as depth-first search traversal (<em>DFS</em>).
+            This is because in all three variations, we visited nodes by venturing all the way down a path before back-tracking and venturing down another path (we go deep down into the tree first).
+            Given the tree above, DFS traversal gives: 1 2 3 4 5 6 7.
+            <br><br>
+            On the other hand, breadth-first search traversal (<em>BFS</em>) involves visiting nodes level by level.
+            Again, remember that pre/in/post-order does not make sense in the context of BFS because in all three of those, we visit nodes by following that yellow path-in DFS fashion.
+            Given the tree above, BFS traversal gives: 1 2 4 5 3 6 7.
+            <br><br>
+            Before we continue, recall that a <em>stack</em> data structure is like a stack of pancakes.
+            If new pancakes are added to my stack, I must eat the fresh pancakes on the top of the stack before I can eat the earlier ones which are sitting lower in the stack.
+            In contrast, a <em>queue</em> is like a queue of people standing in line to buy Fish and Chips at the marina.
+            Whoever got in line first will be the first one served and as new people jump in line, they must wait until everyone before them has been served before they have a chance to enjoy light, flaky fish steaks paired with luscious tarter sauce and a modest side of fries.
+            <br><br>
+            The pseudocode below describes the algorithm for DFS traversal.
+            Note that just like how when we traverse an array we need an index/counter variable or when we traverse a LinkedList we need a node pointer,
+            for tree traversal, we can use certain data structures to help us keep track of where we are.
+            This is called a <em>fringe</em>. For DFS, we use a stack and use the following procedure:
+            <br><br>
+            <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7  </pre></td><td><pre style="margin: 0; line-height: 125%">Use STACK as fringe<span style="color: #666666">.</span>
+Add root to fringe<span style="color: #666666">.</span>
+<span style="color: #007020; font-weight: bold">while</span> fringe not <span style="color: #002070; font-weight: bold">empty:</span>
+    Remove next from fringe<span style="color: #666666">.</span>
+    Add its children to fringe<span style="color: #666666">.</span>
+    Process removed node<span style="color: #666666">.</span>
+    </pre></td></tr></table></div>
+            <br>
+            The procedure for performing BFS traversal is almost identical!
+            The only difference is that we instead use a queue has our fringe:
+            <br><br>
+
+            <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7 </pre></td><td><pre style="margin: 0; line-height: 125%">Use QUEUE as fringe<span style="color: #666666">.</span>
+Add root to fringe<span style="color: #666666">.</span>
+<span style="color: #007020; font-weight: bold">while</span> fringe not <span style="color: #002070; font-weight: bold">empty:</span>
+    Remove next from fringe<span style="color: #666666">.</span>
+    Add its children to fringe<span style="color: #666666">.</span>
+    Process removed node<span style="color: #666666">.</span>
+            </pre></td></tr></table></div>
+            <br>
+            <ul>
+                <li>Try using the pseudocode to perform DFS and BFS traversals on the given tree above.</li>
+                <li>Did you get the same answers as provided conceptually? If not, would adding the children to the fringe in a different order yield the desired result?</li>
+                <li>Specifically, in what order should we add children to the fringe in order to DFS traverse starting with the left-most path first?</li>
+                <li>Similarly, in what order should we add children to the fringe in order to BFS traverse each layer from left to right?</li>
+                <li>Challenge question: DFS is naturally pre-order. How would you modify this algorithm to get a post-order traversal?</li>
+            </ul>
+            </div>
+        </div>
+
+        <div class="proj-content-container" id="06">
+            <div class="proj-content-header">Dis 06. Disjoint Sets and Asymptotics.</div>
+            February 26 + 27, 2019.
+            <br>
+            <div class="proj-content-text">
+                <em>Disjoint Sets</em><br>
+                <em>Disjoint Sets</em> are a bunch of sets which are disjoint (disjoint means that the sets have no elements in common).
+                Initially, each item belongs to its own set; everybody starts out by themselves.
+                Disjoint sets support a <i>union</i> operation, which merges together two sets,
+                and a <i>find</i> operation, which tells us what set an item belongs to.
+                Each set can be represented as a tree (there can be one representative for each of the sets, and all the other members can be in a tree under that root).
+                And because we can represent them as trees, we can also represent them in an array;
+                each child can hold the index of its parent in the tree representation, and the
+                root can store the size of the tree under it instead, since it has no parent
+                (we can store the size as a negative number to differentiate it from a parent index).
+                The <em>Weighted Quick Union</em> optimization helps reduce the depth of items in a set by unioning smaller subtrees into larger ones.
+                The <em>Path Compression</em> optimization also helps with depth by reassigning each node's parent to being the root of the set/tree as nodes are traversed in the search for a particular member.
+                <br><br>
+                <em>Asymptotics</em><br>
+                We talked about the formal definition of the asymptotic bounds and
+                we made it our goal to gain intuition for how they work so that we don't have to setup a limit explictily every single time.
+                The summer CS61BL website has a great and thorough explanation of this again for you: <b><a href="https://cs61bl.org/su17/materials/lab/lab07/lab07.html#d-abbreviated-estimates" target="_blank">CS 61BL Lab 07</a></b>
+                <br><br>
+                Further, we plotted some lines using an iPython notebook just so that we can see what some
+                functions look like and why it would make sense to want the asymptotic definitions we have.
+                You can see the notebook we were looking at here: <b><a href="/assets/61b/Asymptotic+Analysis.html" target="_blank">iPython notebook</a></b>
+                <br><br>
+                Some strategies for asymptotic analysis:
+                <ul>
+                    <li>Try some test inputs to see what the function does and to get a feel for its flow.</li>
+                    <li>Label lines of code with their runtime to determine if some are insignficant compared to more expensive lines.</li>
+                    <li>If there are nested loops, draw bars.</li>
+                    <li>If there is a recursion, draw a tree representing the function calls.</li>
+                    <li>Perhaps represent and simplify a mathematical expression.</li>
+                </ul>
+                Remember that your usage of Big-O, Big-Omega, or Big-Theta depends on the exact question being asked.<br><br>
+                If you are simply asked for the runtime of the function and you find that you cannot give a tight bound, you should give an upper bound and possibly a lower bound as well if it is meaningful.
+                These bounds would describe the range of runtimes for all possible cases of inputs.<br><br>
+                If for the same code you are asked specifically for the best case or worst case runtime, then you would give the same magnitude answer as your lower or upper bound, respectively, but you would present it as a tight bound.
+                This is because the best (or worst) case is one particular case (one particular input) and thus you would state that that one case is tightly bound by a particular function; it doesn't really make sense to say that one case is lower or upper bounded (it's vague to state that when you can provide a tight bound instead).
+            </div>
+        </div>
+
+        <div class="proj-content-container" id="05">
+            <div class="proj-content-header">Dis 05. Iterators and Iterables.</div>
+            February 19 + 20, 2019.
+            <br>
+            <div class="proj-content-text">
+            The word "iterator" is a noun, while the word "iterable" is an adjective.
+            <br><br>
+            In Java, <b>Iterator</b>s thus represent a mechanism for dispensing one item at a time
+            in some sequence, and it does so by providing a hasNext() method, which lets us
+            know whether there is still another item for it to provide, and a next() method,
+            which provides said item. (If next() is called by hasNext() is false, meaning that
+            no such next item exists, then a NoSuchElementException should be thrown.)
+            <br><br>
+            On the other hand, an <b>Iterable</b> represents a sequence that can be iterated over.
+            If you've ever been to an old-school deli, the red ticket dispensing machine might be
+            analogous to an Iterator, since it provides one ticket at a time, while the spool of tickets
+            represents the thing that is Iterable, since it is a series of the tickets we want to provide in order one at a time.
+            Iterables must have an iterator() method, which is responsible for providing a fresh iterator for itself that starts from the beginning
+            and that is independent of any other instances of iterators. For example, we might call iterator() twice to have two separate iterators
+            if we wanted to have one spool of tickets for our meat counter, and another spool of tickets for our fish counter.
+            Both spools would have tickets numbered from 1-1000, but each red ticket dispensing machine will do its job independent of what
+            the other is doing.
+            <br><br>
+            The benefit of doing this is that if we have something that is Iterable, we can use it via an enhanced for-loop.
+            Many Java data structures are iterable, and thus make it easy for you to iterate over the items in it, such as an ArrayList or a Deque.
+            Of course, we thus need to know about Iterators because in order to make our own custom-defined classes Iterable, it must implement iterator(),
+            and so we will have to define an Iterator as well; its not enough to just have a spool of tickets, you have to define a mechanism for how you're going to hand out those tickets too.
+            </div>
+        </div>
+
+        <div class="proj-content-container" id="04">
+            <div class="proj-content-header">Dis 04. Inheritance.</div>
+            February 12 + 13, 2019.
+            <br>
+            <div class="proj-content-text">
+            <a href="https://docs.google.com/presentation/d/1QzVKY0Kl2nH7YDKOJldsLFq567pOf72vqBUIJITCt0c/edit?usp=sharing">
+              Click here to view slides from this discussion.
+            </a>
+            </div>
+        </div>
+
+        <div class="proj-content-container" id="03">
+            <div class="proj-content-header">Dis 03. LinkedLists and Arrays.</div>
+            February 5 + 6, 2019.
+            <br>
+            <div class="proj-content-text">
+              <em>Our Story of LinkedLists</em><br>
+              We started out with the raw <i>IntList</i>.
+              This was a nice a simple data structure that we could use
+              to store individual integers in a series of connected links.
+              <br><br>
+              Next came the <i>Singly Linked List</i>, which allowed us to
+              encapsulate our raw IntList. The advantage of encapsulation is that
+              it allows us to provide for our users methods for performing operations
+              on our data structure so that they do not need to be knowledgeable
+              about the underlying intricacies of our implementation in our to use it;
+              they can simply refer to an API or list of our methods and their descriptions
+              and they can use our data structure like a black box.
+              <br><br>
+              Following that, we introduced <i>Sentinels</i> into our Singly Linked List.
+              This was a "dummy" node that had an unimportant item that was always included.
+              The purpose of a sentinel is to remove the need for null checks, since those can be
+              messy in our code or it may be easy to miss a couple situations. Thus, instead of
+              checking if an instance is null, we can check if it has returned back to the sentinel.
+              <br><br>
+              Finally, we allowed ourselves to have referenes in both directions, so
+              that we could access both the previous and the next. This was the <i>Doubly Linked List</i>.
+              <br><br>
+              <em>Problem Solving Strategies</em><br>
+              Whenever you are asked to write a signficant amount of code by hand,
+              first make a concrete example for yourself so that you understand what
+              the problem is asking you to do, so that you get a feel for the operations
+              that may be involved, and so that you have something to check against once you
+              actually start writing code in a bit.
+              <br><br>
+              Next, break down the problem into functional parts or steps that you know how to do.
+              If you are stuck, write out the parts of the code that are most obvious to you, even
+              if you have to leave conditions or other things blank. For example, if we have to do
+              an operation repeatedly, you know that there would have to be a loop or a recursive call,
+              so you can set up the components for that first while you're still thinking (loop conditions,
+              incrementations, base cases, etc.). Try to get the general situation working first, and then
+              worry about the edge cases once you're done. Often times, those can be addressed by adding a simple
+              if case at the top of your code later.
+              <br><br>
+              <em>Arrays vs LinkedLists</em><br>
+              Finally, we informally made observations about the arrays and linkedlists
+              that we worked with today. We'll cover these in more detail later when
+              we study runtime analysis. But for now, we saw that it was easier to get items
+              out of an array, but that it was harder to "resize" them since they are of fixed length and so
+              that would actually require us to make a new array and to copy everything over.
+              LinkedLists on the other hand, require that we traverse the list in order to access
+              a particular item, but it only requires us to switch around a few pointers to insert or delete items.
+            </div>
+        </div>
+
+        <div class="proj-content-container" id="02">
+            <div class="proj-content-header">Dis 02. Static and IntLists.</div>
+            January 29 + 30, 2019.
+            <br>
+            <div class="proj-content-text">
+              <em>Architecture of a Class</em><br>
+              Typical class definitions contain three sections of code.
+              <br><br>
+              First we have <b>fields</b>, which consist of class variables and instance variables that
+              are useful for storing attributes, state, characteristics, data, etc.
+              Class variables have the keyword <em>static</em> and thus each only hold one value that
+              is shared among all object instances of the class. Instance variables are non-static declarations
+              that contain unique values for every object instance made.
+              <br><br>
+              Next are the <b>constructors</b>, which are necessarily invoked when the user of
+              your class wants to make a new object instance. The code inside constructors should be responsible
+              for accepting some arguments, and storing those inputs into the fields.
+              <br><br>
+              Finally we have <b>methods</b> or functions. These may accept input, and may
+              interact with and modify the fields before potentially returning some result.
+              <br><br>
+              Here is an example of these three components in action.
+              <div class="proj-content-text">
+                <div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21  </pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #007020; font-weight: bold">public</span> <span style="color: #007020; font-weight: bold">class</span> <span style="color: #0e84b5; font-weight: bold">Waffle</span> <span style="color: #666666">{</span>
+
+    <span style="color: #60a0b0; font-style: italic">// Fields</span>
+    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">boolean</span> isDelicious<span style="color: #666666">;</span>
+    <span style="color: #007020; font-weight: bold">private</span> <span style="color: #902000">int</span> numStrawberries<span style="color: #666666">;</span>
+
+    <span style="color: #60a0b0; font-style: italic">// Constructors</span>
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #06287e">Waffle</span><span style="color: #666666">(</span><span style="color: #902000">boolean</span> isDelicious<span style="color: #666666">,</span> <span style="color: #902000">int</span> numStrawberries<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">isDelicious</span> <span style="color: #666666">=</span> isDelicious<span style="color: #666666">;</span>
+        <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">numStrawberries</span> <span style="color: #666666">=</span> numStrawberries<span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #60a0b0; font-style: italic">// Methods</span>
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">boolean</span> <span style="color: #06287e">isDelicious</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">return</span> isDelicious<span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #007020; font-weight: bold">public</span> <span style="color: #902000">void</span> <span style="color: #06287e">addStrawberries</span><span style="color: #666666">(</span><span style="color: #902000">int</span> num<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        <span style="color: #007020; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #4070a0">numStrawberries</span> <span style="color: #666666">+=</span> num<span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+</pre></td></tr></table></div></div>
+          <em>Static Methods and Variables</em><br>
+          Fields can be labeled as <em>static</em> (class variables),
+          and methods can also be labeled as <em>static</em>.
+          <br><br>
+          For static fields, there is only one variable that is shared among all
+          instances of the class, and thus consequently, all object instances see the same value for that field
+          (again, because there is a single variable shared among all; there is not one variable per instance).
+          To call upon a static field, we may use dot notation on the class name rather than on a particular instance.
+          If you do have a particular instance name, you may also use that to call upon a static field.
+          <br><br>
+          For static methods, an object instance is not required for the function to be called.
+          As a consequence, it cannot access non-static fields.
+          If you'd like, you can call static methods on an object instance, but in that case
+          Java will lookup the class of the instance and call it as we've just described.
+          <br><br>
+          <em>IntLists</em><br>
+          You'll often see statements such as <i>L.rest.rest = L.rest.rest.rest;</i>,
+          but sometimes it seems like the way you follow the "rests" seem different
+          for the left and right sides of the equals sign. Why is that?
+          <br><br>
+          Think about what the equals sign means. For example, let's look at an assignment
+          statement such as this: <i>String var = "object";</i>. What this the box and
+          pointer diagram look like?
+          <br><br>
+          <iframe width="100%" height="300" frameborder="0" src="https://cscircles.cemc.uwaterloo.ca/java_visualize/#code=public+class+YourClassNameHere+%7B%0A+++public+static+void+main(String%5B%5D+args)+%7B%0A++++++String+var+%3D+%22object%22%3B%0A+++%7D%0A%7D&mode=display&showStringsAsObjects=1&curInstr=0"> </iframe>
+          <br><br>
+          We can see that <i>var</i> corresponds to a variable box in the diagram,
+          and that the right hand side of the assignment statement was a String object.
+          <br><br>
+          In the same way, the left side of the statement <i>L.rest.rest = L.rest.rest.rest;</i>
+          is a variable box in the diagram, and the right hand side is an IntList object.
+          Therefore, when we count the number of "rests" for the left hand side, we stop
+          counting in time so that we are left with the last "rest" variable box so that we can reassign it.
+          When we count for the right hand side, we follow the final "rest" to an Object, and assign the
+          left hand side to reference it.
+          <br><br>
+          Walk through this simple example and make sure you understand how this statement works and why.
+          <br><br>
+          <iframe width="100%" height="500" frameborder="0" src="https://cscircles.cemc.uwaterloo.ca/java_visualize/#code=public+class+IntList+%7B%0A++++int+first%3B%0A++++IntList+rest%3B%0A++++%0A++++IntList(int+first,+IntList+rest)+%7B%0A++++++this.first+%3D+first%3B%0A++++++this.rest+%3D+rest%3B%0A++++%7D%0A++++%0A++++public+static+void+main(String%5B%5D+args)+%7B%0A++++++IntList+L+%3D+new+IntList(1,+new+IntList(2,+new+IntList(3,+new+IntList(4,+null))))%3B%0A++++++L.rest.rest+%3D+L.rest.rest.rest%3B%0A++++%7D%0A%7D&mode=display&showStringsAsObjects=1&curInstr=0"> </iframe>
+          <br><br>
+          <em>Destructive vs. Non-Destructive</em><br>
+          When writing a destructive function, you want to destroy the original and so you should not be
+          creating new objects. Thus, destructive functions do not use the <i>new</i> keyword.
+          <br><br>
+          On the other hand, non-destructive functions want to preserve the original and return a new version.
+          Thus, non-destructive functions should use the <i>new</i> keyword to create fresh objects as the
+          necessary modifications are applied.
+          </div>
+        </div>
+
+        <div class="proj-content-container" id="01">
+            <div class="proj-content-header">Dis 01. Introduction to Java</div>
+            January 22 + 23, 2019.
+            <br>
+            <div class="proj-content-text">
+              Java programs begin execution starting from a main method <i>public static void main (String[] args) {...}</i>.
+              <br><br>
+              <em>Primitives vs. Non-Primitives</em><br>
+              We keep track of data using variables. Variables come in two flavors: primitives and non-primitives.
+              <b>Primitives</b> in Java include only the following: byte, short, int, long, float, double, boolean, char.
+              All other kinds of variables are <b>non-primitives</b>.
+              Variables representing primitives store the appropriate raw value, while
+              variables representing non-primitives store <b>references</b> to the actual data.
+              <br><br>
+              The creators of Java made this design decision for the language due to efficiency justifications.
+              Imagine that you're in at an interview for your dream job. The manager really loves you and is almost ready
+              to hire you, but first, they'd like to ensure that everything you've said about yourself is true.
+              And so, the manager would like to verify with your best friend that you have indeed been truthful.
+              But now the question is, would it be appropriate for you to clone your best friend so that the manager
+              can chat with them?
+              Probably not...your friend might not appreciate that very much.
+              It makes much more sense to provide the manager with a <i>reference</i> to your friend, a phone number perhaps.
+              This is why Java handles "complicated" (non-primitive) variables using references.
+              <br><br>
+              This goes hand-in-hand with what Professor Hug calls the <b>Golden Rule of Equals</b>.
+              When we are drawing <b>box and pointer diagrams</b>, when a variable's contents are asked of,
+              we provide whatever is inside that variable's corresponding box.
+              This means that for primitives we copy the raw value,
+              while for non-primitives we copy the arrow that we have drawn, such that
+              our copied arrow points to the same destination.
+              Given this distinction, if a function takes in both a primitive and a non-primitive
+              as arguments, and it mangles both during the function call, when the function is over,
+              which of the two (or both?) were actually changed?
+              See the example below to find out:
+              <br><br>
+<iframe width="100%" height="500" frameborder="0" src="https://cscircles.cemc.uwaterloo.ca/java_visualize/#code=public+class+Mangler+%7B%0A+++public+static+void+main(String%5B%5D+args)+%7B%0A++++++int%5B%5D+myArr+%3D+%7B3,+0,+4,+6,+3%7D%3B%0A++++++int+myK+%3D+2%3B%0A++++++mangle(myArr,+myK)%3B%0A+++%7D++++%0A%0A+++public+static+void+mangle(int%5B%5D+arr,+int+k)+%7B%0A++++++arr%5B0%5D+%3D+5%3B%0A++++++k+%3D+1%3B%0A+++%7D%0A%7D&mode=display&showStringsAsObjects=1&curInstr=0"> </iframe>
+              <br><br>
+              <em>Iteration and Recursion</em><br>
+              Often times, we want to write code that does something over and over again.
+              We have two techniques for doing this: iteration and recursion.
+              <br><br>
+              <b>Iteration</b> involves using a loop.
+              In Java, one kind of loop is the <i>while</i> loop.
+              To evaluate it, we follow these steps in order:
+              <ol>
+                <li>Evaluate the loop condition.
+                  If it is <i>false</i> the loop is over and execution continues starting after
+                  the closing curly bracket of the loop.</li>
+                <li>If it is <i>true</i>, then we start at the top of the loop's body of code and execute those lines in order until we reach its end.</li>
+                <li>At this point, we go back to step 1 and check the condition again.</li>
+              </ol>
+              It is important to note that even if the condition becomes false in the middle of executing the loop body,
+              the loop does not magically quite immediately. The loop can only quit in between executions of its body
+              (unless there is a <i>break</i> statement, an <i>Exception</i> is thrown, etc.).
+              Another kind of loop is the <i>for</i> loop.
+              This kind of loop was introduced because programmers noticed that loops in general typically
+              contained the initialization of some counter variable, the check of some condition against that counter variable,
+              and the modification of this counter variable as iterations occur.
+              For loops simply bundle these three elements together into a visually convenient place.
+              We evaluate for loops following these steps in order:
+              <ol>
+                <li>Initialize the counter variable.</li>
+                <li>Evaluate the loop condition.
+                  If it is <i>false</i> the loop is over and execution continues starting after
+                  the closing curly bracket of the loop.</li>
+                <li>If it is <i>true</i>, then we start at the top of the loop's body of code and execute those lines in order until we reach its end.</li>
+                <li>Adjust the counter value according to the specified fashion. Usually an incrementation or decrementation.</li>
+                <li>At this point, we go back to step 2 and check the condition again.</li>
+              </ol>
+              The other option we have is <b>recursion</b>.
+              This occurs anytime we have a function and that function's body of code contains a statement in which it calls upon itself again.
+              To prevent infinite recursion, we want our recursive functions to contain <i>base cases</i>,
+              which are if statements that provide direct results of the simplest situations,
+              and in all other cases our recursive calls should aim to move our complicated situation
+              closer and closer to one of our base cases.
+              <br><br>
+              With the classic Fibonacci exercise (#3 on the worksheet), we
+              saw how there may be many ways to solve the same problem and to
+              arrive at the correct answer.
+              Therefore, simply solving a problem one way is cute and all,
+              but in the real world, that doesn't mean you're done--we want to find the "best" solution.
+              What does "best" mean?
+              It means code that is not only correct, but also fast, memory efficient, and clear to other human readers.
+              In other words, in this class we will learn to consider
+              time efficiency, space efficiency, and style/documentation.
+            </div>
+        </div>
+
+    </body>
+</html>

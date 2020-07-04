@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Automatic Ride Coordinator | Matthew T. Sit</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="/style.a11e3109.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel="stylesheet" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+        </script>
+        <script src="/script.c10090b4.js"></script>
+        <script src="/navbar.66e62c2e.js"></script>
+    </head>
+    <body>
+        <div class="navbar"></div>
+        <div class="proj-banner-container">
+            <img src="/road.048488dd.jpg" class="proj-banner">
+            <div class="proj-banner-text-container">
+                <div class="proj-banner-title-nolink">Automatic Ride Coordinator</div>
+                <div class="proj-banner-position">Developed using Google Scripts</div>
+            </div>
+        </div>
+        <div class="proj-summary">
+            <div>
+                <img src="/down.3fb81a1e.png" class="proj-down">
+            </div>
+            <div>
+                I fully automate the role of ride coordinator,<em> saving up to 30 minutes of time every week.</em>
+            </div>
+            <div>
+                <div class="proj-summary-left-col">
+                    <div class="proj-summary-cluster-left">
+                        <div class="proj-summary-header">Date</div>
+                        <div class="proj-summary-detail">October 15, 2016</div>
+                    </div>
+                    <div class="proj-summary-cluster-left">
+                        <div class="proj-summary-header">Skills/Tools</div>
+                        <div class="proj-summary-detail">JavaScript (Google Scripts)</div>
+                    </div>
+                </div>
+                <div class="proj-summary-right-col">
+                    <div class="proj-summary-cluster-right">
+                        <div class="proj-summary-header">Work Samples</div>
+                        <div class="proj-summary-detail">
+                            <a href="https://github.com/mattsit/ridecoord" target="_blank">
+                                view source code on GitHub
+                                <img src="/right.b736c6f2.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="proj-content-container">
+            <div class="proj-content-header">Inspiration</div>
+            <div class="proj-content-text">
+                Every week, we organize carpools to church.
+                This process can be quite complicated especially on popular weeks as the number of drivers and number of attendees we have greatly fluctuate from week to week.
+                Last minute changes and other various factors as described below can lead to a manual coordination process taking up to 30 minutes of time or more every week.
+                But after helping coordinate a few times, I realized that there were many actions and logical patterns that seemed redundant from week to week.
+                I knew that whenever that happens, there is the potential for an algorithm to simplify, or in this case, completely automate, the workload.
+                This project uses an algorithm written in Google Scripts, which is embedded and tied to a Google Spreadsheet.
+                Based upon weekly triggers, data and signups are harvested from the Spreadsheet, processed by the algorithm, and outputted via email to the relevant people.
+            </div>
+            <div class="proj-content-header">Process Overview</div>
+            <div class="proj-content-text">
+                On Wednesdays, an email with a link to the cleared sign-up spreadsheet is sent to all subscribers, asking for people to RSVP.
+                On Saturday afternoon, a provisional email of car assignments is sent to the coordinators. If an algorithmitic error has occurred, there is an opportunity for adjustments to be made.
+                On Saturday evening, a logistics email is sent to all who requested a ride for the week with the finalized ride assignments.
+                On Sunday afternoon, the spreadsheet is cleared and re-sorted in preparation for the following week.
+            </div>
+            <div class="proj-content-float-left">
+                <div>
+                    <a href="https://github.com/mattsit/ridecoord" target="_blank">
+                        view source code on GitHub
+                        <img src="/right.b736c6f2.png">
+                    </a>
+                </div>
+            </div>
+            <div class="proj-content-header">Choosing the Best Ride Assignment</div>
+            <div class="proj-content-text">
+                There are many factors which determine which car assignments will make the most people happy.
+                First of all, we host pickups at three different locations and therefore there is preference to assign people to the location nearest to where they live.
+                There is also a preference to assign people with other people they know.
+                Additionally, if someone is bringing a visitor, there is a strong preference for these two people to be placed in the same car.
+                Finally, there is a necessity for the algorithm to be deterministic so that when the algorithm is run multiple times in any given week, the same result is generated.
+                This is important since the provisional email should be identical to the final logistics email if no changes are made.
+                Still, there is a desire for people with equal preference for an assignment to be assigned differently from week to week even if all other factors are equal.
+            </div>
+            <div class="proj-content-float-right">
+                <img src="/googlescripts.812578e6.png">
+            </div>
+            <div class="proj-content-text">
+                My solution to the first of these parameters is to create three additional data points for each person to represent all of these interests.
+                Each person is assigned a score based on their preference for each of the pickup locations and the algorithm uses these scores to select the best person for each available seat in each car.
+                This solution works well since for any adjustment we want to make to who gets assigned into which car, there is no need to adjust the algorithm itself--we only need to adjust these scores.
+                To address the issue of needing a deterministic solution throughout the week but a random draw from week to week, I randomly generate a tiebreaking number for each person at the start of each week.
+            </div>
+            <div class="proj-content-header">Balancing Technology and Human Interaction</div>
+            <div class="proj-content-text">
+                One major consideration I faced before deciding to implement this project was that I feared that an automatic algorithm would distance me from the people I wanted to serve.
+                In the end, we decided that this would not be the case; in fact, by making it easier to accommodate last minute changes and for as many preferences to be accommodated as possible, this algorithm makes it easier for us to provide this service for our friends.
+                Despite so much being automatic, we still have the pleasure of carrying out the ride assignments the day of.
+                With less of the planning to worry about, we have more of an opportunity to greet the people we help transport every week.
+            </div>
+            <div class="proj-content-header">Acknowledgments</div>
+            <div class="proj-content-text">
+                I thank Caitlyn Lim for co-coordinating rides with me and for helping me resolve any details that the algorithm ought to account for.
+            </div>
+        </div>
+    </body>
+</html>

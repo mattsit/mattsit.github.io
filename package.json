@@ -1,0 +1,29 @@
+{
+  "name": "mattsit.github.io",
+  "version": "1.0.0",
+  "description": "Matthew Sit's personal website.",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel *.html assets/61b/*.html",
+    "deploy": "gh-pages -d dist -b master"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattsit/mattsit.github.io.git"
+  },
+  "keywords": [],
+  "author": "Matthew T. Sit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattsit/mattsit.github.io/issues"
+  },
+  "homepage": "https://mattsit.github.io",
+  "devDependencies": {
+    "gh-pages": "^3.1.0",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.8"
+  },
+  "dependencies": {
+    "jquery": "^1.12.4"
+  }
+}
