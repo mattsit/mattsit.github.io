@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html --open",
-    "predeploy": "parcel build *.html assets/js/navbar.js assets/61b/*.html",
+    "predeploy": "rm -r dist && parcel build *.html assets/js/navbar.js assets/61b/*.html",
     "deploy": "gh-pages -d dist -b master --message 'Auto-generated commit.'"
   },
   "repository": {
