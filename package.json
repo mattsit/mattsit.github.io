@@ -4,7 +4,7 @@
   "description": "Matthew Sit's personal website.",
   "main": "index.html",
   "scripts": {
-    "start": "parcel *.html assets/61b/*.html",
+    "start": "parcel index.html --open",
     "predeploy": "parcel build *.html assets/61b/*.html",
     "deploy": "gh-pages -d dist -b master --message 'Auto-generated commit.'"
   },
