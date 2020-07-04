@@ -2,8 +2,6 @@ $(document).ready(function() {
     /* Cache reference to window and animation items */
     var $window = $(window);
 
-    $(".navbar").load("_navbar.html");
-
     /* Hide/Show Navbar options when Menu Button is clicked (only applies to window width < 1000) */
     var isShowNavbar = false;
 
