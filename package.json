@@ -5,6 +5,7 @@
   "main": "index.html",
   "scripts": {
     "start": "parcel *.html assets/61b/*.html",
+    "predeploy": "parcel build *.html assets/61b/*.html",
     "deploy": "gh-pages -d dist -b master"
   },
   "repository": {
