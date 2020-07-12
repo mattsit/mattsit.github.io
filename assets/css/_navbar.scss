@@ -55,13 +55,13 @@
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: media_sizes.$tablet) {
 	.navbar-btn {
         width: 60vw;
 	}
 }
 
-@media (max-width: 470px) {
+@media (max-width: media_sizes.$phone) {
 	.navbar-btn {
         width: 90vw;
 	}

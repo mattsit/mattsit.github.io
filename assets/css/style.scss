@@ -1,4 +1,5 @@
 @use "colors";
+@use "media_sizes";
 @import "_navbar.scss";
 
 :root {
@@ -154,7 +155,7 @@ a {
     }
 }
 
-@media (max-width: 1300px) {
+@media (max-width: media_sizes.$non-wide-desktop) {
 	#name {
 		bottom: 125px;
 		font-size: 48px;
@@ -171,7 +172,7 @@ a {
 	}
 }
 
-@media (max-width: 1000px) {
+@media (max-width: media_sizes.$tablet) {
 	#name {
 		font-size: 42px;
 	}
@@ -182,7 +183,7 @@ a {
 	}
 }
 
-@media (max-width: 470px) {
+@media (max-width: media_sizes.$phone) {
 	#name {
 		font-size: 28px;
 	}
@@ -196,14 +197,14 @@ a {
 	font-size: 48px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: media_sizes.$tablet) {
 	.section-header {
 		text-align: left;
 		margin-left: 50px;
 	}
 }
 
-@media (max-width: 470px) {
+@media (max-width: media_sizes.$phone) {
 	.section-header {
 		font-size: 36px;
 	}
@@ -266,7 +267,7 @@ a {
 	height: 80px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: media_sizes.$tablet) {
 	#objective {
 		text-align: left;
 	}
@@ -286,7 +287,7 @@ a {
 	}
 }
 
-@media (max-width: 470px) {
+@media (max-width: media_sizes.$phone) {
 	#objective {
 		margin-right: 0;
 		margin-left: 50px;
@@ -351,7 +352,7 @@ a {
     width: 1vw;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: media_sizes.$tablet) {
     .proj-container {
         margin-left: (100vw - (45vw*2) - (1vw*1))/2;
     }
@@ -361,7 +362,7 @@ a {
    }
 }
 
-@media (max-width: 470px) {
+@media (max-width: media_sizes.$phone) {
     .proj-container {
         margin-left: (100vw - 90vw)/2;
     }
@@ -484,7 +485,7 @@ a {
 	font-weight: 600;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: media_sizes.$tablet) {
 	.contact-section {
 		text-align: left;
         width: 100vw;
@@ -505,7 +506,7 @@ a {
 	}
 }
 
-@media (max-width: 470px) {
+@media (max-width: media_sizes.$phone) {
 	#contact-details {
 		margin-left: 50px;
 	}
@@ -576,7 +577,7 @@ a {
 	letter-spacing: 4px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: media_sizes.$tablet) {
 	.proj-banner-title {
 		font-size: 36px;
 	}
@@ -665,7 +666,7 @@ a {
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: media_sizes.$tablet) {
 	.proj-summary {
 		margin-left: 50px;
 		margin-top: 100px;
@@ -692,7 +693,7 @@ a {
 }
 
 
-@media (max-width: 470px) {
+@media (max-width: media_sizes.$phone) {
 	.proj-summary {
 		margin-right: 0;
 		margin-left: 50px;
@@ -859,7 +860,7 @@ a {
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: media_sizes.$tablet) {
 	.proj-content-container {
 		margin: 0 20px 30px 50px;
 	}
@@ -903,7 +904,7 @@ a {
 	}
 }
 
-@media (max-width: 470px) {
+@media (max-width: media_sizes.$phone) {
 	.proj-content-text {
 		margin-right: 0;
 		margin-left: 0;
