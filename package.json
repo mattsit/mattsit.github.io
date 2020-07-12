@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html --open",
-    "predeploy": "rm -r dist && parcel build *.html assets/js/navbar.js assets/61b/*.html",
+    "predeploy": "rm -r dist && parcel build *.html assets/ts/navbar.ts assets/61b/*.html",
     "deploy": "gh-pages -d dist -b master --message 'Auto-generated commit.'"
   },
   "repository": {
@@ -20,9 +20,12 @@
   },
   "homepage": "https://mattsit.github.io",
   "devDependencies": {
+    "@types/jquery": "^3.5.0",
+    "@types/parcel-env": "0.0.0",
     "parcel-bundler": "^1.12.4",
     "posthtml-include": "^1.4.3",
-    "sass": "^1.26.8"
+    "sass": "^1.26.8",
+    "typescript": "^3.9.6"
   },
   "dependencies": {
     "gh-pages": "^3.1.0",
