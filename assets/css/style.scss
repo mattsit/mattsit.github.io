@@ -1,6 +1,12 @@
 @use "colors";
 @import "_navbar.scss";
 
+:root {
+    // Browser default font-size is usually 16px.
+    // This sets 1rem := 10px.
+    font-size: 10px/16px*100%;
+}
+
 body {
 	text-align: center;
 	font-family: 'Lato', sans-serif;
@@ -424,7 +430,7 @@ a {
 	font-size: 16px;
 	margin: 5px;
 	padding-bottom: 5px;
-    line-height: 1.6em;
+    line-height: 160%;
     letter-spacing: 0.25px;
 }
 

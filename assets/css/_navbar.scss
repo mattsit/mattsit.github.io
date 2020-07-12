@@ -27,28 +27,44 @@
 	height: 100%;
 	width: 100%;
 	z-index: 100;
-	transition: 0.5s;
+	transition: 0.25s;
 	background-color: colors.$black;
-	filter: opacity(0.975);
-	display: none;
+    filter: opacity(0);
 	padding-top: 100px;
+
+    a {
+        display: block;
+    }
 }
 
 .navbar-btn {
 	display: block;
 	border: none;
-	padding: 10px;
-	border-radius: 5px;
-	font-size: 18px;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	font-size: 2.5rem;
 	font-weight: 400;
 	text-align: center;
-	margin: 20px auto;
-	width: 80%;
+	margin: 2rem auto;
+	width: 30vw;
 	background-color: colors.$white;
 	transition: 0.5s;
 	color: colors.$black;
 
     &:hover {
-    	text-decoration: underline;
+        background-color: colors.$dark-blue;
+        color: colors.$white;
     }
+}
+
+@media (max-width: 1000px) {
+	.navbar-btn {
+        width: 60vw;
+	}
+}
+
+@media (max-width: 470px) {
+	.navbar-btn {
+        width: 90vw;
+	}
 }

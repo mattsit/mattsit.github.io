@@ -5,22 +5,24 @@ $(document).ready(function() {
     /* Hide/Show Navbar options when Menu Button is clicked (only applies to window width < 1000) */
     var isShowNavbar = false;
 
-    $(".navbar").click(function(event) {
+    $("#navbar-menu-btn").click(function(event) {
         event.stopPropagation();
         if (isShowNavbar) {
-            $(".navbar-options").hide();
+            $(".navbar-options").css("filter","opacity(0)");
             isShowNavbar = false;
             $("#navbar-menu-btn").css("filter","none");
         } else {
-            $(".navbar-options").show();
+            $(".navbar-options").css("filter","opacity(.975)");
             isShowNavbar = true;
             $("#navbar-menu-btn").css("filter","invert()");
         }
     });
 
     $window.click(function() {
-        $(".navbar-options").hide();
-        isShowNavbar = false;
-        $("#navbar-menu-btn").css("filter","none");
+        if (isShowNavbar) {
+            $(".navbar-options").css("filter","opacity(0)");
+            isShowNavbar = false;
+            $("#navbar-menu-btn").css("filter","none");
+        }
     });
 });
