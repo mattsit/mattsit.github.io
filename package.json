@@ -29,6 +29,10 @@
   },
   "dependencies": {
     "gh-pages": "^3.1.0",
-    "jquery": "^3.5.1"
+    "imagesloaded": "^4.1.4",
+    "jquery": "^3.5.1",
+    "jquery-bridget": "^2.0.1",
+    "masonry": "0.0.2",
+    "masonry-layout": "^4.2.2"
   }
 }
