@@ -8,11 +8,11 @@ $(document).ready(function() {
     $("#navbar-menu-btn").click(function(event) {
         event.stopPropagation();
         if (isShowNavbar) {
-            $(".navbar-options").css("filter","opacity(0)");
+            $(".navbar-options").fadeOut({"easing": "linear"});
             isShowNavbar = false;
             $("#navbar-menu-btn").css("filter","none");
         } else {
-            $(".navbar-options").css("filter","opacity(.975)");
+            $(".navbar-options").fadeTo("default", 0.975, "linear");
             isShowNavbar = true;
             $("#navbar-menu-btn").css("filter","invert()");
         }
@@ -20,7 +20,7 @@ $(document).ready(function() {
 
     $window.click(function() {
         if (isShowNavbar) {
-            $(".navbar-options").css("filter","opacity(0)");
+            $(".navbar-options").fadeOut({"easing": "linear"});
             isShowNavbar = false;
             $("#navbar-menu-btn").css("filter","none");
         }

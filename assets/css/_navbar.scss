@@ -27,10 +27,9 @@
 	height: 100%;
 	width: 100%;
 	z-index: 100;
-	transition: 0.25s;
 	background-color: colors.$black;
-    filter: opacity(0);
 	padding-top: 100px;
+    display: none;
 
     a {
         display: block;
@@ -38,7 +37,6 @@
 }
 
 .navbar-btn {
-	display: block;
 	border: none;
 	padding: 1rem;
 	border-radius: 0.5rem;
@@ -48,8 +46,8 @@
 	margin: 2rem auto;
 	width: 30vw;
 	background-color: colors.$white;
-	transition: 0.5s;
 	color: colors.$black;
+    list-style-type: none;
 
     &:hover {
         background-color: colors.$dark-blue;
