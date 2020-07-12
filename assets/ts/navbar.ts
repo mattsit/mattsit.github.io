@@ -1,28 +1,34 @@
+let isShowNavbar: boolean = false;
+
 $(document).ready(function() {
     /* Cache reference to window and animation items */
-    var $window = $(window);
-
-    /* Hide/Show Navbar options when Menu Button is clicked (only applies to window width < 1000) */
-    var isShowNavbar = false;
+    let $window = $(window);
 
     $("#navbar-menu-btn").click(function(event) {
         event.stopPropagation();
         if (isShowNavbar) {
-            $(".navbar-options").fadeOut({"easing": "linear"});
-            isShowNavbar = false;
-            $("#navbar-menu-btn").css("filter","none");
+            collapse();
         } else {
-            $(".navbar-options").fadeTo("default", 0.975, "linear");
-            isShowNavbar = true;
-            $("#navbar-menu-btn").css("filter","invert()");
+            expand();
         }
     });
 
     $window.click(function() {
         if (isShowNavbar) {
-            $(".navbar-options").fadeOut({"easing": "linear"});
-            isShowNavbar = false;
-            $("#navbar-menu-btn").css("filter","none");
+            collapse();
         }
     });
+
 });
+
+function collapse() {
+    $(".navbar-options").fadeOut({"easing": "linear"});
+    $("#navbar-menu-btn").css("filter","none");
+    isShowNavbar = false;
+}
+
+function expand() {
+    $(".navbar-options").fadeTo("default", 0.975, "linear");
+    $("#navbar-menu-btn").css("filter","invert()");
+    isShowNavbar = true;
+}
